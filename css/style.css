@@ -78,19 +78,14 @@ html.cursor-glow-active .ambient-background::after { opacity: 1; }
     padding: 24px; display: grid; grid-template-rows: minmax(0, 1fr) auto minmax(0, 1fr);
     border-right: 1px solid var(--border); background: var(--bg);
 }
-.desktop-nav { grid-row: 2; display: grid; gap: 5px; counter-reset: navigation; }
+.desktop-nav { grid-row: 2; display: grid; gap: 5px; }
 .desktop-nav > a:not(.sidebar-logo) {
     position: relative; min-height: 44px; display: flex; align-items: center;
     padding: 9px 12px; border-radius: 8px; color: var(--text-soft);
     font-size: 12px; font-weight: 500; transition: color .2s, background .2s;
 }
-.desktop-nav > a:not(.sidebar-logo)::before {
-    counter-increment: navigation; content: "0" counter(navigation);
-    font: 10px/1 monospace; color: var(--text-faint); margin-right: 12px;
-}
 .desktop-nav > a:not(.sidebar-logo):hover { color: var(--text); background: var(--surface); }
 .desktop-nav > a:not(.sidebar-logo).active { color: var(--accent); background: var(--accent-soft); }
-.desktop-nav > a.active::before { color: var(--accent); }
 .sidebar-logo, .mobile-logo {
     display: grid; place-items: center; width: 44px; height: 44px;
     border: 1px solid var(--border-strong); border-radius: 12px;
@@ -153,11 +148,10 @@ main, .site-footer { margin-left: var(--sidebar-width); }
 .text-link:hover { color: var(--accent); }
 
 /* About, education and experience share a strong left edge. */
-.about-copy { max-width: 740px; margin-left: 35px; }
+.about-copy { max-width: 740px; }
 .about-copy p { color: var(--text-soft); font-size: 16px; line-height: 1.9; }
 .about-copy p:first-child { font-size: clamp(22px, 2.45vw, 32px); line-height: 1.55; letter-spacing: -.025em; color: var(--text); }
 .button-row { margin-top: 30px; gap: 12px; }
-.timeline { margin-left: 35px; }
 .timeline-item { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 30px; border-top: 1px solid var(--border); padding: 30px 0; }
 .timeline-item:last-child { padding-bottom: 0; }
 .timeline-date { color: var(--text-faint); font: 11px/1.8 monospace; margin-top: 4px; }
@@ -170,12 +164,16 @@ main, .site-footer { margin-left: var(--sidebar-width); }
 .responsibilities li::marker { color: var(--accent); }
 
 /* Skills */
-.skills-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-left: 35px; counter-reset: skill; }
-.skill-group { border: 1px solid var(--border); border-radius: 14px; background: var(--surface); padding: 28px; }
-.skill-group::before { counter-increment: skill; content: "0" counter(skill) " /"; display: block; color: var(--accent); font: 10px monospace; margin-bottom: 24px; }
-.skill-group h3 { font-size: 17px; margin-bottom: 18px; }
-.skill-tags, .project-tech { display: flex; flex-wrap: wrap; gap: 7px; }
-.skill-tag, .tech-tag { color: var(--text-soft); font-size: 11px; padding: 4px 9px; border: 1px solid var(--border); border-radius: 5px; }
+/* Open rows that echo the timeline instead of boxed cards. */
+.skill-group { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 30px; align-items: baseline; border-top: 1px solid var(--border); padding: 28px 0; }
+.skill-group:last-child { padding-bottom: 0; }
+.skill-group h3 { font-size: 20px; line-height: 1.45; letter-spacing: -.025em; margin: 0; transition: color .2s; }
+.skill-group:hover h3 { color: var(--accent); }
+.skill-tags { display: flex; flex-wrap: wrap; row-gap: 6px; }
+.skill-tag { color: var(--text-soft); font-size: 15px; line-height: 1.7; }
+.skill-tag:not(:last-child)::after { content: "·"; margin: 0 12px; color: var(--text-faint); }
+.project-tech { display: flex; flex-wrap: wrap; gap: 7px; }
+.tech-tag { color: var(--text-soft); font-size: 11px; padding: 4px 9px; border: 1px solid var(--border); border-radius: 5px; }
 
 /* Projects: whole cards are real buttons, expanded details live in a modal. */
 .projects-heading { justify-content: space-between; align-items: end; }
@@ -211,9 +209,8 @@ html.dialog-open, body.dialog-open { overflow: hidden; }
 /* A generous contact ending */
 .site-footer { width: auto; margin-left: var(--sidebar-width); margin-right: 0; padding: var(--section-space) var(--gutter) 32px; border-top: 1px solid var(--border); background: var(--surface); scroll-margin-top: 24px; }
 .footer-content { max-width: var(--content-width); margin: auto; }
-.site-footer .section-number { margin-bottom: 30px; }
 .site-footer h2 { font-size: clamp(38px, 5vw, 70px); max-width: 700px; margin-bottom: 20px; letter-spacing: -.05em; }
-.site-footer p:not(.section-number) { color: var(--text-soft); font-size: 13px; }
+.site-footer p { color: var(--text-soft); font-size: 13px; }
 .contact-email { display: inline-block; font-size: clamp(19px, 2.8vw, 34px); color: var(--accent); letter-spacing: -.035em; padding-block: 10px; overflow-wrap: anywhere; }
 .contact-email:hover { text-decoration: underline; text-underline-offset: 6px; }
 .social-links { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 24px; }
@@ -254,8 +251,8 @@ html.dialog-open, body.dialog-open { overflow: hidden; }
     .hero-bottomline span:last-child { font-size: 8px; }
     .content-section { scroll-margin-top: 0; }
     .section-heading { gap: 14px; margin-bottom: 32px; }
-    .about-copy, .timeline, .skills-grid { margin-left: 0; }
     .timeline-item { grid-template-columns: 1fr; gap: 6px; }
+    .skill-group { grid-template-columns: 1fr; gap: 12px; padding: 24px 0; }
     .timeline-date { margin-bottom: 6px; }
     .projects-grid { gap: 16px; }
     .project-card-body { padding: 18px; }
@@ -266,9 +263,8 @@ html.dialog-open, body.dialog-open { overflow: hidden; }
     .site-footer { scroll-margin-top: 0; }
 }
 @media (max-width: 540px) {
-    .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
     .hero-actions { gap: 18px; }
-    .skill-group { padding: 24px; }
     .footer-bottom { flex-direction: column; gap: 12px; margin-top: 60px; }
 }
 @media (max-width: 360px) {
