@@ -15,12 +15,8 @@ const portfolioContent = {
 
     about: [
         {
-            en: "I’m a curious builder interested in the places where thoughtful design, secure systems, and useful technology meet.",
-            frCA: "Je suis une personne curieuse qui aime créer à la rencontre du design réfléchi, des systèmes sécurisés et des technologies utiles."
-        },
-        {
-            en: "My interests include web development, cybersecurity, programming, and artificial intelligence. I enjoy learning how things work, then turning that understanding into clear and dependable digital experiences.",
-            frCA: "Mes champs d’intérêt comprennent le développement Web, la cybersécurité, la programmation et l’intelligence artificielle. J’aime comprendre le fonctionnement des choses, puis transformer ces connaissances en expériences numériques claires et fiables."
+            en: "I’m a junior developer from Montréal, trained in web development and cybersecurity at CyberCap. I like to create, whether that’s setting up a Linux server or building a game that runs in the browser. I’m bilingual (English and French) and looking for my first role in tech.",
+            frCA: "Je suis développeur junior à Montréal, formé en développement Web et en cybersécurité à CyberCap. J’aime créer, que ce soit en configurant un serveur Linux ou en développant un jeu qui roule dans le navigateur. Je suis bilingue (français et anglais) et je cherche mon premier emploi en technologie."
         }
     ],
 
@@ -102,31 +98,28 @@ const portfolioContent = {
                     frCA: "Vérifier l’exactitude des commandes et résoudre rapidement les imprévus."
                 }
             ]
-        },
+        }
+    ],
+
+    // Volunteering. One short row per organization.
+    volunteering: [
         {
-            position: {
-                en: "Volunteer",
-                frCA: "Bénévole"
-            },
-            organization: {
-                en: "Council for Black Aging Community of Montreal (CBAC)",
-                frCA: "Council for Black Aging Community of Montreal (CBAC)"
-            },
+            organization: "Council for Black Aging Community of Montreal (CBAC)",
+            location: "Montréal, QC",
             dates: { en: "Dec 2025 — Feb 2026", frCA: "Déc. 2025 — Févr. 2026" },
             description: {
-                en: "Social activities and meal preparation for senior members of the organization.",
-                frCA: "Activités sociales et préparation de repas pour les personnes âgées membres de l’organisme."
-            },
-            responsibilities: [
-                {
-                    en: "Spent time socializing with seniors.",
-                    frCA: "Passer du temps à échanger avec les personnes âgées."
-                },
-                {
-                    en: "Prepared meals for seniors.",
-                    frCA: "Préparer des repas pour les personnes âgées."
-                }
-            ]
+                en: "Spent time socializing with seniors and prepared meals for members of the organization.",
+                frCA: "Socialisation et préparation de repas pour les personnes âgées membres de l’organisme."
+            }
+        },
+        {
+            organization: "Lasalle Community Comprehensive High School",
+            location: "Montréal, QC",
+            dates: { en: "June 2024", frCA: "Juin 2024" },
+            description: {
+                en: "Collected cans for recycling to raise money for the school.",
+                frCA: "Recyclage de cannettes afin d’amasser des fonds pour l’école."
+            }
         }
     ],
 
@@ -134,19 +127,19 @@ const portfolioContent = {
     skills: [
         {
             name: { en: "Web Development", frCA: "Développement Web" },
-            items: ["HTML", "CSS", "JavaScript", { en: "Responsive Design", frCA: "Conception adaptative" }, { en: "Accessibility", frCA: "Accessibilité" }]
+            items: ["HTML", "CSS", "JavaScript", { en: "APIs (fetch)", frCA: "API (fetch)" }]
         },
         {
-            name: { en: "Programming", frCA: "Programmation" },
-            items: ["Python", "Java", "Git", { en: "REST APIs", frCA: "API REST" }, { en: "Problem Solving", frCA: "Résolution de problèmes" }]
+            name: { en: "Server Management", frCA: "Gestion de serveurs" },
+            items: [{ en: "Virtualization (Proxmox)", frCA: "Virtualisation (Proxmox)" }, "SSH", { en: "Networking (IP, DNS)", frCA: "Réseaux (IP, DNS)" }]
         },
         {
-            name: { en: "Cybersecurity", frCA: "Cybersécurité" },
-            items: [{ en: "Network Fundamentals", frCA: "Notions de base en réseautique" }, "Linux", "OWASP", { en: "Threat Analysis", frCA: "Analyse des menaces" }, { en: "Secure Coding", frCA: "Programmation sécurisée" }]
+            name: { en: "Systems & Security", frCA: "Systèmes et sécurité" },
+            items: ["Windows", "Linux (Ubuntu)", "Bash"]
         },
         {
-            name: { en: "Artificial Intelligence", frCA: "Intelligence artificielle" },
-            items: [{ en: "Prompt Design", frCA: "Conception de requêtes" }, { en: "AI APIs", frCA: "API d’IA" }, { en: "Machine Learning Basics", frCA: "Notions de base en apprentissage automatique" }, { en: "Responsible AI", frCA: "IA responsable" }]
+            name: { en: "Other Tools", frCA: "Autres outils" },
+            items: ["GitHub", "MySQL", { en: "Microsoft Office", frCA: "Suite Microsoft" }]
         }
     ],
 
@@ -319,15 +312,13 @@ const translations = {
             about: "About",
             education: "Education",
             experience: "Experience",
+            volunteering: "Volunteering",
             skills: "Skills",
             projects: "Projects",
             contact: "Contact"
         },
         hero: {
-            eyebrow: "portfolio",
             explore: "Explore my work",
-            statement: "Curiosity, made tangible.",
-            topline: "Learning. Building. Evolving.",
             connect: "Let’s connect",
             scroll: "A little about me",
             scrollHint: "SCROLL TO EXPLORE ↓"
@@ -336,6 +327,7 @@ const translations = {
             about: "About me",
             education: "Education",
             experience: "Experience",
+            volunteering: "Volunteering",
             skills: "Skills",
             projects: "Selected projects"
         },
@@ -382,15 +374,13 @@ const translations = {
             about: "À propos",
             education: "Formation",
             experience: "Expérience",
+            volunteering: "Bénévolat",
             skills: "Compétences",
             projects: "Projets",
             contact: "Contact"
         },
         hero: {
-            eyebrow: "Portfolio",
             explore: "Découvrir mes projets",
-            statement: "La curiosité prend forme.",
-            topline: "Apprendre. Créer. Évoluer.",
             connect: "Échangeons",
             scroll: "Un peu plus sur moi",
             scrollHint: "FAITES DÉFILER POUR DÉCOUVRIR ↓"
@@ -399,6 +389,7 @@ const translations = {
             about: "À propos de moi",
             education: "Formation",
             experience: "Expérience",
+            volunteering: "Bénévolat",
             skills: "Compétences",
             projects: "Projets sélectionnés"
         },
@@ -527,8 +518,8 @@ function renderTimeline(containerId, items, type) {
         const article = createElement("article", "timeline-item");
         const date = createElement("p", "timeline-date", localize(item.dates));
         const details = createElement("div", "timeline-details");
-        const title = createElement("h3", "", localize(type === "education" ? item.program : item.position));
-        const place = createElement("p", "timeline-place", localize(type === "education" ? item.institution : item.organization));
+        const title = createElement("h3", "", localize({ education: item.program, experience: item.position, volunteering: item.organization }[type]));
+        const place = createElement("p", "timeline-place", localize({ education: item.institution, experience: item.organization, volunteering: item.location }[type]));
         const description = createElement("p", "timeline-description", localize(item.description));
 
         details.append(title, place, description);
@@ -752,6 +743,7 @@ function applyTranslations() {
     renderAbout();
     renderTimeline("#education-list", portfolioContent.education, "education");
     renderTimeline("#experience-list", portfolioContent.experience, "experience");
+    renderTimeline("#volunteering-list", portfolioContent.volunteering, "volunteering");
     renderSkills();
     renderProjectFilters();
     renderProjects();
