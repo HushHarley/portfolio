@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Harley's personal portfolio — web development, cybersecurity, programming, and AI.">
+    <meta name="color-scheme" content="dark light">
+    <title>Harley | Portfolio</title>
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <script>
+        // Apply a saved theme before painting, without sharing the original site's settings.
+        try { document.documentElement.dataset.theme = localStorage.getItem('astra-theme') === 'light' ? 'light' : 'dark'; } catch {}
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-active-section="hero">
+    <a class="skip-link" href="#main-content" data-i18n="skipToContent">Skip to content</a>
+    <div class="ambient-background" aria-hidden="true"></div>
+
+    <aside class="desktop-sidebar" aria-label="Primary navigation" data-i18n-aria-label="accessibility.primaryNavigation">
+        <nav class="desktop-nav" aria-label="Portfolio sections" data-i18n-aria-label="accessibility.portfolioSections">
+            <a class="sidebar-logo" href="#hero" data-section-link="hero" aria-label="Harley — home" data-i18n-aria-label="accessibility.home">H</a>
+            <a href="#about" data-section-link="about" data-i18n="nav.about">About</a>
+            <a href="#education" data-section-link="education" data-i18n="nav.education">Education</a>
+            <a href="#experience" data-section-link="experience" data-i18n="nav.experience">Experience</a>
+            <a href="#skills" data-section-link="skills" data-i18n="nav.skills">Skills</a>
+            <a href="#projects" data-section-link="projects" data-i18n="nav.projects">Projects</a>
+            <a href="#contact" data-section-link="contact" data-i18n="nav.contact">Contact</a>
+        </nav>
+        <div class="sidebar-controls">
+            <label class="visually-hidden" for="desktop-language" data-i18n="languageLabel">Choose language</label>
+            <select class="language-select" id="desktop-language" aria-label="Choose language">
+                <option value="en">EN</option>
+                <option value="frCA">FR</option>
+            </select>
+            <button class="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch to light mode">
+                <span class="theme-icon" aria-hidden="true">☼</span>
+            </button>
+        </div>
+    </aside>
+
+    <header class="mobile-header">
+        <a class="mobile-logo" href="#hero" aria-label="Harley — home" data-i18n-aria-label="accessibility.home">H</a>
+        <div class="mobile-controls">
+            <label class="visually-hidden" for="mobile-language" data-i18n="languageLabel">Choose language</label>
+            <select class="language-select" id="mobile-language" aria-label="Choose language">
+                <option value="en">EN</option>
+                <option value="frCA">FR</option>
+            </select>
+            <button class="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch to light mode">
+                <span class="theme-icon" aria-hidden="true">☼</span>
+            </button>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-navigation">
+                <span class="visually-hidden" data-i18n="menuLabel">Open menu</span>
+                <span class="menu-lines" aria-hidden="true"></span>
+            </button>
+        </div>
+        <nav class="mobile-nav" id="mobile-navigation" aria-label="Mobile navigation" data-i18n-aria-label="accessibility.mobileNavigation" hidden>
+            <a href="#about" data-section-link="about" data-i18n="nav.about">About</a>
+            <a href="#education" data-section-link="education" data-i18n="nav.education">Education</a>
+            <a href="#experience" data-section-link="experience" data-i18n="nav.experience">Experience</a>
+            <a href="#skills" data-section-link="skills" data-i18n="nav.skills">Skills</a>
+            <a href="#projects" data-section-link="projects" data-i18n="nav.projects">Projects</a>
+            <a href="#contact" data-section-link="contact" data-i18n="nav.contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="custom-scrollbar" aria-hidden="true">
+        <div class="scrollbar-progress"></div>
+    </div>
+
+    <main id="main-content">
+        <section class="hero section" id="hero" data-section="hero" aria-labelledby="hero-name">
+            <div class="hero-topline"><span>HARLEY / PORTFOLIO</span><span data-i18n="hero.topline">Learning. Building. Evolving.</span></div>
+            <div class="hero-content">
+                <p class="eyebrow" data-i18n="hero.eyebrow">Personal portfolio</p>
+                <h1 id="hero-name">Harley</h1>
+                <p class="hero-statement" data-i18n="hero.statement">Curiosity, made tangible.</p>
+                <p class="hero-subtitle">Web Development <span>·</span> Cybersecurity <span>·</span> Programming <span>·</span> AI</p>
+                <div class="hero-actions">
+                    <a class="button" href="#projects"><span data-i18n="hero.explore">Explore my work</span><span aria-hidden="true">↗</span></a>
+                    <a class="text-link" href="#contact"><span data-i18n="hero.connect">Let’s connect</span><span aria-hidden="true">↗</span></a>
+                </div>
+            </div>
+            <div class="hero-orbit" aria-hidden="true">
+                <span class="orbit orbit-one"></span>
+                <span class="orbit orbit-two"></span>
+                <span class="orbit-core">H</span>
+                <span class="orbit-caption" data-i18n="hero.orbitCaption">IDEA → CODE → EXPERIENCE</span>
+            </div>
+            <a class="hero-bottomline" href="#about"><span data-i18n="hero.scroll">A little about me</span><span data-i18n="hero.scrollHint">SCROLL TO EXPLORE ↓</span></a>
+        </section>
+
+        <section class="section content-section reveal" id="about" data-section="about" aria-labelledby="about-title">
+            <div class="section-heading">
+                <p class="section-number">01</p>
+                <h2 id="about-title" data-i18n="sections.about">About me</h2>
+            </div>
+            <div class="about-layout">
+                <div class="about-copy" id="about-content"></div>
+            </div>
+        </section>
+
+        <section class="section content-section reveal" id="education" data-section="education" aria-labelledby="education-title">
+            <div class="section-heading">
+                <p class="section-number">02</p>
+                <h2 id="education-title" data-i18n="sections.education">Education</h2>
+            </div>
+            <div class="timeline" id="education-list"></div>
+        </section>
+
+        <section class="section content-section reveal" id="experience" data-section="experience" aria-labelledby="experience-title">
+            <div class="section-heading">
+                <p class="section-number">03</p>
+                <h2 id="experience-title" data-i18n="sections.experience">Experience</h2>
+            </div>
+            <div class="timeline" id="experience-list"></div>
+        </section>
+
+        <section class="section content-section reveal" id="skills" data-section="skills" aria-labelledby="skills-title">
+            <div class="section-heading">
+                <p class="section-number">04</p>
+                <h2 id="skills-title" data-i18n="sections.skills">Skills</h2>
+            </div>
+            <div class="skills-grid" id="skills-list"></div>
+        </section>
+
+        <section class="section content-section projects-section reveal" id="projects" data-section="projects" aria-labelledby="projects-title">
+            <div class="section-heading projects-heading">
+                <div>
+                    <p class="section-number">05</p>
+                    <h2 id="projects-title" data-i18n="sections.projects">Selected projects</h2>
+                </div>
+                <p class="section-intro" data-i18n="projects.intro">A selection of placeholder work showing how your projects will appear.</p>
+            </div>
+            <div class="filter-list" id="project-filters" aria-label="Filter projects"></div>
+            <p class="filter-status" id="filter-status" role="status"></p>
+            <div class="projects-grid" id="projects-grid"></div>
+        </section>
+    </main>
+
+    <footer class="section site-footer reveal" id="contact" data-section="contact" aria-labelledby="contact-title">
+        <div class="footer-content">
+            <p class="section-number">06</p>
+            <h2 id="contact-title" data-i18n="contact.title">Have a project in mind?</h2>
+            <p data-i18n="contact.body">Need a website or want to work together? Get in touch.</p>
+            <a class="contact-email" id="contact-email" href="mailto:hrank63@gmail.com">hrank63@gmail.com</a>
+            <div class="social-links" id="social-links"></div>
+            <div class="footer-bottom">
+                <p>© <span id="current-year"></span> <span id="footer-name">Harley</span></p>
+                <a href="#hero" data-i18n="contact.backToTop">Back to top ↑</a>
+            </div>
+        </div>
+    </footer>
+
+    <dialog class="project-dialog" id="project-dialog" aria-labelledby="dialog-title">
+        <button class="dialog-close" type="button" aria-label="Close project details" data-i18n-aria-label="projects.close">×</button>
+        <div class="dialog-content" id="dialog-content"></div>
+    </dialog>
+
+    <noscript>
+        <div class="noscript-message"><span lang="en">This portfolio uses JavaScript to display its editable content. Please enable JavaScript to view the full site.</span><br><span lang="fr-CA">Ce portfolio utilise JavaScript pour afficher son contenu modifiable. Veuillez activer JavaScript pour consulter le site complet.</span></div>
+    </noscript>
+    <script src="js/script.js"></script>
+</body>
+</html>

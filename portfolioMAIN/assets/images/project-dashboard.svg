@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Signal Dashboard placeholder</title>
+  <desc id="desc">An abstract analytics dashboard with blue charts.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#142536"/>
+      <stop offset="1" stop-color="#070d13"/>
+    </linearGradient>
+    <linearGradient id="chart" x1="0" y1="1" x2="0" y2="0">
+      <stop stop-color="#53b5ed" stop-opacity=".05"/>
+      <stop offset="1" stop-color="#7ed0ff" stop-opacity=".6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" rx="36" fill="url(#bg)"/>
+  <circle cx="1010" cy="520" r="290" fill="#49a9df" opacity=".07"/>
+  <rect x="105" y="88" width="990" height="500" rx="28" fill="#0e1a25" stroke="#9bdcff" stroke-opacity=".14"/>
+  <rect x="105" y="88" width="990" height="64" rx="28" fill="#142536"/>
+  <rect x="148" y="111" width="104" height="17" rx="9" fill="#7dccf7"/>
+  <rect x="148" y="190" width="255" height="126" rx="20" fill="#172938"/>
+  <rect x="430" y="190" width="255" height="126" rx="20" fill="#172938"/>
+  <rect x="712" y="190" width="335" height="126" rx="20" fill="#172938"/>
+  <rect x="180" y="221" width="75" height="13" rx="7" fill="#60798d"/>
+  <rect x="180" y="258" width="140" height="27" rx="10" fill="#cce9fa"/>
+  <rect x="462" y="221" width="75" height="13" rx="7" fill="#60798d"/>
+  <rect x="462" y="258" width="116" height="27" rx="10" fill="#cce9fa"/>
+  <circle cx="777" cy="253" r="37" fill="none" stroke="#77caf7" stroke-width="15"/>
+  <path d="M151 508C228 472 270 514 344 456s126 4 192-45 126 24 199-33 145 9 268-45v206H151z" fill="url(#chart)"/>
+  <path d="M151 508C228 472 270 514 344 456s126 4 192-45 126 24 199-33 145 9 268-45" fill="none" stroke="#79cefc" stroke-width="7" stroke-linecap="round"/>
+</svg>

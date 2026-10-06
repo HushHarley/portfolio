@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Secure Notes placeholder</title>
+  <desc id="desc">An abstract dark secure notes interface.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="1" x2="1" y2="0">
+      <stop stop-color="#071018"/>
+      <stop offset="1" stop-color="#162637"/>
+    </linearGradient>
+    <linearGradient id="shield" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#a0ddff"/>
+      <stop offset="1" stop-color="#287eae"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" rx="36" fill="url(#bg)"/>
+  <circle cx="192" cy="566" r="280" fill="#4eafdf" opacity=".08"/>
+  <rect x="155" y="86" width="890" height="503" rx="28" fill="#0f1d29" stroke="#a0ddff" stroke-opacity=".14"/>
+  <rect x="155" y="86" width="236" height="503" rx="28" fill="#142534"/>
+  <rect x="194" y="134" width="128" height="18" rx="9" fill="#80cfff"/>
+  <rect x="194" y="199" width="158" height="13" rx="7" fill="#6b8194"/>
+  <rect x="194" y="244" width="120" height="13" rx="7" fill="#506779"/>
+  <rect x="194" y="289" width="144" height="13" rx="7" fill="#506779"/>
+  <rect x="446" y="142" width="240" height="22" rx="11" fill="#d9ebf7"/>
+  <rect x="446" y="199" width="486" height="13" rx="7" fill="#5e7385"/>
+  <rect x="446" y="235" width="436" height="13" rx="7" fill="#526879"/>
+  <rect x="446" y="271" width="465" height="13" rx="7" fill="#526879"/>
+  <rect x="446" y="307" width="290" height="13" rx="7" fill="#526879"/>
+  <path d="M805 378l83 30v58c0 58-35 91-83 111-48-20-83-53-83-111v-58z" fill="url(#shield)" opacity=".9"/>
+  <path d="M774 467l21 21 43-50" fill="none" stroke="#071018" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
