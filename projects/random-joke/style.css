@@ -1,0 +1,98 @@
+body {
+    background-color: rgb(80, 80, 80);
+    color: white;
+    margin: 0px;
+}
+
+header {
+    display: block;
+    background-color: black;
+    text-align: center;
+    margin: 0px;
+    padding: 20px;
+}
+
+.carte {
+    margin: 40px;
+}
+
+.emojis {
+    display: flex;
+    justify-content: center;
+
+}
+
+.emojis img {
+    width: 14%;
+    margin: 10px;
+    margin-top: 40px;
+}
+
+.newJokeBtn {
+    display: block;
+    justify-self: center;
+}
+
+.newJokeBtn button {
+    background-color: rgb(255, 200, 0);
+    width: 60px;
+    height: 30px;
+    border: 2px, solid, white;
+    border-radius: 16px;
+}
+
+.newJokeBtn button:hover {
+    background-color: black;
+    border: 2px, solid, rgb(255, 200, 0);
+    color: white;
+}
+
+.setup {
+    display: flex;
+    text-align: center;
+    justify-self: center;
+    margin: 16px;
+    padding: 12px;
+    background-color: rgb(255, 200, 1);
+    color: black;
+    font-size: larger;
+    box-shadow: 6px 6px 0px 0px black;
+    text-shadow: 2px 2px 4px rgb(255, 255, 255);
+}
+
+.punchline {
+    background-color: rgb(255, 35, 86);
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 6px 6px 0px 0px black;
+    text-shadow: 2px 2px 4px black;
+}
+
+@media (max-width:430px) {
+
+    .emojis img {
+        width: 30%;
+        margin: 12px;
+        margin-top: 40px;
+    }
+
+    .setup {
+        background-color: rgb(255, 200, 1);
+        color: black;
+        display: block;
+        justify-self: center;
+        min-width: 320px;
+        padding: 20px;
+        margin: 10px;
+        font-size: x-large;
+        text-shadow: 2px 2px 4px rgb(255, 255, 255);
+    }
+
+    .punchline {
+        font-size: larger;
+        text-shadow: 2px 2px 4px black;
+    }
+}

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atelier Boréal Médias</title>
+
+  <!-- TYPOGRAPHIES : deux familles fournies via Google Fonts -->
+  <!-- Remplacer les href ci-dessous par les liens fournis dans le kit -->
+  <!-- À répéter pour d'autres type à inclure, mais pas besoin de répéter le lien 'preconnect' -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+    rel="stylesheet">
+
+  <!-- FEUILLE DE STYLE EXTERNE -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ============================================================
+    SECTION 1 : HEADER + NAVIGATION
+    Mise en page : Flexbox
+    suggestion ->> justify-content: space-between — logo à gauche, liens à droite
+
+    VOUS POUVEZ MODIFIER LA STRUCTURE SELON VOS PRÉFÉRENCES
+    ET VOS BESOIN.
+    Exemple: utiliser simplement les balise <a> pour les liens,
+    sans la liste <ul><li>
+  ============================================================ -->
+  <header>
+    <div class="headernav">
+      <a href="index.html">
+        <img src="images/boreal-media-logo.png" alt="Logo Atelier Boréal Médias">
+      </a>
+      <!-- ===========================================================
+      
+            ===================================================== -->
+      <nav class="headerliens">
+        <ul>
+          <a href="index.html">Accueil</a>
+          <a href="#services">Services</a>
+          <a href="#equipe">Équipe</a>
+          <a href="#apropos">À propos</a>
+          <a href="contact.html">Contact</a>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ============================================================
+    SECTION 2 : HERO / BANNIÈRE
+    Mise en page : HTML standard
+    Image fournie en arrière-plan — texte superposé par-dessus
+    Indice : position relative sur .hero, position absolute sur .hero-contenu
+  ============================================================ -->
+  <section class="hero">
+    <div class="hero-contenu">
+      <div class="hero-texte">
+        <h1>Créer. Produire. Connecter.</h1>
+        <p>Atelier Boréal Médias accompagne les organisations dans leur transformation numérique, de la création de
+          contenu à la gestion de leur présence en ligne.</p>
+        <a href="#services" class="bouton-cta">Découvrir nos services</a>
+      </div>
+      <img src="images/photo-paysage-boreal.jpg"></a>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+    SECTION 3 : SERVICES — 3 CARTES ÉGALES
+    Mise en page : Grid
+    grid-template-columns: repeat(3, 1fr)
+    Chaque carte : icone + titre h3 + paragraphe
+  ============================================================ -->
+  <section id="services" class="services">
+    <h2>Ce que nous faisons</h2>
+
+    <div class="grille-services">
+
+      <!-- Carte service 1 -->
+      <div class="carte-service">
+        <img src="images/abm-logo.png" alt="Icone production de contenu">
+        <h3>Production de contenu</h3>
+        <p>Nous concevons et produisons des contenus visuels et rédactionnels adaptés à chaque plateforme, des médias
+          sociaux aux campagnes de marque complètes.</p>
+      </div>
+
+      <!-- Carte service 2 -->
+      <div class="carte-service">
+        <img src="images/abm-logo.png" alt="Icone stratégie numérique">
+        <h3>Stratégie numérique</h3>
+        <p>Notre équipe analyse votre présence en ligne et développe des stratégies concrètes pour rejoindre vos
+          audiences et atteindre vos objectifs de croissance.</p>
+      </div>
+
+      <!-- Carte service 3 -->
+      <div class="carte-service">
+        <img src="images/abm-logo.png" alt="Icone support technologique">
+        <h3>Support technologique</h3>
+        <p>Nous assurons la gestion et le soutien technique de vos outils numériques, de votre site web à vos systèmes
+          internes, pour que votre équipe reste productive.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+    SECTION 4 : À PROPOS
+    Mise en page : Flexbox
+    display: flex — gap: 3rem — align-items: center
+    Texte à gauche (flex: 1), image à droite (largeur fixe)
+  ============================================================ -->
+  <section id="apropos" class="apropos">
+    <div class="apropos-contenu">
+      <div class="apropos-texte">
+        <h2>Une équipe ancrée dans le numérique</h2>
+        <p>Fondé à Montréal, Atelier Boréal Médias est un studio numérique indépendant qui travaille avec des
+          organisations de toutes tailles. Nous combinons expertise technique et sensibilité créative pour livrer des
+          projets qui ont un impact réel.</p>
+        <p>Notre approche est simple: comprendre votre contexte, proposer des solutions adaptées, et accompagner leur
+          mise en oeuvre avec rigueur. Chaque projet est une collaboration, pas une simple commande.</p>
+      </div>
+      <div class="apropos-image">
+        <img src="images/photo-bureau-equipe.png" alt="Équipe Atelier Boréal Médias au travail">
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+    SECTION 5 : ÉQUIPE — GRILLE 2x2
+    Mise en page : Grid
+    suggestion ->> grid-template-columns: repeat(2, 1fr)
+    suggestion ->> grid-template-rows: repeat(2, auto)
+    Chaque carte : photo + nom + titre de poste
+  ============================================================ -->
+  <section id="equipe" class="equipe">
+    <h2>Notre équipe</h2>
+
+    <div class="grille-equipe">
+
+      <!-- Membre 1 -->
+      <div class="sophie_t-carte-membre">
+        <img src="images/photo-sophie.jpg" alt="Photo de Sophie Tremblay">
+        <div class="description">
+          <h3>Sophie Tremblay</h3>
+          <p>Directrice de création</p>
+        </div>
+      </div>
+
+      <!-- Membre 2 -->
+      <div class="mark_l-carte-membre">
+        <img src="images/photo-marc.jpg" alt="Photo de Marc-Antoine Lefebvre">
+        <div class="description">
+          <h3>Marc-Antoine Lefebvre</h3>
+          <p>Développeur web senior</p>
+        </div>
+      </div>
+
+      <!-- Membre 3 -->
+      <div class="yara_b-carte-membre">
+        <img src="images/photo-yara.jpg" alt="Photo de Yara Benali">
+        <div class="description">
+          <h3>Yara Benali</h3>
+          <p>Stratège en contenu numérique</p>
+        </div>
+      </div>
+
+      <!-- Membre 4 -->
+      <div class="carlos_r-carte-membre">
+        <img src="images/photo-carlos.jpg" alt="Photo de Carlos Reyes">
+        <div class="description">
+          <h3>Carlos Reyes</h3>
+          <p>Technicien en support TI</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+    SECTION 6 : FOOTER
+    Mise en page : Flexbox
+    suggestion ->> justify-content: space-between
+    Logo à gauche, liens au centre, adresse à droite
+  ============================================================ -->
+  <footer>
+    <div class="footer-contenu">
+
+      <nav class="footer-nav">
+        <ul>
+          <a href="index.html">Accueil</a>
+          <a href="#services">Services</a>
+          <a href="#equipe">Équipe</a>
+          <a href="#apropos">À propos</a>
+          <a href="contact.html">Contact</a>
+        </ul>
+      </nav>
+
+      <div class="footer-logo">
+        <img src="images/boreal-media-logo.png" alt="Logo Atelier Boréal Médias">
+      </div>
+
+
+
+      <address>
+        Atelier Boréal Médias Inc.<br>
+        1751, rue Richardson, bureau 3.105<br>
+        Montréal (Québec) H3K 1G6<br>
+        <a href="mailto:info@boreal-medias.ca">info@boreal-medias.ca</a>
+      </address>
+
+    </div>
+  </footer>
+
+
+</body>
+
+</html>

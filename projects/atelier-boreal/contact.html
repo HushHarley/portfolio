@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nous joindre | Atelier Boréal Médias</title>
+
+  <!-- TYPOGRAPHIES : même lien que dans index.html -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+    rel="stylesheet">
+
+  <!-- MÊME FEUILLE DE STYLE que index.html -->
+  <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+
+  <header>
+    <!-- ============================================================
+    HEADER : identique à index.html
+    Copier-coller le même bloc <header> que dans index.html
+  ============================================================ -->
+    <div class="headernav">
+      <a href="index.html">
+        <img src="images/boreal-media-logo.png" alt="Logo Atelier Boréal Médias">
+      </a>
+      <!-- ===========================================================
+      
+            ===================================================== -->
+      <nav class="headerliens">
+        <ul>
+          <a href="index.html">Accueil</a>
+          <a href="contact.html">Contact</a>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ============================================================
+    FORMULAIRE DE CONTACT
+    Mise en page : HTML standard
+    Centré avec max-width dans le CSS
+    Champs : nom (text), courriel (email), message (textarea)
+  ============================================================ -->
+  <main class="page-contact">
+
+    <h1>Nous joindre</h1>
+    <p>Une question, un projet, une idée ? Écrivez-nous et nous vous répondrons dans les plus brefs délais.</p>
+
+    <form class="formulaire-contact" action="#" method="post">
+
+      <label for="nom">Nom complet</label>
+      <input type="text" id="nom" name="nom" placeholder="Harley">
+
+      <label for="courriel">Adresse courriel</label>
+      <input type="email" id="courriel" name="courriel" placeholder="Harley@exemple.com">
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Votre message ici..."></textarea>
+
+      <button type="submit">Envoyer</button>
+
+    </form>
+
+  </main>
+
+  <footer>
+    <!-- ============================================================
+    FOOTER : identique à index.html
+    Copier-coller le même bloc <footer> que dans index.html
+  ============================================================ -->
+    <div class="footer-contenu">
+
+      <nav class="footer-nav">
+        <ul>
+          <a href="index.html">Accueil</a>
+          <a href="contact.html">Contact</a>
+        </ul>
+      </nav>
+      
+      <div class="footer-logo">
+        <img src="images/boreal-media-logo.png" alt="Logo Atelier Boréal Médias">
+      </div>
+
+      
+
+      <address>
+        Atelier Boréal Médias Inc.<br>
+        1751, rue Richardson, bureau 3.105<br>
+        Montréal (Québec) H3K 1G6<br>
+        <a href="mailto:info@boreal-medias.ca">info@boreal-medias.ca</a>
+      </address>
+
+    </div>
+  </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,405 @@
+:root {
+  /* COULEURS PRINCIPALES */
+  --couleur-texte: #3D2B1F;
+  --couleur-accent: #C4622D;
+  --couleur-secondaire: #2E5E4E;
+  --couleur-fond: #F5F0E8;
+  --couleur-blanc: #FFFFFF;
+
+  /* COULEURS DE SUPPORT */
+  --couleur-fond-alt: #F2E8DC;
+  --couleur-texte-doux: #7A4A2E;
+  --couleur-bordure: #E8D5C4;
+  --couleur-sombre: #1A1A18;
+
+  /* TYPOGRAPHIES */
+  --typo-titre: 'NOM-POLICE-TITRES', serif;
+  --typo-corps: 'NOM-POLICE-CORPS', sans-serif;
+}
+
+.nunito-uniquifier {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 1;
+  font-style: normal;
+}
+
+.headernav {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  background-color: var(--couleur-secondaire);
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 100;
+}
+
+.headernav a {
+  max-width: 50%;
+  color: var(--couleur-blanc);
+}
+
+.headernav a img {
+  max-width: 40%;
+  min-height: 40%;
+}
+
+.headerliens {
+  display: flex;
+  width: 350px;
+
+}
+
+.headerliens ul {
+  margin-top: 10%;
+  padding: 0;
+  width: 350px;
+  font-size: larger;
+}
+
+.hero-contenu {
+  display: grid;
+  place-items: center;
+  max-height: 300px;
+  text-align: center;
+}
+
+.hero-contenu img {
+  grid-area: 1 / 1;
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.hero-texte {
+  grid-area: 1 / 1;
+  color: #FFFFFF;
+  text-shadow: 0px 2px 6px rgba(0, 0, 0, 1);
+  z-index: 1;
+}
+
+.bouton-cta {
+  color: #FFFFFF;
+}
+
+/* SERVICES ============================================= */
+
+body {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 1;
+  font-style: normal;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.services.services {
+  text-align: center;
+}
+
+.grille-services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  gap: 20px;
+}
+
+.carte-service {
+  margin: 20px;
+  background-color: var(--couleur-fond);
+  border-radius: 10%;
+}
+
+.carte-service p {
+  margin: 10px;
+}
+
+/* APROPOS ================================== */
+
+.apropos-contenu {
+  display: flex;
+  flex-flow: row-reverse nowrap;
+  gap: 2rem;
+  align-items: center;
+  background-color: var(--couleur-fond);
+  border-radius: 5%;
+}
+
+.apropos-texte {
+  margin: 20px;
+}
+
+.apropos-image img {
+  max-width: 60%;
+  max-height: 60%;
+  margin: 15px;
+  margin-left: 20%;
+  border-radius: 6%;
+}
+
+/* NOTRE EQUIPE =========================================== */
+
+.grille-equipe {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr 2fr 1fr;
+  gap: 10px;
+}
+
+.grille-equipe img {
+  max-width: 50%;
+  border-radius: 4%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.carte-membre {
+  display: flex;
+}
+
+.equipe h2 {
+  text-align: center;
+}
+
+.sophie_t-carte-membre {
+  grid-column: 2;
+}
+
+.mark_l-carte-membre {
+  grid-column: 4;
+}
+
+.yara_b-carte-membre {
+  grid-column: 2;
+}
+
+.carlos_r-carte-membre {
+  grid-column: 4;
+}
+
+/* FOOTER =================================================== */
+
+.footer-contenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #78553d;
+  color: #FFFFFF;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.footer-contenu address {
+  margin: 30px;
+  font-style: normal;
+}
+
+.footer-logo {
+  max-width: 300px;
+  width: 100%;
+}
+
+.footer-logo img {
+  width: 100%;
+  display: block;
+}
+
+.footer-nav ul {
+  padding: 0;
+  margin: 20px;
+}
+
+.footer-nav a {
+  color: var(--couleur-blanc);
+}
+
+/* PAGE DE CONTACT =================================================== */
+
+.page-contact {
+  text-align: center;
+  margin-bottom: auto;
+}
+
+.formulaire-contact {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-self: center;
+  background-color: #2E5E4E;
+  width: 80%;
+  height: 20vh;
+  margin: auto;
+}
+
+.formulaire-contact #nom {}
+
+.formulaire-contact #courriel {
+  width: 250px;
+  min-width: 100px;
+}
+
+.formulaire-contact #message {
+  height: 100vh;
+  width: auto;
+  max-width: 500px;
+  min-width: 100px;
+  min-height: 20px;
+}
+
+@media (max-width:980px) {
+  body {
+    font-size: small
+  }
+
+  h2 {
+    font-size: x-large;
+  }
+
+  .headernav a {
+    width: 100px;
+  }
+
+  .headernav a img {
+    min-width: 100px;
+  }
+
+  .headerliens {
+    margin-top: 15px;
+    width: 220;
+    display: flex;
+  }
+
+  .headerliens a {
+    width: auto;
+  }
+
+  .headerliens ul {
+    display: flex;
+    justify-content: left;
+    width: 210px;
+    margin: 0%;
+    padding: 0px;
+    gap: 8px;
+    font-size: smaller;
+  }
+
+  .grille-services {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 25px;
+  }
+
+  .carte-service {
+    width: 95%;
+    height: 90%;
+    display: flex;
+    justify-items: center;
+    margin: 10px;
+  }
+
+  .carte-service h3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .carte-service p {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .carte-service img {
+    width: 100px;
+    object-fit: contain;
+  }
+
+  .apropos-image {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    width: auto;
+  }
+
+  .apropos-image img {
+    margin: 10;
+    max-width: 70%;
+  }
+
+  .grille-equipe {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+  }
+
+  .equipe.equipe h3 {
+    margin: 15px;
+  }
+
+  .equipe.equipe p {
+    margin: 15px;
+  }
+
+  .equipe.equipe img {
+    margin: 20px;
+    border-radius: 100%;
+  }
+
+  .sophie_t-carte-membre {
+    grid-column: 1;
+    justify-items: center;
+    display: flex;
+  }
+
+  .mark_l-carte-membre {
+    grid-column: 1;
+    justify-items: center;
+    display: flex;
+  }
+
+  .yara_b-carte-membre {
+    grid-column: 1;
+    justify-items: center;
+    display: flex;
+  }
+
+  .carlos_r-carte-membre {
+    grid-column: 1;
+    justify-items: center;
+    display: flex;
+  }
+
+  .footer-contenu {
+    justify-content: center;
+    margin: 0;
+  }
+
+  .description {
+    font-size: large;
+  }
+
+  .footer-contenu address {
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  .footer-contenu ul {
+    margin: 10px;
+  }
+
+  .footer-nav {
+    font-size: large;
+  }
+}

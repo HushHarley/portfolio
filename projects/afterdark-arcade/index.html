@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Afterdark Arcade — three polished casino-style games using fictional credits.">
+  <title>Afterdark Arcade</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Afterdark Arcade home">
+        <span class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M16 3 28 10v12l-12 7L4 22V10l12-7Z"/><path d="m11 18 5-9 5 9h-10Z"/></svg>
+        </span>
+        <span class="brand-copy"><strong>AFTERDARK</strong><small>ARCADE</small></span>
+      </a>
+
+      <nav class="game-tabs" aria-label="Choose a game">
+        <button class="game-tab active" type="button" data-game="blackjack">
+          <span aria-hidden="true">♠</span> Blackjack
+        </button>
+        <button class="game-tab" type="button" data-game="poker">
+          <span aria-hidden="true">♦</span> 3 Card Poker
+        </button>
+        <button class="game-tab" type="button" data-game="crash">
+          <span aria-hidden="true">↗</span> Rocket
+        </button>
+      </nav>
+
+      <div class="wallet">
+        <div class="wallet-copy">
+          <span>Play balance</span>
+          <strong><small>◈</small> <span id="balance">1,000</span></strong>
+        </div>
+        <button id="resetBalance" class="icon-button" type="button" aria-label="Reset play balance" title="Reset play balance">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M6.1 8.5A7 7 0 0 1 18.7 7M17.9 15.5A7 7 0 0 1 5.3 17"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section id="blackjack" class="game-view active" aria-labelledby="blackjackTitle">
+        <div class="game-heading">
+          <div>
+            <p class="eyebrow">TABLE 01</p>
+            <h1 id="blackjackTitle">Blackjack <span>21</span></h1>
+            <p>Beat the dealer. Blackjack pays 3 to 2.</p>
+          </div>
+          <button class="rules-button" type="button" data-rules="blackjack">How to play <span>?</span></button>
+        </div>
+
+        <div class="table blackjack-table">
+          <div class="felt-mark" aria-hidden="true"><span>BLACKJACK</span><small>PAYS 3 TO 2</small></div>
+
+          <div class="hand dealer-hand">
+            <div class="hand-label">
+              <span>Dealer</span>
+              <strong id="dealerScore" class="score-badge">—</strong>
+            </div>
+            <div id="dealerCards" class="cards" aria-label="Dealer cards"></div>
+          </div>
+
+          <div id="blackjackMessage" class="table-message">Place your bet to begin</div>
+
+          <div class="hand player-hand">
+            <div id="playerCards" class="cards" aria-label="Your cards"></div>
+            <div class="hand-label">
+              <span>You</span>
+              <strong id="playerScore" class="score-badge">—</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-deck">
+          <div class="bet-panel">
+            <div class="bet-readout"><span>Bet</span><strong><small>◈</small> <span id="blackjackBet">25</span></strong></div>
+            <div class="chip-row" data-bet-group="blackjack">
+              <button class="chip" type="button" data-value="10">10</button>
+              <button class="chip active" type="button" data-value="25">25</button>
+              <button class="chip" type="button" data-value="50">50</button>
+              <button class="chip" type="button" data-value="100">100</button>
+              <button class="chip" type="button" data-value="250">250</button>
+            </div>
+          </div>
+          <div class="action-row">
+            <button id="blackjackDeal" class="action primary" type="button">Deal cards</button>
+            <button id="blackjackHit" class="action" type="button" disabled>Hit</button>
+            <button id="blackjackStand" class="action" type="button" disabled>Stand</button>
+            <button id="blackjackDouble" class="action" type="button" disabled>Double</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="poker" class="game-view" aria-labelledby="pokerTitle" hidden>
+        <div class="game-heading">
+          <div>
+            <p class="eyebrow">TABLE 02</p>
+            <h1 id="pokerTitle">Three Card <span>Poker</span></h1>
+            <p>Make the stronger three-card hand. Dealer needs queen-high.</p>
+          </div>
+          <button class="rules-button" type="button" data-rules="poker">How to play <span>?</span></button>
+        </div>
+
+        <div class="table poker-table">
+          <div class="poker-rankings" aria-hidden="true">
+            <span>Mini royal</span><i>•</i><span>Straight flush</span><i>•</i><span>Three of a kind</span><i>•</i><span>Straight</span><i>•</i><span>Flush</span><i>•</i><span>Pair</span>
+          </div>
+
+          <div class="hand dealer-hand">
+            <div class="hand-label">
+              <span>Dealer</span>
+              <strong id="pokerDealerRank" class="rank-badge">Waiting</strong>
+            </div>
+            <div id="pokerDealerCards" class="cards" aria-label="Dealer poker cards"></div>
+          </div>
+
+          <div id="pokerMessage" class="table-message">Place an ante to begin</div>
+
+          <div class="hand player-hand">
+            <div id="pokerPlayerCards" class="cards" aria-label="Your poker cards"></div>
+            <div class="hand-label">
+              <span>You</span>
+              <strong id="pokerPlayerRank" class="rank-badge">Waiting</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-deck">
+          <div class="bet-panel">
+            <div class="bet-readout"><span>Ante</span><strong><small>◈</small> <span id="pokerBet">25</span></strong></div>
+            <div class="chip-row" data-bet-group="poker">
+              <button class="chip" type="button" data-value="10">10</button>
+              <button class="chip active" type="button" data-value="25">25</button>
+              <button class="chip" type="button" data-value="50">50</button>
+              <button class="chip" type="button" data-value="100">100</button>
+              <button class="chip" type="button" data-value="250">250</button>
+            </div>
+          </div>
+          <div class="action-row">
+            <button id="pokerDeal" class="action primary" type="button">Deal hand</button>
+            <button id="pokerPlay" class="action success" type="button" disabled>Play <small>+1× ante</small></button>
+            <button id="pokerFold" class="action danger" type="button" disabled>Fold</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="crash" class="game-view" aria-labelledby="crashTitle" hidden>
+        <div class="game-heading crash-heading">
+          <div>
+            <p class="eyebrow">HANGAR 03</p>
+            <h1 id="crashTitle">Rocket <span>Run</span></h1>
+            <p>Cash out before the rocket flies away.</p>
+          </div>
+          <button class="rules-button" type="button" data-rules="crash">How to play <span>?</span></button>
+        </div>
+
+        <div class="crash-layout">
+          <div class="crash-stage">
+            <canvas id="crashCanvas" width="900" height="500" aria-label="Animated rocket multiplier graph"></canvas>
+            <div class="crash-status">
+              <p id="crashStatusText">READY FOR TAKEOFF</p>
+              <strong id="multiplier">1.00<span>×</span></strong>
+              <small id="crashSubtext">Set your flight stake below</small>
+            </div>
+            <div id="rocket" class="rocket" aria-hidden="true">
+              <svg viewBox="0 0 64 64"><path class="rocket-body" d="M39.4 7.5c8.7-4 14.9-3 17.1-2.2 1 2.4 1.7 8.7-2.4 17.2-4.6 9.3-14.8 17-21.4 20.8l-12-12C24.5 24.6 30.1 11.8 39.4 7.5Z"/><path class="rocket-window" d="M42.3 14.1a5.8 5.8 0 1 1 8.2 8.2 5.8 5.8 0 0 1-8.2-8.2Z"/><path class="rocket-fin" d="m21.5 29.8-9.7.5-7 7 14.1 1.2m15.3 3.4-.5 9.7-7 7-1.2-14.1"/><path class="flame" d="M17.7 42.5c-5.1 1-9.9 5.7-11.3 13.6 7.9-1.4 12.6-6.2 13.6-11.3l-2.3-2.3Z"/></svg>
+            </div>
+            <div id="crashFlash" class="crash-flash">FLEW AWAY!</div>
+          </div>
+
+          <aside class="flight-panel">
+            <div class="history-block">
+              <div class="panel-label"><span>Recent flights</span><i></i></div>
+              <div id="crashHistory" class="crash-history">
+                <span class="low">1.24×</span><span class="mid">2.18×</span><span class="low">1.05×</span><span class="high">5.72×</span><span class="mid">3.11×</span>
+              </div>
+            </div>
+
+            <div class="flight-bet">
+              <label for="crashBet">Flight stake</label>
+              <div class="stake-input"><span>◈</span><input id="crashBet" type="number" min="1" max="1000" step="1" value="25" inputmode="numeric"></div>
+              <div class="quick-bets">
+                <button type="button" data-crash-bet="10">10</button>
+                <button type="button" data-crash-bet="25">25</button>
+                <button type="button" data-crash-bet="50">50</button>
+                <button type="button" data-crash-bet="100">100</button>
+                <button type="button" data-crash-bet="max">MAX</button>
+              </div>
+            </div>
+
+            <div class="possible-win"><span>Current return</span><strong>◈ <span id="possibleWin">25.00</span></strong></div>
+            <button id="launchButton" class="launch-button" type="button"><span>Launch rocket</span><small>Start at 1.00×</small></button>
+            <button id="cashoutButton" class="cashout-button" type="button" disabled><span>Cash out</span><strong id="cashoutValue">◈ 25.00</strong></button>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span><i class="live-dot"></i> Play-money simulation</span>
+      <span>Vanilla JavaScript</span>
+      <span>Credits have no real-world value</span>
+    </footer>
+  </div>
+
+  <dialog id="rulesDialog">
+    <button id="closeRules" class="dialog-close" type="button" aria-label="Close rules">×</button>
+    <p id="rulesEyebrow" class="eyebrow">GAME RULES</p>
+    <h2 id="rulesTitle">How to play</h2>
+    <div id="rulesContent" class="rules-content"></div>
+    <button id="gotItButton" class="action primary" type="button">Got it</button>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="java.js"></script>
+</body>
+</html>

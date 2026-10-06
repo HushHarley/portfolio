@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Characters</title>
+</head>
+
+<body>
+    <header>
+        <div class="collapsible-menu">
+            <input type="checkbox" id="menu">
+            <label for="menu">☰</label>
+            <div class="menu-content">
+                <ul class="menu-items">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="harryCharacters.html">Personnages</a></li>
+                    <li><a href="harryBooks.html">Livres</a></li>
+                    <li><a href="harryUpcoming.html">À venir</a></li>
+                </ul>
+            </div>
+            <img id="harrypotterImg"
+                src="https://www.harrypotter.com/_next/static/images/logo-gold-600-7a7e89b6db1ffeaab025f2091d21b645.png"
+                alt="">
+                <button id="muteButton">🔊</button>
+        </div>
+        <audio class="audioPlayerAudio" autoplay controls>
+            <source
+                src="music/Hogwarts Legacy Official Soundtrack The House Cup - J Scott Rakozy WaterTower Music - WaterTower Music (192k).mp3">
+        </audio>
+    </header>
+
+    <div id="characterPageTopImage">
+        <p>Rencontre les sorcières et les sorciers</p>
+        <h1>Personnages</h1>
+    </div>
+    <div id="characterPageTopFade"></div>
+
+    <div id="characterGrid"></div>
+
+    <footer>
+        <div class="menuItemsFooter">
+            <div class="menuItemsItems">
+                <a href="index.html">Accueil</a>
+                    <a href="harryCharacters.html">Personnages</a>
+                    <a href="harryBooks.html">Livres</a>
+                    <a href="harryUpcoming.html">À venir</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="harryCharcters.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1103 @@
+:root {
+
+    /* Main Colours */
+    --colour-main: #00001b;
+    --colour-accent: #000041;
+    --colour-secondary: #010166;
+    --colour-offwhite: #F5F0E8;
+    --colour-white: #FFFFFF;
+
+    /* Support Colours */
+    --colour-altOffWhite: #F2E8DC;
+    --colour-softText: #7A4A2E;
+    --colour-border: #060136;
+    --colour-harryyellow: #a48623;
+}
+
+@view-transition {
+    navigation: auto;
+}
+
+body {
+    max-width: 100%;
+    background-color: var(--colour-main);
+    color: var(--colour-white);
+    margin: 0px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HOME */
+
+nav {}
+
+header {}
+
+#harrypotterImg {
+    width: 168px;
+    height: 61px;
+    margin: 6px;
+    position: absolute;
+    left: 50%;
+    top: 42%;
+    transform: translate(-50%, -50%);
+}
+
+.menu-content {
+    max-height: 0;
+    overflow: hidden;
+    font-family: 'Oswald', sans-serif;
+    padding: 0px 0px 0px 10px;
+
+}
+
+.collapsible-menu {
+    display: flex;
+    flex-flow: row;
+    position: relative;
+    height: 83px;
+    background-color: var(--colour-accent);
+    padding: 0px 25px;
+    border-bottom: 2px var(--colour-harryyellow) solid;
+    border-bottom-left-radius: 26px;
+    border-bottom-right-radius: 26px;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.collapsible-menu ul {
+    display: flex;
+    flex-flow: row;
+    list-style-type: none;
+    padding: 0px;
+}
+
+.collapsible-menu a {
+    display: block;
+    margin: 4px;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+    background-color: rgb(20, 20, 110);
+    color: var(--couleur-white);
+    border: 2px, solid, black;
+    border-radius: 22px;
+}
+
+.collapsible-menu a:hover {
+    text-decoration: none;
+    background-color: var(--colour-main);
+    border: 2px var(--colour-border) solid;
+    border-radius: 46px;
+}
+
+
+.collapsible-menu a:active {
+    text-decoration: none;
+    color: var(--colour-white);
+    background-color: var(--colour-accent);
+    border: 2px var(--colour-main) solid;
+}
+
+.collapsible-menu label {
+    font-family: 'Sedgwick Ave Display', cursive;
+    font-size: 32px;
+    display: block;
+    cursor: pointer;
+    /* background: url(https://cdn-icons-png.flaticon.com/128/8867/8867520.png) no-repeat left center; */
+    background-size: 30px 35px;
+    padding: 0px 0px 4px 0px;
+    width: 90px;
+    color: var(--colour-harryyellow);
+    text-align: center;
+    align-self: center;
+}
+
+input#menu {
+    display: none;
+}
+
+input:checked+label {
+    /* transform: rotate(0.25turn); */
+    /* background-image: url(https://cdn-icons-png.flaticon.com/128/16546/16546093.png); */
+}
+
+header input:checked~label {
+    transform: rotate(0.25turn);
+    /* background-image: url(https://cdn-icons-png.flaticon.com/128/16546/16546093.png); */
+}
+
+input:checked~.menu-content {
+    max-height: 100%;
+}
+
+#homeTitle {
+    margin: 20px;
+}
+
+#homeDescription {
+    margin: 20px;
+}
+
+.homeBackgroundImage * {
+    text-shadow: #00001b 2px 2px;
+}
+
+.backgroundAudio {
+    display: flex;
+    justify-self: end;
+    border: #00001b 4px solid;
+
+}
+
+#muteButton {
+    align-self: center;
+    position: relative;
+    right: -79%;
+    border-radius: 100px;
+    width: 34px;
+    height: 34px;
+    background-color: var(--colour-main);
+    border: 2px var(--colour-harryyellow) solid;
+}
+
+#muteButton:hover {
+    border: 2px white solid;
+    background-color: var(--colour-secondary);
+}
+
+#muteButton:active {
+    border: 2px white solid;
+    background-color: var(--colour-border);
+}
+
+.audioPlayerAudio {
+    display: none;
+    background-color: var(--colour-accent);
+}
+
+.aboutContent {
+    flex: 1;
+    margin: 10px;
+}
+
+.aboutContent h1 {
+    text-align: center;
+}
+
+.homeBackgroundImage {
+    background-image: url(https://contentful.harrypotter.com/usf1vwtuqyxm/5aTS3wZoIow3nPaPHq9tQx/c782138d22995fe8b3aef551dd0a71c4/hog-leg-hero-darker.jpg?q=75&fm=jpg&w=2560);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 0% 0% 34% 0%;
+    margin-top: -20px;
+}
+
+#homeBackgroundImageFade {
+    background-image: linear-gradient(to top, var(--colour-main), var(--colour-main), transparent 100%);
+    padding-top: 18%;
+    margin-top: -10%;
+}
+
+/* #WhoisHarryPotter {
+    display: flex;
+    flex-flow: column wrap;
+    margin: 10px 30px 10px 30px;
+    align-items: start;
+} */
+
+.homeBackgroundImage p {
+    margin: 0px 30% 0px 30%;
+    padding: 5% 0px 0px 0px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.homeBackgroundImage h1 {
+    margin: 0;
+    padding: 2% 0% 0% 0%;
+    text-align: center;
+    font-size: 76px;
+}
+
+
+h1 {
+    margin: 0px 20px 150px 20px;
+    z-index: 2;
+    text-align: center;
+    font-size: 52px;
+}
+
+#WhoisHarryPotter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px;
+}
+
+#WhoisHarryPotter h2 {
+    grid-column: 1;
+    text-align: center;
+    font-size: 38px;
+}
+
+#WhoisHarryPotter p {
+    width: 60%;
+    text-align: center;
+    justify-self: center;
+    align-self: center;
+    grid-row: 2;
+    font-size: 24px;
+}
+
+#WhoisHarryPotter img {
+    width: 45%;
+    height: 85%;
+    align-self: center;
+    grid-row: 2;
+    position: relative;
+    top: -20%;
+    right: -26%;
+    object-fit: cover;
+}
+
+#WheretheStoryTakesPlace {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px;
+}
+
+#WheretheStoryTakesPlace h2 {
+    grid-column: 2;
+    text-align: center;
+    font-size: 38px;
+}
+
+#WheretheStoryTakesPlace p {
+    width: 60%;
+    text-align: center;
+    justify-self: center;
+    align-self: center;
+    font-size: 24px;
+}
+
+#WheretheStoryTakesPlace img {
+    width: 70%;
+    align-self: center;
+    grid-row: 2;
+    position: relative;
+    top: -22%;
+    left: 18%;
+}
+
+#FullSummary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px;
+}
+
+#FullSummary h2 {
+    grid-column: 1;
+    text-align: center;
+    font-size: 38px;
+}
+
+#FullSummary p {
+    width: 60%;
+    text-align: center;
+    justify-self: center;
+    align-self: center;
+    grid-row: 2;
+    font-size: 24px;
+}
+
+#FullSummary img {
+    width: 70%;
+    align-self: center;
+    grid-row: 2;
+    position: relative;
+    top: -14%;
+    right: -14%;
+}
+
+#homePageBottomImageFade {
+    background-image: linear-gradient(to bottom, var(--colour-main), var(--colour-main), transparent 60%);
+    padding-top: 8%;
+    margin-top: 0%;
+    margin-bottom: -200px;
+    z-index: 1;
+}
+
+#homePageBottomImage {
+    background-image: url(https://contentful.harrypotter.com/usf1vwtuqyxm/7zG8AlntRmY5egJxHcrJHp/78915e490601ccc030847ddf212ba3ad/2f8567f07eb618d0475b66928ced4f4b92343f47.png?q=75&fm=webp&w=720&h=165&fit=fill);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 0% 0% 8% 0%;
+}
+
+/* CHARACTERS */
+
+#characterPageTopImage {
+    background-image: url(https://d.newsweek.com/en/full/1033479/mcdhapo-ec030.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 16% 0% 0% 0%;
+    margin-top: -180px;
+}
+
+#characterPageTopImage p {
+    margin: 0px 30% 0px 30%;
+    padding: 0% 0px 1% 0px;
+    text-align: center;
+    font-size: 34px;
+    text-shadow: #00001b 2px 2px;
+}
+
+#characterPageTopImage h1 {
+    margin-bottom: 18%;
+    text-shadow: #00001b 2px 2px;
+    font-size: 64px;
+}
+
+
+
+#characterPageTopFade {
+    background-image: linear-gradient(to top, var(--colour-main), var(--colour-main), transparent 100%);
+    padding-top: 240px;
+    margin-top: -200px;
+}
+
+#characterGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.characterCarte {
+    display: flex;
+    flex-flow: column-reverse;
+    margin: 40px;
+    border: 6px solid var(--colour-border);
+    border-radius: 50px;
+    align-items: center;
+}
+
+.characterCarte:hover {
+    background-color: var(--colour-secondary);
+    border-color: var(--colour-white);
+}
+
+.characterCarte img {
+    width: 60%;
+    margin: 40px 10px 10px 10px;
+    border-radius: 20px;
+}
+
+.characterCarte h2 {
+    margin: 10px;
+}
+
+.nickname {
+    margin: 10px;
+}
+
+.hogwartsHouse {
+    margin: 10px;
+}
+
+.children {
+    margin: 10px;
+    padding: 10px;
+}
+
+
+/* BOOKS */
+
+
+.topPageAbout {
+    background-image: url(https://www.harrypotter.com/_next/static/images/books-desk-2880-d91f9951754bd9554ccb6ba8c68f1b2c.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 0% 0% 20% 0%;
+    margin-top: -20px;
+    text-shadow: #00001b 2px 2px;
+}
+
+.topPageAbout p {
+    margin: 0px 30% 0px 30%;
+    padding: 5% 0px 0px 0px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.topPageAbout h1 {
+    margin: 0;
+    padding: 2% 0% 0% 0%;
+    text-align: center;
+    font-size: 76px;
+}
+
+.topPageAboutFade {
+    background-image: linear-gradient(to top, var(--colour-main), var(--colour-main), transparent 100%);
+    padding-top: 200px;
+    margin-top: -120px;
+    /* border: 1px solid white; */
+}
+
+.bookCarte {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    margin: 40px;
+}
+
+.bookCarte h2 {
+    margin: 6px;
+    text-align: center;
+    font-size: 32px;
+}
+
+.bookCarte p {
+    text-align: center;
+    align-self: center;
+    font-size: 22px;
+}
+
+.bookCarteBoite {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.bookCover {
+    align-self: center;
+    width: 40%;
+    margin: 0px;
+}
+
+.bookDescription {
+    margin: 2% 10% 2% 10%;
+}
+
+.borderLineLine1 {
+    border: 1px rgb(128, 128, 128, 0.6) solid;
+    align-self: center;
+    width: 70%;
+}
+
+.borderLineMid {
+    width: 10%;
+    margin: 6px;
+    align-self: center;
+}
+
+
+.bookCover {
+    border: 6px rgb(68, 66, 65) double;
+    border-radius: 8px;
+}
+
+/* Contact Page */
+
+.contactContainer {
+    flex: 1;
+}
+
+#contactPageTopImage p {
+    margin: 0px 25% 0px 25%;
+    padding: 2% 0px 0px 0px;
+    text-align: center;
+    font-size: 20px;
+}
+
+#contactPageTopImage h1 {
+    margin: 0;
+    padding: 8% 10% 0% 10%;
+    text-align: center;
+    font-size: 44px;
+}
+
+#contactPageTopImage {
+    background-image: url(https://contentful.harrypotter.com/usf1vwtuqyxm/3hL1zLNXwNNorUQPV344E5/05ad663a8aba784a918e4469abce6e85/News.png?q=75&fm=webp&w=2880);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 0% 0% 4% 0%;
+    margin-top: -20px;
+}
+
+#contactPageTopImageFade {
+    background-image: linear-gradient(to top, var(--colour-main), var(--colour-main), transparent 100%);
+    padding-top: 200px;
+    margin-top: -100px;
+}
+
+.contactBlock {
+    display: block;
+    justify-self: center;
+    justify-items: center;
+    background-color: rgb(0, 0, 0);
+    width: 20%;
+    margin: 0% 0px 40px 0px;
+    padding: 20px 0px 0px 0px;
+    border: 4px solid white;
+    border-radius: 18px;
+
+}
+
+.contactForms * {
+    justify-self: center;
+    padding: 4px;
+    border-radius: 16px;
+    transform: none;
+}
+
+.formName {
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+}
+
+.formEmail {
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+}
+
+.formPhoneNumber {
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+}
+
+.formPassword {
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+}
+
+
+.formCheckbox {
+    display: flex;
+    gap: 11px;
+    padding: 0px;
+    transform: none;
+}
+
+.formButtons {
+    display: flex;
+    background-color: var(--colour-border);
+    gap: 10px;
+    padding: 10px;
+    border: 2px white solid;
+}
+
+#resetButton {
+    font-weight: bold;
+    background-color: lightcoral;
+}
+
+#resetButton:hover {
+    border-color: var(--colour-white);
+}
+
+#resetButton:active {
+    background-color: darkred;
+}
+
+#submitButton {
+    font-weight: bold;
+    background-color: lightgreen;
+}
+
+#submitButton:hover {
+    border-color: var(--colour-white);
+}
+
+#submitButton:active {
+    background-color: darkgreen;
+}
+
+
+#contactTitle {
+    text-align: center;
+    margin-bottom: 1%;
+    text-shadow: #00001b 2px 2px;
+}
+
+#contactDescription {
+    text-align: center;
+    text-shadow: #00001b 2px 2px;
+}
+
+/* FOOTER */
+
+.menuItemsFooter {
+    background: radial-gradient(circle, transparent 25%, var(--colour-accent) 100%);
+    border: 2px var(--colour-accent) solid;
+    height: 40px;
+    margin: 0px 0px 0px 0px;
+    padding: 10px 0px 10px 0px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.menuItemsItems {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+}
+
+.menuItemsItems a {
+    text-decoration: none;
+    color: #FFFFFF;
+    border: 2px var(--colour-main) solid;
+    padding: 10px;
+}
+
+.menuItemsItems a:hover {
+    background-color: var(--colour-accent);
+    border: 2px var(--colour-border) solid;
+    border-radius: 46px;
+}
+
+.menuItemsItems a:active {
+    background-color: var(--colour-main);
+    border: 2px var(--colour-accent) solid;
+    border-radius: 46px;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width:1240px) {
+
+    #harrypotterImg {
+        width: 152px;
+        height: 54px;
+        margin: 6px;
+        position: absolute;
+        left: 22%;
+        top: 42%;
+        transform: translate(-50%, -50%);
+    }
+
+    .menu-content {
+        max-height: 0;
+        overflow: hidden;
+        font-family: 'Oswald', sans-serif;
+        padding: 0px 0px 0px 0px;
+
+    }
+
+    .collapsible-menu {
+        display: flex;
+        flex-flow: row-reverse;
+        position: relative;
+        height: max-content;
+        background-color: var(--colour-accent);
+        padding: 15px 15px;
+        border-bottom: 3px solid var(--colour-white);
+        box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .collapsible-menu ul {
+        display: flex;
+        flex-flow: column;
+        list-style-type: none;
+        padding: 2px 14px 2px 2px;
+        margin: 0;
+    }
+
+    .collapsible-menu a {
+        display: block;
+        margin: 4px;
+        padding: 10px;
+        text-decoration: none;
+        text-align: center;
+        background-color: rgb(20, 20, 110);
+        color: var(--couleur-white);
+        border: 2px, solid, black;
+        border-radius: 22px;
+    }
+
+    .collapsible-menu a:hover {
+        text-decoration: none;
+        background-color: var(--colour-main);
+        color: rgb(0, 0, 27);
+    }
+
+    .collapsible-menu a:active {
+        text-decoration: none;
+        background-color: var(--colour-main);
+        color: var(--colour-white);
+    }
+
+    .collapsible-menu label {
+        font-family: 'Sedgwick Ave Display', cursive;
+        font-size: 26px;
+        display: block;
+        cursor: pointer;
+        /* background: url(https://cdn-icons-png.flaticon.com/128/8867/8867520.png) no-repeat left center; */
+        background-size: 20px 20px;
+        padding: 10px 0px 10px 0px;
+        width: 80px;
+        color: rgb(185, 142, 0);
+        text-align: center;
+        align-self: center;
+    }
+
+    input#menu {
+        display: none;
+    }
+
+    input:checked+label {
+        /* transform: rotate(0.25turn); */
+        /* background-image: url(https://cdn-icons-png.flaticon.com/128/16546/16546093.png); */
+    }
+
+    input:checked~label {
+        /* transform: rotate(0.25turn); */
+        /* background-image: url(https://cdn-icons-png.flaticon.com/128/16546/16546093.png); */
+    }
+
+    input:checked~.menu-content {
+        max-height: 100%;
+    }
+
+    #muteButton {
+        align-self: center;
+        position: relative;
+        right: -41%;
+        border-radius: 100px;
+        width: 34px;
+        height: 34px;
+    }
+
+    .aboutContent {
+        justify-content: center;
+        flex: 1;
+    }
+
+    #WhoisHarryPotter {
+        display: flex;
+        flex-flow: column nowrap;
+        margin: 20px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    #WhoisHarryPotter h2 {
+        text-align: center;
+        font-size: 32px;
+    }
+
+    #WhoisHarryPotter p {
+        width: 90%;
+        text-align: center;
+        font-size: 18px;
+    }
+
+    #WhoisHarryPotter img {
+        width: 70%;
+        position: static;
+        margin: 20px;
+    }
+
+    #WheretheStoryTakesPlace {
+        display: flex;
+        flex-flow: column;
+        margin: 20px;
+    }
+
+    #WheretheStoryTakesPlace h2 {
+        text-align: center;
+        font-size: 32px;
+    }
+
+    #WheretheStoryTakesPlace p {
+        width: 90%;
+        text-align: center;
+        justify-self: center;
+        align-self: center;
+        font-size: 18px;
+    }
+
+    #WheretheStoryTakesPlace img {
+        width: 90%;
+        align-self: center;
+        position: static;
+        margin: 20px;
+    }
+
+    #FullSummary {
+        display: flex;
+        flex-flow: column;
+        margin: 20px 20px 0px 20px;
+    }
+
+    #FullSummary h2 {
+        text-align: center;
+        font-size: 32px;
+    }
+
+    #FullSummary p {
+        width: 90%;
+        text-align: center;
+        justify-self: center;
+        align-self: center;
+        font-size: 18px;
+    }
+
+    #FullSummary img {
+        width: 90%;
+        align-self: center;
+        position: static;
+        margin: 20px 20px 60% 20px;
+    }
+
+    #homePageBottomImageFade {
+        background-image: linear-gradient(to bottom, var(--colour-main), var(--colour-main), transparent 60%);
+        padding-top: 24%;
+        margin-top: -50%;
+        margin-bottom: -100px;
+    }
+
+    #homePageBottomImage {
+        background-image: url(https://contentful.harrypotter.com/usf1vwtuqyxm/7zG8AlntRmY5egJxHcrJHp/78915e490601ccc030847ddf212ba3ad/2f8567f07eb618d0475b66928ced4f4b92343f47.png?q=75&fm=webp&w=720&h=165&fit=fill);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        padding: 0% 0% 30% 0%;
+    }
+
+    /* characters */
+
+    #characterPageTopImage {
+        background-image: url(https://d.newsweek.com/en/full/1033479/mcdhapo-ec030.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        padding: 38% 0% 0% 0%;
+        margin-top: -180px;
+    }
+
+    #characterPageTopImage p {
+        margin: 0px 30% 0px 30%;
+        padding: 0% 0px 1% 0px;
+        text-align: center;
+        font-size: 34px;
+        text-shadow: #00001b 2px 2px;
+    }
+
+    #characterPageTopImage h1 {
+        margin-bottom: 38%;
+        text-shadow: #00001b 2px 2px;
+        font-size: 64px;
+    }
+
+    #characterGrid {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    /* books */
+
+    .homeBackgroundImage p,
+    #characterPageTopImage p {
+        margin: 0px 10% 0px 10%;
+        padding: 20% 0px 0px 0px;
+        font-size: 120%;
+    }
+
+    .homeBackgroundImage h1,
+    #characterPageTopImage h1 {
+        padding: 2% 0% 0% 0%;
+        font-size: 220%;
+    }
+
+    .topPageAbout {
+        background-image: url(https://www.harrypotter.com/_next/static/images/books-desk-2880-d91f9951754bd9554ccb6ba8c68f1b2c.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        padding: 0% 0% 20% 0%;
+    }
+
+    .topPageAbout p {
+        margin: 0px 10% 0px 10%;
+        padding: 10% 0px 0px 0px;
+        text-align: center;
+        font-size: 100%;
+    }
+
+    .topPageAbout h1 {
+        margin: 0px;
+        padding: 2% 0% 0% 0%;
+        text-align: center;
+        font-size: 240%;
+    }
+
+    .topPageAboutFade {
+        background-image: linear-gradient(to top, var(--colour-main), var(--colour-main), transparent 100%);
+        padding-top: 15%;
+        margin-top: -10%;
+        /* border: 1px solid white; */
+    }
+
+    .bookCarteBoite {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .bookCarte {
+        display: flex;
+        flex-flow: column wrap;
+        margin: 2%;
+    }
+
+    .bookCarte h2 {
+        margin: 0px;
+        text-align: center;
+        font-size: 28px;
+    }
+
+    .bookCarte p {
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .bookCover {
+        align-self: center;
+        width: 20%;
+        margin: 8%;
+        margin: 2% 6% 2% 6%;
+    }
+
+    .bookName {}
+
+    .bookDescription {}
+
+    .borderLineLine1 {
+        border: 1px rgb(128, 128, 128, 0.6) solid;
+        align-self: center;
+        width: 80%;
+    }
+
+    .borderLineMid {
+        width: 12%;
+        margin: 2%;
+        align-self: center;
+        position: relative;
+        top: -1%
+    }
+
+    .borderLineLine2 {}
+
+    .bookCover {
+        border: 6px rgb(68, 66, 65) double;
+        border-radius: 8px;
+        width: 70%;
+    }
+
+    /* Contact Page */
+
+    #contactPageTopImage p {
+        margin: 0px 6% 0px 6%;
+        padding: 5% 0px 48px 0px;
+        font-size: 100%;
+    }
+
+    #contactPageTopImage h1 {
+        padding: 12% 4% 0% 4%;
+        font-size: 160%;
+    }
+
+    #contactPageTopImageFade {
+        padding-top: 120px;
+        margin-top: -100px;
+    }
+
+    .contactBlock {
+        background-color: rgb(0, 0, 0);
+        max-height: 520px;
+        min-width: 250px;
+    }
+
+    .formName {
+        display: flex;
+        flex-flow: column;
+        text-align: center;
+    }
+
+    .formEmail {
+        display: flex;
+        flex-flow: column;
+        text-align: center;
+    }
+
+    .formPhoneNumber {
+        display: flex;
+        flex-flow: column;
+        text-align: center;
+    }
+
+    .formPassword {
+        display: flex;
+        flex-flow: column;
+        text-align: center;
+    }
+
+    .formCheckbox {
+        display: flex;
+        flex-direction: column;
+        justify-self: center;
+        gap: 11px;
+    }
+
+    /* FOOTER */
+
+    .menuItemsFooter {
+        background: radial-gradient(circle, transparent 65%, var(--colour-accent) 100%);
+        border: 2px var(--colour-accent) solid;
+        height: 40px;
+        margin: 0px 0px 0px 0px;
+        padding: 10px 0px 10px 0px;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        border-top-left-radius: 26px;
+        border-top-right-radius: 26px;
+    }
+
+    .menuItemsItems {
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+        align-self: center;
+    }
+
+    .menuItemsItems a {
+        text-decoration: none;
+        color: var(--colour-white);
+        background-color: var(--colour-main);
+        border: 2px var(--colour-main) solid;
+        padding: 6px;
+        border-radius: 46px;
+    }
+
+    .menuItemsItems a:hover {
+        background-color: var(--colour-accent);
+        border: 2px var(--colour-border) solid;
+        border-radius: 46px;
+    }
+
+    .menuItemsItems a:active {
+        background-color: var(--colour-main);
+        border: 2px var(--colour-accent) solid;
+        border-radius: 46px;
+    }
+}

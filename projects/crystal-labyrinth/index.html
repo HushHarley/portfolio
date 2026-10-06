@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" data-reduced-motion="false">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Crystal Labyrinth — a luminous browser adventure through a shifting crystal cavern.">
+  <meta name="theme-color" content="#070716">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <title>Crystal Labyrinth</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#gameCanvas">Skip to the game</a>
+
+  <div id="app" class="game-app" data-screen="menu">
+    <div class="ambient-stars" aria-hidden="true"></div>
+
+    <div class="utility-controls" aria-label="Presentation settings">
+      <button
+        id="audioToggle"
+        class="utility-button"
+        type="button"
+        data-action="toggle-audio"
+        aria-label="Mute sound"
+        aria-pressed="false"
+      >
+        <svg class="utility-icon sound-on-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9v6h4l5 4V5L8 9H4Z"></path>
+          <path d="M16 9c1.4 1.5 1.4 4.5 0 6M18.8 6.3c3.1 3.1 3.1 8.3 0 11.4"></path>
+        </svg>
+        <svg class="utility-icon sound-off-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9v6h4l5 4V5L8 9H4Z"></path>
+          <path d="m17 9 5 6M22 9l-5 6"></path>
+        </svg>
+        <span class="utility-label">Sound</span>
+      </button>
+
+      <button
+        id="motionToggle"
+        class="utility-button"
+        type="button"
+        data-action="toggle-motion"
+        aria-label="Reduce animation"
+        aria-pressed="false"
+      >
+        <svg class="utility-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 12h5M15 12h5M8 7l4 5-4 5M16 7l-4 5 4 5"></path>
+        </svg>
+        <span class="utility-label">Motion</span>
+      </button>
+    </div>
+
+    <main id="mainContent">
+      <section id="menuScreen" class="screen menu-screen" aria-labelledby="gameTitle">
+        <div class="menu-cavern" aria-hidden="true"></div>
+        <div class="menu-shade" aria-hidden="true"></div>
+
+        <div class="menu-layout">
+          <header class="title-lockup">
+            <span class="title-crystal title-crystal-left" aria-hidden="true"></span>
+            <div>
+              <p class="title-kicker">Enter the depths of the</p>
+              <h1 id="gameTitle">
+                <span class="title-word title-word-crystal">Crystal</span>
+                <span class="title-word title-word-labyrinth">Labyrinth</span>
+              </h1>
+            </div>
+            <span class="title-crystal title-crystal-right" aria-hidden="true"></span>
+          </header>
+
+          <div class="menu-panel pixel-frame">
+            <button id="playButton" class="menu-button play-button" type="button" data-action="play">
+              <span class="button-crystal cyan-crystal" aria-hidden="true"></span>
+              <span>Play</span>
+              <span class="button-spark" aria-hidden="true">✦</span>
+            </button>
+
+            <fieldset id="difficultySelector" class="menu-group difficulty-group">
+              <legend>
+                <span class="legend-crystal" aria-hidden="true">♦</span>
+                Difficulty
+                <span class="legend-crystal" aria-hidden="true">♦</span>
+              </legend>
+              <div class="difficulty-options">
+                <button class="choice-button difficulty-button easy" type="button" data-difficulty="easy" aria-pressed="false">
+                  <span>Easy</span>
+                </button>
+                <button class="choice-button difficulty-button normal is-selected" type="button" data-difficulty="normal" aria-pressed="true">
+                  <span>Normal</span>
+                </button>
+                <button class="choice-button difficulty-button hard" type="button" data-difficulty="hard" aria-pressed="false">
+                  <span>Hard</span>
+                </button>
+                <button class="choice-button difficulty-button nightmare" type="button" data-difficulty="nightmare" aria-pressed="false">
+                  <span>Nightmare</span>
+                </button>
+              </div>
+            </fieldset>
+
+            <section id="levelSelector" class="menu-group level-group" aria-labelledby="levelSelectTitle">
+              <h2 id="levelSelectTitle">
+                <span class="legend-crystal" aria-hidden="true">♦</span>
+                Level Select
+                <span class="legend-crystal" aria-hidden="true">♦</span>
+              </h2>
+
+              <div class="level-options" role="group" aria-describedby="levelHint">
+                <button
+                  id="levelButton1"
+                  class="level-button is-selected"
+                  type="button"
+                  data-level="1"
+                  data-unlocked="true"
+                  aria-label="Level 1, selected"
+                  aria-pressed="true"
+                >
+                  <span class="level-gem" aria-hidden="true">1</span>
+                  <span class="level-name">Level 1</span>
+                  <span class="level-status">Open</span>
+                </button>
+
+                <button
+                  id="levelButton2"
+                  class="level-button is-locked"
+                  type="button"
+                  data-level="2"
+                  data-unlocked="false"
+                  aria-label="Level 2, locked"
+                  aria-pressed="false"
+                  disabled
+                >
+                  <span class="level-gem lock-gem" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M7 10V7a5 5 0 0 1 10 0v3M5 10h14v11H5V10Zm7 4v3"></path></svg>
+                  </span>
+                  <span class="level-name">Level 2</span>
+                  <span class="level-status">Locked</span>
+                </button>
+
+                <button
+                  id="levelButton3"
+                  class="level-button is-locked"
+                  type="button"
+                  data-level="3"
+                  data-unlocked="false"
+                  aria-label="Level 3, locked"
+                  aria-pressed="false"
+                  disabled
+                >
+                  <span class="level-gem lock-gem" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M7 10V7a5 5 0 0 1 10 0v3M5 10h14v11H5V10Zm7 4v3"></path></svg>
+                  </span>
+                  <span class="level-name">Level 3</span>
+                  <span class="level-status">Locked</span>
+                </button>
+              </div>
+
+              <p id="levelHint" class="level-hint">
+                <span class="info-rune" aria-hidden="true">i</span>
+                Beat the previous level to unlock the next one.
+              </p>
+            </section>
+
+            <button id="exitButton" class="menu-button exit-button" type="button" data-action="exit">
+              <span class="button-crystal violet-crystal" aria-hidden="true"></span>
+              <span>Exit</span>
+            </button>
+          </div>
+
+          <footer class="menu-footer pixel-frame">
+            <span class="footer-crystal" aria-hidden="true">♦</span>
+            <span>Best played in a modern browser</span>
+            <span class="footer-divider" aria-hidden="true">•</span>
+            <span><kbd>Space</kbd> to confirm</span>
+            <span class="footer-crystal" aria-hidden="true">♦</span>
+          </footer>
+        </div>
+      </section>
+
+      <section id="gameScreen" class="screen game-screen" aria-label="Crystal Labyrinth game" hidden>
+        <div id="gameViewport" class="game-viewport pixel-frame" data-game-state="ready">
+          <canvas
+            id="gameCanvas"
+            width="1600"
+            height="900"
+            tabindex="0"
+            role="img"
+            aria-label="Crystal Labyrinth play area. Use WASD or arrow keys to move."
+          >
+            Your browser does not support the canvas element required to play Crystal Labyrinth.
+          </canvas>
+
+          <div class="game-vignette" aria-hidden="true"></div>
+
+          <div id="hud" class="hud" aria-label="Game status">
+            <div class="hud-top-left">
+              <div class="hud-brand pixel-frame" aria-label="Crystal Labyrinth">
+                <span class="mini-crystals" aria-hidden="true">♢</span>
+                <span>Crystal Labyrinth</span>
+                <span class="mini-crystals" aria-hidden="true">♢</span>
+              </div>
+
+              <div class="status-ribbon">
+                <div id="livesDisplay" class="hud-stat lives-stat" aria-label="3 lives">
+                  <span class="hud-label">Lives</span>
+                  <span id="livesHearts" class="lives-hearts" aria-hidden="true">
+                    <span id="heart1" class="heart is-full" data-heart="1">♥</span>
+                    <span id="heart2" class="heart is-full" data-heart="2">♥</span>
+                    <span id="heart3" class="heart is-full" data-heart="3">♥</span>
+                    <span id="storedHalfHeart" class="heart stored-half-heart" hidden>♥</span>
+                  </span>
+                </div>
+
+                <div class="hud-stat shards-stat" aria-label="Crystal shards collected">
+                  <span class="hud-label">Shards</span>
+                  <span class="shard-icon" aria-hidden="true"></span>
+                  <strong><span id="shardCount">0</span>/<span id="shardGoal">10</span></strong>
+                </div>
+
+                <div class="hud-stat compact-stat">
+                  <span class="hud-label">Level</span>
+                  <strong id="levelNumber">1</strong>
+                </div>
+
+                <div class="hud-stat compact-stat difficulty-stat">
+                  <span class="hud-label">Difficulty</span>
+                  <strong id="difficultyLabel" data-difficulty="normal">Normal</strong>
+                </div>
+              </div>
+
+            </div>
+
+            <aside id="controlHint" class="control-hint pixel-frame" aria-live="polite">
+              <kbd id="controlHintKey">Space</kbd>
+              <span id="controlHintText">fire / interact</span>
+            </aside>
+
+            <button id="pauseButton" class="pause-button pixel-frame" type="button" data-action="pause" aria-label="Pause game">
+              <span aria-hidden="true">Ⅱ</span>
+            </button>
+
+            <div id="gameMessage" class="game-message pixel-frame" role="status" aria-live="polite" hidden>
+              <span id="gameMessageIcon" class="message-icon" aria-hidden="true">✦</span>
+              <p id="gameMessageText">The crystals remember every footstep.</p>
+            </div>
+
+            <div id="loadoutBar" class="loadout-bar pixel-frame" aria-label="Laser Focus and item hotbar">
+              <section id="laserFocusSlot" class="laser-focus-slot" aria-label="Equipped Laser Focus: Standard Focus">
+                <span class="focus-slot-label">Laser Focus</span>
+                <span id="laserFocusGlyph" class="laser-focus-glyph" aria-hidden="true">✦</span>
+                <strong id="laserFocusName">Standard</strong>
+                <span class="focus-slot-key" aria-hidden="true">Tab</span>
+                <span id="focusChargeTrack" class="focus-charge-track" aria-hidden="true">
+                  <span id="focusChargeFill"></span>
+                </span>
+              </section>
+              <span class="loadout-divider" aria-hidden="true"></span>
+              <nav id="hotbar" class="hotbar" aria-label="Item hotbar">
+              <button id="hotbarSlot1" class="hotbar-slot is-selected is-empty" type="button" data-slot="1" data-item="" aria-label="Slot 1, empty, selected" aria-pressed="true">
+                <span class="slot-number">1</span>
+                <span class="slot-icon" aria-hidden="true"></span>
+                <span class="slot-count" aria-hidden="true"></span>
+                <span class="slot-tooltip">Empty</span>
+              </button>
+              <button id="hotbarSlot2" class="hotbar-slot is-empty" type="button" data-slot="2" data-item="" aria-label="Slot 2, empty" aria-pressed="false">
+                <span class="slot-number">2</span><span class="slot-icon" aria-hidden="true"></span><span class="slot-count"></span><span class="slot-tooltip">Empty</span>
+              </button>
+              <button id="hotbarSlot3" class="hotbar-slot is-empty" type="button" data-slot="3" data-item="" aria-label="Slot 3, empty" aria-pressed="false">
+                <span class="slot-number">3</span><span class="slot-icon" aria-hidden="true"></span><span class="slot-count"></span><span class="slot-tooltip">Empty</span>
+              </button>
+              <button id="hotbarSlot4" class="hotbar-slot is-empty" type="button" data-slot="4" data-item="" aria-label="Slot 4, empty" aria-pressed="false">
+                <span class="slot-number">4</span><span class="slot-icon" aria-hidden="true"></span><span class="slot-count"></span><span class="slot-tooltip">Empty</span>
+              </button>
+              <button id="hotbarSlot5" class="hotbar-slot is-empty" type="button" data-slot="5" data-item="" aria-label="Slot 5, empty" aria-pressed="false">
+                <span class="slot-number">5</span><span class="slot-icon" aria-hidden="true"></span><span class="slot-count"></span><span class="slot-tooltip">Empty</span>
+              </button>
+              <button id="hotbarSlot6" class="hotbar-slot is-empty" type="button" data-slot="6" data-item="" aria-label="Slot 6, empty" aria-pressed="false">
+                <span class="slot-number">6</span><span class="slot-icon" aria-hidden="true"></span><span class="slot-count"></span><span class="slot-tooltip">Empty</span>
+              </button>
+              </nav>
+              <div id="focusPicker" class="focus-picker" role="listbox" aria-label="Available Laser Focuses" hidden></div>
+            </div>
+          </div>
+
+          <div id="toast" class="toast pixel-frame" role="status" aria-live="polite" aria-atomic="true" hidden>
+            <span class="toast-gem" aria-hidden="true">♦</span>
+            <span id="toastText">Item acquired</span>
+          </div>
+        </div>
+
+        <p class="game-help">
+          <kbd>WASD</kbd> / <kbd>Arrows</kbd> move
+          <span aria-hidden="true">•</span>
+          <kbd>Space</kbd> use
+          <span aria-hidden="true">•</span>
+          <kbd>Tab</kbd> + <kbd>1–6</kbd> focus
+          <span aria-hidden="true">•</span>
+          <kbd>Esc</kbd> pause
+        </p>
+      </section>
+    </main>
+
+    <div id="modalLayer" class="modal-layer" aria-live="polite">
+      <section id="pauseOverlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="pauseTitle" aria-describedby="pauseDescription" hidden>
+        <div class="modal-card pixel-frame" data-modal="pause">
+          <span class="modal-gem cyan-crystal" aria-hidden="true"></span>
+          <p class="modal-eyebrow">The labyrinth waits</p>
+          <h2 id="pauseTitle">Paused</h2>
+          <p id="pauseDescription">Your light is safe until you return.</p>
+          <div class="modal-actions">
+            <button id="resumeButton" class="modal-button primary" type="button" data-action="resume">Resume</button>
+            <button id="restartLevelButton" class="modal-button" type="button" data-action="restart-level">Restart level</button>
+            <button id="pauseMenuButton" class="modal-button quiet" type="button" data-action="return-menu">Main menu</button>
+          </div>
+          <p class="modal-key-hint"><kbd>Esc</kbd> to resume</p>
+        </div>
+      </section>
+
+      <section id="deathOverlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="deathTitle" aria-describedby="deathDescription" hidden>
+        <div class="modal-card pixel-frame" data-modal="death">
+          <span class="death-crystal" aria-hidden="true">
+            <span class="modal-gem danger-gem death-crystal-intact"></span>
+            <span class="death-crystal-piece death-crystal-piece-left">
+              <img src="assets/death-crystal-cracked-v1.png" alt="" draggable="false">
+            </span>
+            <span class="death-crystal-piece death-crystal-piece-right">
+              <img src="assets/death-crystal-cracked-v1.png" alt="" draggable="false">
+            </span>
+          </span>
+          <p class="modal-eyebrow">Run ended</p>
+          <h2 id="deathTitle">The Light Fades</h2>
+          <p id="deathDescription">The labyrinth has claimed this attempt, but the path remains.</p>
+          <dl class="modal-stats">
+            <div><dt>Shards</dt><dd id="deathShardCount">0</dd></div>
+            <div><dt>Level</dt><dd id="deathLevelNumber">1</dd></div>
+          </dl>
+          <div class="modal-actions">
+            <button id="retryButton" class="modal-button primary" type="button" data-action="retry">Try again</button>
+            <button id="deathMenuButton" class="modal-button quiet" type="button" data-action="return-menu">Main menu</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="focusSwapOverlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="focusSwapTitle" aria-describedby="focusSwapDescription" hidden>
+        <div class="modal-card pixel-frame" data-modal="focus-swap">
+          <span class="modal-gem focus-swap-gem" aria-hidden="true">⬢</span>
+          <p class="modal-eyebrow">Focus Chamber discovered</p>
+          <h2 id="focusSwapTitle">Replace Laser Focus?</h2>
+          <p id="focusSwapDescription">A new crystal frequency waits on the altar.</p>
+          <div class="focus-swap-readout">
+            <span>Discovered</span>
+            <strong id="focusSwapName">Heavy Focus</strong>
+          </div>
+          <div class="modal-actions">
+            <button id="equipFocusButton" class="modal-button primary" type="button">Equip new focus</button>
+            <button id="keepFocusButton" class="modal-button quiet" type="button">Keep current focus</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="levelCompleteOverlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="levelCompleteTitle" aria-describedby="levelCompleteDescription" hidden>
+        <div class="modal-card celebration-card pixel-frame" data-modal="level-complete">
+          <span class="victory-crystal" aria-hidden="true">
+            <span class="victory-aura"></span>
+            <span class="modal-gem victory-gem"></span>
+          </span>
+          <p class="modal-eyebrow">Passage unlocked</p>
+          <h2 id="levelCompleteTitle">Labyrinth Cleared</h2>
+          <p id="levelCompleteDescription">The sealed crystal gate answers your light.</p>
+          <dl class="modal-stats">
+            <div><dt>Shards</dt><dd><span id="completeShardCount">0</span>/<span id="completeShardGoal">10</span></dd></div>
+            <div><dt>Time</dt><dd id="completeTime">00:00</dd></div>
+          </dl>
+          <div class="modal-actions">
+            <button id="nextLevelButton" class="modal-button primary" type="button" data-action="next-level">Next level</button>
+            <button id="replayLevelButton" class="modal-button" type="button" data-action="replay-level">Replay</button>
+            <button id="completeMenuButton" class="modal-button quiet" type="button" data-action="return-menu">Level select</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="winOverlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="winTitle" aria-describedby="winDescription" hidden>
+        <div class="modal-card celebration-card pixel-frame" data-modal="win">
+          <span class="victory-crystal large" aria-hidden="true">
+            <span class="victory-aura"></span>
+            <span class="modal-gem victory-gem large"></span>
+          </span>
+          <p class="modal-eyebrow">The final seal is broken</p>
+          <h2 id="winTitle">The Heart Rekindled</h2>
+          <p id="winDescription">Every chamber glows again. You conquered the Crystal Labyrinth.</p>
+          <dl class="modal-stats">
+            <div><dt>Total shards</dt><dd id="winShardCount">0</dd></div>
+            <div><dt>Total time</dt><dd id="winTime">00:00</dd></div>
+          </dl>
+          <div class="modal-actions">
+            <button id="newRunButton" class="modal-button primary" type="button" data-action="new-run">Play again</button>
+            <button id="winMenuButton" class="modal-button quiet" type="button" data-action="return-menu">Main menu</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="exitOverlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="exitTitle" aria-describedby="exitDescription" hidden>
+        <div class="modal-card compact-modal pixel-frame" data-modal="exit">
+          <span class="modal-gem violet-crystal" aria-hidden="true"></span>
+          <p class="modal-eyebrow">Leave the cavern?</p>
+          <h2 id="exitTitle">Exit Crystal Labyrinth</h2>
+          <p id="exitDescription">Your unlocked levels are saved in this browser.</p>
+          <div class="modal-actions horizontal-actions">
+            <button id="cancelExitButton" class="modal-button primary" type="button" data-action="cancel-exit">Stay</button>
+            <button id="confirmExitButton" class="modal-button danger" type="button" data-action="confirm-exit">Exit</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <noscript>
+      <div class="noscript-message">Crystal Labyrinth needs JavaScript enabled to enter the cavern.</div>
+    </noscript>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

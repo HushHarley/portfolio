@@ -1,7 +1,7 @@
 // =====================================================
 // PERSONAL PORTFOLIO CONTENT
 // Edit this section to update the website.
-// Personal content is preserved from the original. Projects marked isConcept are sample concepts.
+// Personal content is preserved from the original. Set isConcept to true to label a project as a sample concept.
 // Use { en: "...", frCA: "..." } for content that needs translation.
 // =====================================================
 
@@ -155,115 +155,142 @@ const portfolioContent = {
         { id: "all", label: { en: "All", frCA: "Tous" } },
         { id: "html-css", label: { en: "HTML / CSS", frCA: "HTML / CSS" } },
         { id: "javascript", label: { en: "JavaScript", frCA: "JavaScript" } },
-        { id: "react", label: { en: "React", frCA: "React" } },
-        { id: "other", label: { en: "Other", frCA: "Autres" } }
+        { id: "api", label: { en: "APIs", frCA: "API" } },
+        { id: "ai", label: { en: "AI-assisted", frCA: "Assisté par IA" } }
     ],
 
-    // Existing sample concepts. Set isConcept to false for a real published project.
-    // Replace image paths with your own local images when ready.
+    // Each demo is a copy of the project stored in the projects/ folder,
+    // so it is published on GitHub Pages together with the portfolio.
+    // Images are 1200 × 675 screenshots stored in assets/images/.
     projects: [
         {
-            id: "calm-commerce",
-            isConcept: true,
+            id: "afterdark-arcade",
+            isConcept: false,
             title: {
-                en: "Calm Commerce",
-                frCA: "Commerce calme"
+                en: "Afterdark Arcade",
+                frCA: "Afterdark Arcade"
             },
             summary: {
-                en: "A refined storefront concept focused on clear browsing and a frictionless checkout flow.",
-                frCA: "Un concept de boutique épuré axé sur une navigation claire et un processus de paiement fluide."
+                en: "A casino-style arcade with Blackjack, Three Card Poker and a Rocket crash game, all played with fictional credits.",
+                frCA: "Une arcade de style casino avec le blackjack, le poker à trois cartes et un jeu de fusée, le tout avec des crédits fictifs."
             },
             description: {
-                en: "An interface concept for a calm shopping experience, from browsing products to checkout. The preview explores clear product hierarchy, generous spacing and a restrained blue palette. This is a sample concept, not a published store.",
-                frCA: "Un concept d’interface pour une expérience d’achat sereine, de la découverte des produits au paiement. L’aperçu explore une hiérarchie claire des produits, des espaces généreux et une palette de bleus discrète. Il s’agit d’un exemple de concept, pas d’une boutique en ligne."
+                en: "A casino-style arcade I vibe-coded with AI tools in my AI course. It has three games that share one play balance: Blackjack, which pays 3 to 2; Three Card Poker, where the dealer needs a queen-high hand to qualify; and Rocket Run, a crash game where you cash out before the rocket flies away. Each table includes its own rules panel, and the balance can be reset at any time. It is a play-money simulation: the credits have no real-world value.",
+                frCA: "Une arcade de style casino que j’ai créée par « vibe coding » avec des outils d’IA dans mon cours d’IA. Elle propose trois jeux qui partagent un même solde : le blackjack, qui paie 3 pour 2; le poker à trois cartes, où le croupier doit avoir au moins une dame haute pour se qualifier; et Rocket Run, un jeu où il faut encaisser ses gains avant que la fusée s’envole. Chaque table a son propre panneau de règles, et le solde peut être réinitialisé en tout temps. Il s’agit d’une simulation avec de l’argent fictif : les crédits n’ont aucune valeur réelle."
             },
-            technologies: ["HTML", "CSS", "JavaScript"],
-            categories: ["html-css", "javascript"],
-            categoryLabel: { en: "Web experience", frCA: "Expérience Web" },
-            github: "https://github.com/your-username/calm-commerce",
-            demo: "https://example.com",
-            image: "assets/images/project-commerce.svg",
+            technologies: ["JavaScript", "HTML", "CSS"],
+            categories: ["javascript", "ai"],
+            categoryLabel: { en: "Casino-style games", frCA: "Jeux de type casino" },
+            github: "https://github.com/HushHarley/IA01/tree/main/small%20AI%20tests/test%202%20AFTERDARK%20ARCADE",
+            demo: "projects/afterdark-arcade/index.html",
+            image: "assets/images/project-afterdark-arcade.webp",
             alt: {
-                en: "Abstract placeholder preview for the Calm Commerce project",
-                frCA: "Aperçu fictif abstrait du projet Commerce calme"
+                en: "Afterdark Arcade blackjack table with face-down cards and a 1,000-credit play balance",
+                frCA: "Table de blackjack d’Afterdark Arcade avec des cartes face cachée et un solde fictif de 1 000 crédits"
             }
         },
         {
-            id: "secure-notes",
-            isConcept: true,
+            id: "crystal-labyrinth",
+            isConcept: false,
             title: {
-                en: "Secure Notes",
-                frCA: "Notes sécurisées"
+                en: "Crystal Labyrinth",
+                frCA: "Crystal Labyrinth"
             },
             summary: {
-                en: "A privacy-minded notes interface with a simple workflow and thoughtful security cues.",
-                frCA: "Une interface de prise de notes axée sur la confidentialité, avec un parcours simple et des repères de sécurité bien pensés."
+                en: "A top-down crystal-cave adventure: collect shards, avoid enemies and charge the exit before you get caught.",
+                frCA: "Une aventure en vue de dessus dans une caverne de cristal : récoltez des éclats, évitez les ennemis et activez la sortie avant de vous faire attraper."
             },
             description: {
-                en: "A notes interface concept centered on a simple workflow and clear privacy cues. The preview pairs a compact navigation panel with a focused writing area. It illustrates an interface direction, not a deployed or security-audited product.",
-                frCA: "Un concept d’interface de prise de notes axé sur un parcours simple et des repères de confidentialité clairs. L’aperçu combine un panneau de navigation compact et un espace consacré à la rédaction. Il illustre une orientation pour l’interface, pas un produit déployé ou ayant fait l’objet d’un audit de sécurité."
+                en: "A browser game built with vanilla JavaScript and HTML5 Canvas, with no libraries. Every run generates a new cave network with loops, shortcuts and hidden Focus Chambers. Enemies use line-of-sight AI to wander, chase and search for you, and they coordinate flanking attacks in packs. Shards are your objective, your laser ammunition and your light. Collect 10, then return to the exit to escape. Includes four difficulty levels, three unlockable levels, synthesized sound effects and a reduced-motion option. Built in my AI course as an experiment in AI-assisted development. Best played on a computer: move with WASD or the arrow keys, fire or interact with Space, and pause with Esc.",
+                frCA: "Un jeu Web conçu en JavaScript pur et en HTML5 Canvas, sans aucune bibliothèque. Chaque partie génère un nouveau réseau de cavernes avec des boucles, des raccourcis et des chambres secrètes. Les ennemis utilisent une IA basée sur la ligne de vue pour errer, poursuivre et chercher le joueur, et ils se coordonnent en meute pour le prendre à revers. Les éclats servent à la fois d’objectif, de munitions pour le laser et de source de lumière. Récoltez-en 10, puis retournez à la sortie pour vous échapper. Le jeu comprend quatre niveaux de difficulté, trois niveaux à débloquer, des effets sonores synthétisés et une option pour réduire les animations. Réalisé dans mon cours d’IA comme expérience de développement assisté par IA. Idéal sur ordinateur : déplacez-vous avec WASD ou les flèches, tirez ou interagissez avec Espace et mettez le jeu en pause avec Échap."
             },
-            technologies: ["JavaScript", "Web Crypto API", "CSS"],
-            categories: ["javascript", "other"],
-            categoryLabel: { en: "Security concept", frCA: "Concept de sécurité" },
-            github: "https://github.com/your-username/secure-notes",
-            demo: "",
-            image: "assets/images/project-security.svg",
+            technologies: ["JavaScript", "HTML5 Canvas", "Web Audio API", "CSS"],
+            categories: ["javascript", "ai"],
+            categoryLabel: { en: "Browser game", frCA: "Jeu Web" },
+            github: "https://github.com/HushHarley/IA01/tree/main/small%20AI%20tests/test%203",
+            demo: "projects/crystal-labyrinth/index.html",
+            image: "assets/images/project-crystal-labyrinth.webp",
             alt: {
-                en: "Abstract placeholder preview for the Secure Notes project",
-                frCA: "Aperçu fictif abstrait du projet Notes sécurisées"
+                en: "Crystal Labyrinth main menu with difficulty and level selection over a glowing crystal cavern",
+                frCA: "Menu principal de Crystal Labyrinth avec le choix de la difficulté et du niveau devant une caverne de cristaux lumineux"
             }
         },
         {
-            id: "signal-dashboard",
-            isConcept: true,
+            id: "random-joke",
+            isConcept: false,
             title: {
-                en: "Signal Dashboard",
-                frCA: "Tableau Signal"
+                en: "Random Joke Generator",
+                frCA: "Générateur de blagues"
             },
             summary: {
-                en: "A responsive data dashboard that turns dense information into a calm, readable interface.",
-                frCA: "Un tableau de bord adaptatif qui présente des informations denses dans une interface épurée et lisible."
+                en: "Press HAHA, get a joke: a small page that fetches random jokes from a public API.",
+                frCA: "Appuyez sur HAHA pour une blague : une petite page qui récupère des blagues au hasard à partir d’une API publique."
             },
             description: {
-                en: "A dashboard concept exploring how dense information can become a calm, readable interface. Summary panels and a prominent chart establish a clear reading order. The illustration uses sample data and is not connected to a live analytics service.",
-                frCA: "Un concept de tableau de bord explorant comment présenter des informations denses dans une interface épurée et lisible. Des panneaux de synthèse et un graphique bien en vue établissent un ordre de lecture clair. L’illustration utilise des données fictives et n’est pas reliée à un service d’analyse en temps réel."
+                en: "A small project for practising asynchronous JavaScript. Each press of the HAHA button sends a request to JokeAPI with fetch and async/await, with filters that exclude offensive content. The page handles both one-line and two-part jokes, showing the setup and the punchline on separate cards. An independent project from my DEVWEB01 web development course.",
+                frCA: "Un petit projet pour pratiquer le JavaScript asynchrone. Chaque clic sur le bouton HAHA envoie une requête à JokeAPI avec fetch et async/await, avec des filtres qui excluent le contenu offensant. La page prend en charge les blagues sur une ligne et les blagues en deux parties, en affichant la question et la chute sur des cartes distinctes. Projet autonome réalisé dans mon cours de développement Web DEVWEB01."
             },
-            technologies: ["React", "JavaScript", "API"],
-            categories: ["react", "javascript"],
-            categoryLabel: { en: "Dashboard", frCA: "Tableau de bord" },
-            github: "https://github.com/your-username/signal-dashboard",
-            demo: "https://example.com",
-            image: "assets/images/project-dashboard.svg",
+            technologies: ["JavaScript", "Fetch API", "JokeAPI", "HTML", "CSS"],
+            categories: ["javascript", "api"],
+            categoryLabel: { en: "API project", frCA: "Projet API" },
+            github: "https://github.com/HushHarley/Projets-Autonomes-DEVWEB01/tree/main/random%20joke%20api%20website%20(~P3)",
+            demo: "projects/random-joke/index.html",
+            image: "assets/images/project-random-joke.webp",
             alt: {
-                en: "Abstract placeholder preview for the Signal Dashboard project",
-                frCA: "Aperçu fictif abstrait du projet Tableau Signal"
+                en: "Random joke page with a laughing emoji, the HAHA button and a two-part joke",
+                frCA: "Page de blagues avec un émoji qui rit, le bouton HAHA et une blague en deux parties"
             }
         },
         {
-            id: "ai-study-guide",
-            isConcept: true,
+            id: "harryhub",
+            isConcept: false,
             title: {
-                en: "AI Study Guide",
-                frCA: "Guide d’étude IA"
+                en: "HarryHub",
+                frCA: "HarryHub"
             },
             summary: {
-                en: "An AI-assisted study concept built around useful prompts, clear sources, and learner control.",
-                frCA: "Un concept d’étude assistée par IA axé sur des requêtes utiles, des sources claires et le contrôle de l’apprenant."
+                en: "A French-language Harry Potter fan site, with characters and books loaded from a public API.",
+                frCA: "Un site de fans de Harry Potter en français, avec des personnages et des livres chargés à partir d’une API publique."
             },
             description: {
-                en: "An AI-assisted study interface concept built around useful prompts, clear sources and learner control. The preview explores a focused space for questions and learning material. It is a sample interface, not a connected AI service.",
-                frCA: "Un concept d’interface d’étude assistée par IA, axé sur des requêtes utiles, des sources claires et le contrôle de l’apprenant. L’aperçu explore un espace consacré aux questions et au contenu pédagogique. C’est une interface d’exemple, pas un service d’IA connecté."
+                en: "A multi-page fan site about the world of Harry Potter, written in French. The Characters and Books pages fetch their data from a public Harry Potter API and build each card with JavaScript. The site also has a collapsible menu, a Hogwarts Legacy soundtrack playing in the background with a mute button, and a newsletter form with client-side validation. An independent project from my DEVWEB01 web development course.",
+                frCA: "Un site de fans de plusieurs pages sur l’univers de Harry Potter. Les pages Personnages et Livres récupèrent leurs données à partir d’une API publique sur Harry Potter et génèrent chaque carte en JavaScript. Le site comprend aussi un menu repliable, la trame sonore de Hogwarts Legacy en arrière-plan avec un bouton pour couper le son, ainsi qu’un formulaire d’abonnement validé côté client. Projet autonome réalisé dans mon cours de développement Web DEVWEB01."
             },
-            technologies: ["JavaScript", { en: "AI API", frCA: "API d’IA" }, "HTML", "CSS"],
-            categories: ["javascript", "html-css", "other"],
-            categoryLabel: { en: "AI experiment", frCA: "Expérience en IA" },
-            github: "https://github.com/your-username/ai-study-guide",
-            demo: "",
-            image: "assets/images/project-ai.svg",
+            technologies: ["JavaScript", { en: "REST API", frCA: "API REST" }, "HTML", "CSS"],
+            categories: ["html-css", "javascript", "api"],
+            categoryLabel: { en: "Fan site", frCA: "Site de fans" },
+            github: "https://github.com/HushHarley/Projets-Autonomes-DEVWEB01/tree/main/HarryHub",
+            demo: "projects/harryhub/index.html",
+            image: "assets/images/project-harryhub.webp",
             alt: {
-                en: "Abstract placeholder preview for the AI Study Guide project",
-                frCA: "Aperçu fictif abstrait du projet Guide d’étude IA"
+                en: "HarryHub home page showing Hogwarts castle above a misty valley",
+                frCA: "Page d’accueil de HarryHub montrant le château de Poudlard au-dessus d’une vallée brumeuse"
+            }
+        },
+        {
+            id: "atelier-boreal",
+            isConcept: false,
+            title: {
+                en: "Atelier Boréal Médias",
+                frCA: "Atelier Boréal Médias"
+            },
+            summary: {
+                en: "A showcase website for a fictional Montréal digital studio, built from a wireframe and a content brief.",
+                frCA: "Un site vitrine pour un studio numérique montréalais fictif, réalisé à partir d’une maquette et d’un contenu fournis."
+            },
+            description: {
+                en: "My final project for the DEVWEB01 course at CyberCap. Starting from a supplied wireframe and content brief, I built a French-language showcase site for a fictional digital studio. It includes a hero banner, three service cards laid out with CSS Grid, an About section built with Flexbox, a two-by-two team grid and a separate contact page with a form.",
+                frCA: "Mon projet synthèse du cours DEVWEB01 à CyberCap. À partir d’une maquette et d’un contenu fournis, j’ai réalisé le site vitrine d’un studio numérique fictif. Il comprend une bannière d’accueil, trois cartes de services disposées avec CSS Grid, une section À propos en Flexbox, une grille d’équipe de deux par deux et une page de contact distincte avec un formulaire."
+            },
+            technologies: ["HTML", "CSS Grid", "Flexbox"],
+            categories: ["html-css"],
+            categoryLabel: { en: "Showcase website", frCA: "Site vitrine" },
+            github: "https://github.com/HushHarley/portfolio/tree/main/projects/atelier-boreal",
+            demo: "projects/atelier-boreal/index.html",
+            image: "assets/images/project-atelier-boreal.webp",
+            alt: {
+                en: "Atelier Boréal Médias home page with a forest landscape banner and the heading Créer. Produire. Connecter.",
+                frCA: "Page d’accueil d’Atelier Boréal Médias avec une bannière de paysage forestier et le titre Créer. Produire. Connecter."
             }
         }
     ]
@@ -317,12 +344,12 @@ const translations = {
             email: "Email me"
         },
         projects: {
-            intro: "A collection of interface concepts. Explore the ideas, tools and details behind each one.",
+            intro: "Things I’ve built, from hand-coded websites to AI-assisted games. Open a project to read about it or try the live demo.",
             concept: "Concept preview",
             filterLabel: "Filter projects",
             openLabel: "Open project details for",
             github: "View GitHub",
-            demo: "View live demo",
+            demo: "Try the demo",
             close: "Close project details",
             results: "projects shown",
             chooseFilter: "Tap a filter to explore projects.",
@@ -380,12 +407,12 @@ const translations = {
             email: "M’écrire"
         },
         projects: {
-            intro: "Une collection de concepts d’interfaces. Découvrez les idées, les outils et les détails de chaque concept.",
+            intro: "Des projets que j’ai réalisés, des sites codés à la main aux jeux créés avec l’aide de l’IA. Ouvrez un projet pour en savoir plus ou essayer la démo.",
             concept: "Aperçu de concept",
             filterLabel: "Filtrer les projets",
             openLabel: "Ouvrir les détails du projet",
             github: "Voir sur GitHub",
-            demo: "Voir la démo",
+            demo: "Essayer la démo",
             close: "Fermer les détails du projet",
             results: "projets affichés",
             chooseFilter: "Touchez un filtre pour découvrir les projets.",
@@ -464,11 +491,11 @@ function createElement(tagName, className, text) {
     return element;
 }
 
-function createExternalLink(label, url, className = "button") {
+function createExternalLink(label, url, className = "button", newTab = /^https?:/.test(url)) {
     const link = createElement("a", className, label);
     link.href = url;
 
-    if (/^https?:/.test(url)) {
+    if (newTab) {
         link.target = "_blank";
         link.rel = "noopener noreferrer";
     }
@@ -659,7 +686,8 @@ function buildDialogContent(project) {
         actions.append(createExternalLink(translate("projects.github") + " ↗", project.github));
     }
     if (project.demo && !project.demo.includes('example.com')) {
-        actions.append(createExternalLink(translate("projects.demo") + " ↗", project.demo, "button button-secondary"));
+        // Demos open in a new tab so visitors keep their place in the portfolio.
+        actions.append(createExternalLink(translate("projects.demo") + " ↗", project.demo, "button button-secondary", true));
     }
 
     body.append(category, title, description, technologies, actions);
