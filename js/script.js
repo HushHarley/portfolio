@@ -303,8 +303,7 @@ const translations = {
             topline: "Learning. Building. Evolving.",
             connect: "Let’s connect",
             scroll: "A little about me",
-            scrollHint: "SCROLL TO EXPLORE ↓",
-            orbitCaption: "IDEA → CODE → EXPERIENCE"
+            scrollHint: "SCROLL TO EXPLORE ↓"
         },
         sections: {
             about: "About me",
@@ -367,8 +366,7 @@ const translations = {
             topline: "Apprendre. Créer. Évoluer.",
             connect: "Échangeons",
             scroll: "Un peu plus sur moi",
-            scrollHint: "FAITES DÉFILER POUR DÉCOUVRIR ↓",
-            orbitCaption: "IDÉE → CODE → EXPÉRIENCE"
+            scrollHint: "FAITES DÉFILER POUR DÉCOUVRIR ↓"
         },
         sections: {
             about: "À propos de moi",

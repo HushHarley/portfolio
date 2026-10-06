@@ -123,10 +123,10 @@ main, .site-footer { margin-left: var(--sidebar-width); }
 .motion-ready .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
 .motion-ready .reveal.visible { opacity: 1; transform: none; }
 
-/* Hero: expressive type with a quiet diagram, not a giant decorative glow. */
+/* Hero: expressive type, not a giant decorative glow. */
 .hero {
     min-height: min(900px, 100svh); position: relative; display: grid;
-    grid-template-columns: minmax(0, 1fr) 260px; align-items: center; gap: 28px;
+    grid-template-columns: minmax(0, 1fr); align-items: center; gap: 28px;
     padding-block: 130px 120px;
 }
 .hero-topline, .hero-bottomline {
@@ -151,13 +151,6 @@ main, .site-footer { margin-left: var(--sidebar-width); }
 .button-secondary { background: var(--surface); color: var(--text); border-color: var(--border-strong); }
 .text-link { color: var(--text-soft); }
 .text-link:hover { color: var(--accent); }
-.hero-orbit { position: relative; width: 260px; aspect-ratio: 1; justify-self: center; }
-.orbit { position: absolute; inset: 0; border: 1px solid var(--border-strong); border-radius: 50%; }
-.orbit-one { transform: rotate(-32deg) scaleY(.6); }
-.orbit-two { transform: rotate(56deg) scaleY(.6); border-color: color-mix(in srgb, var(--accent) 40%, transparent); }
-.orbit::after { content: ""; position: absolute; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); top: 50%; left: -3px; }
-.orbit-core { position: absolute; inset: 36%; border: 1px solid var(--border-strong); border-radius: 20px; display: grid; place-items: center; color: var(--accent); font-size: 24px; background: var(--bg); }
-.orbit-caption { position: absolute; top: calc(100% + 20px); width: 100%; text-align: center; color: var(--text-faint); font: 9px monospace; letter-spacing: .1em; }
 
 /* About, education and experience share a strong left edge. */
 .about-copy { max-width: 740px; margin-left: 35px; }
@@ -234,8 +227,6 @@ html.dialog-open, body.dialog-open { overflow: hidden; }
 @media (max-width: 1100px) {
     :root { --sidebar-width: 164px; --gutter: 36px; }
     .desktop-sidebar { padding-inline: 16px; }
-    .hero { grid-template-columns: minmax(0, 1fr) 180px; }
-    .hero-orbit { width: 180px; }
     .hero h1 { font-size: 100px; }
     .projects-heading { flex-direction: column; align-items: start; gap: 22px; }
 }
@@ -259,7 +250,6 @@ html.dialog-open, body.dialog-open { overflow: hidden; }
     .hero-topline { top: 110px; } .hero-topline span:last-child { display: none; }
     .hero h1 { font-size: clamp(76px, 20vw, 120px); }
     .hero-statement { font-size: clamp(27px, 6vw, 40px); }
-    .hero-orbit { display: none; }
     .hero-bottomline { bottom: 30px; }
     .hero-bottomline span:last-child { font-size: 8px; }
     .content-section { scroll-margin-top: 0; }
