@@ -261,16 +261,26 @@ html.dialog-open, body.dialog-open { overflow: hidden; }
     .project-dialog { max-height: calc(100dvh - 24px); width: calc(100% - 24px); }
     .dialog-visual { aspect-ratio: 16/9; }
     .site-footer { scroll-margin-top: 0; }
+
+    /* Phones read better centred; project cards keep their own internal alignment. */
+    .section, .site-footer { text-align: center; }
+    .hero-topline { justify-content: center; }
+    .hero-bottomline { flex-direction: column; align-items: center; gap: 8px; }
+    .hero-statement, .hero-subtitle, .about-copy, .section-intro, .site-footer h2 { margin-inline: auto; }
+    .hero-actions, .button-row, .section-heading, .skill-tags, .filter-list, .social-links { justify-content: center; }
+    .projects-heading { align-items: center; }
+    .responsibilities { padding-left: 0; list-style-position: inside; }
+    .responsibilities li { padding-left: 0; }
+    .footer-bottom { flex-direction: column; align-items: center; gap: 12px; }
 }
 @media (max-width: 540px) {
     .projects-grid { grid-template-columns: 1fr; }
     .hero-actions { gap: 18px; }
-    .footer-bottom { flex-direction: column; gap: 12px; margin-top: 60px; }
+    .footer-bottom { margin-top: 60px; }
 }
 @media (max-width: 360px) {
     :root { --gutter: 18px; }
     .mobile-controls { gap: 5px; }
-    .hero-bottomline { flex-direction: column; gap: 8px; }
     .hero-statement { font-size: 27px; }
     .hero-actions { gap: 14px; }
     .button { padding-inline: 15px; gap: 10px; }
