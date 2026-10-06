@@ -24,7 +24,7 @@ const portfolioContent = {
         }
     ],
 
-    cvUrl: "assets/Harley-Rankin-CV.docx",
+    cvUrl: "assets/CvScreenCAP.png",
 
     // Contact details from the original portfolio.
     email: "hrank63@gmail.com",
@@ -45,7 +45,7 @@ const portfolioContent = {
                 en: "Practical training in web development, cybersecurity and AI",
                 frCA: "Formation pratique en développement Web, cybersécurité et IA"
             },
-            dates: "2024 — 2027",
+            dates: { en: "Apr 2026 — Oct 2026", frCA: "Avr. 2026 — Oct. 2026" },
             description: {
                 en: "Front-end websites and interactive interfaces. Installation and configuration of Linux servers and Proxmox virtual environments. Network configuration with IP, DNS and NAT.",
                 frCA: "Conception front-end de sites Web et intégration d’interfaces interactives. Installation et configuration de serveurs sous Linux ainsi que d’environnements virtualisés (Proxmox). Configuration de réseaux (IP, DNS, NAT)."
@@ -79,7 +79,7 @@ const portfolioContent = {
                 en: "McDonalds, Montréal, QC",
                 frCA: "McDonalds, Montréal, QC"
             },
-            dates: { en: "Sept 2026 — Oct 2026", frCA: "Sept. 2026 — Oct. 2026" },
+            dates: { en: "Oct 2025 — Nov 2025", frCA: "Oct. 2025 — Nov. 2025" },
             description: {
                 en: "Customer service, teamwork and prioritization in a fast-paced environment.",
                 frCA: "Service à la clientèle, travail d’équipe et gestion des priorités dans un environnement dynamique."
@@ -344,7 +344,7 @@ const translations = {
             email: "Email me"
         },
         projects: {
-            intro: "Things I’ve built, from hand-coded websites to AI-assisted games. Open a project to read about it or try the live demo.",
+            intro: "Things I’ve built, from hand-coded websites to AI-assisted games. Click the project and its demo button to have a go.",
             concept: "Concept preview",
             filterLabel: "Filter projects",
             openLabel: "Open project details for",
@@ -356,7 +356,7 @@ const translations = {
             collapseHint: "Tap the selected filter again to hide them."
         },
         contact: {
-            title: "Let’s build something thoughtful.",
+            title: "Let’s build something awesome!",
             body: "Do you need a website or want to work together? Get in touch.",
             backToTop: "Back to top ↑"
         },
@@ -407,7 +407,7 @@ const translations = {
             email: "M’écrire"
         },
         projects: {
-            intro: "Des projets que j’ai réalisés, des sites codés à la main aux jeux créés avec l’aide de l’IA. Ouvrez un projet pour en savoir plus ou essayer la démo.",
+            intro: "Des projets que j’ai réalisés, des sites codés à la main aux jeux créés avec l’aide de l’IA. Cliquez sur un projet, puis sur son bouton de démo pour l’essayer.",
             concept: "Aperçu de concept",
             filterLabel: "Filtrer les projets",
             openLabel: "Ouvrir les détails du projet",
@@ -419,7 +419,7 @@ const translations = {
             collapseHint: "Touchez à nouveau le filtre sélectionné pour les masquer."
         },
         contact: {
-            title: "Créons quelque chose de réfléchi.",
+            title: "Créons quelque chose de génial!",
             body: "Besoin d’un site Web ou envie de collaborer? Écrivez-moi.",
             backToTop: "Retour en haut ↑"
         },
@@ -513,7 +513,7 @@ function renderAbout() {
 
     const buttonRow = createElement("div", "button-row");
     buttonRow.append(
-        createExternalLink(translate("about.cv") + " ↗", portfolioContent.cvUrl),
+        createExternalLink(translate("about.cv") + " ↗", portfolioContent.cvUrl, "button", true),
         createExternalLink(translate("about.email") + " ↗", `mailto:${portfolioContent.email}`, "button button-secondary")
     );
     container.append(buttonRow);
