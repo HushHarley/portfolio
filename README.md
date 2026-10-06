@@ -1,5 +1,5 @@
 # Harley Rankin
-### +1 (438) 871 5334 - hrank63@gmail.com
+### hrank63@gmail.com
 
 **Competences**
 
