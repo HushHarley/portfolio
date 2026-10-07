@@ -735,9 +735,8 @@ function applyTranslations() {
     document.querySelector("#hero-name").textContent = portfolioContent.name;
     document.querySelector(".hero-subtitle").textContent = localize(portfolioContent.subtitle);
     document.querySelector("#footer-name").textContent = portfolioContent.name;
-    document.querySelectorAll(".language-select").forEach((select) => {
-        select.value = currentLanguage;
-        select.setAttribute("aria-label", translate("languageLabel"));
+    document.querySelectorAll(".language-option").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.language === currentLanguage));
     });
 
     renderAbout();
@@ -889,8 +888,8 @@ function initializeCursorGlow() {
 }
 
 function initializeEvents() {
-    document.querySelectorAll(".language-select").forEach((select) => {
-        select.addEventListener("change", (event) => setLanguage(event.target.value));
+    document.querySelectorAll(".language-option").forEach((button) => {
+        button.addEventListener("click", () => setLanguage(button.dataset.language));
     });
 
     document.querySelectorAll(".theme-toggle").forEach((button) => {

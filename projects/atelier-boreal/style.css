@@ -273,7 +273,7 @@ body {
 
   .headerliens {
     margin-top: 15px;
-    width: 220;
+    width: auto;
     display: flex;
   }
 
@@ -283,12 +283,13 @@ body {
 
   .headerliens ul {
     display: flex;
-    justify-content: left;
-    width: 210px;
-    margin: 0%;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: auto;
+    margin: 0px 12px 0px 0px;
     padding: 0px;
-    gap: 8px;
-    font-size: smaller;
+    gap: 4px 10px;
+    font-size: small;
   }
 
   .grille-services {
@@ -332,9 +333,26 @@ body {
     width: auto;
   }
 
+  .apropos-contenu {
+    flex-flow: column nowrap;
+    gap: 0;
+  }
+
   .apropos-image img {
-    margin: 10;
+    margin: 0px 0px 20px 0px;
     max-width: 70%;
+  }
+
+  .formulaire-contact {
+    width: 90%;
+    height: auto;
+    padding: 16px 0px;
+    gap: 6px;
+  }
+
+  .formulaire-contact #message {
+    height: 120px;
+    width: 80%;
   }
 
   .grille-equipe {

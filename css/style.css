@@ -81,7 +81,7 @@ html.cursor-glow-active .ambient-background::after { opacity: 1; }
 /* One centered navigation group. Controls occupy the bottom row independently. */
 .desktop-sidebar {
     position: fixed; z-index: 100; inset: 0 auto 0 0; width: var(--sidebar-width);
-    padding: 24px; display: grid; grid-template-rows: minmax(0, 1fr) auto minmax(0, 1fr);
+    padding: 24px; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto minmax(0, 1fr);
     border-right: 1px solid var(--border); background: var(--bg);
 }
 .desktop-nav { grid-row: 2; display: grid; gap: 5px; }
@@ -100,11 +100,17 @@ html.cursor-glow-active .ambient-background::after { opacity: 1; }
 .sidebar-logo { margin: 0 0 18px 12px; }
 .sidebar-logo.active { border-color: var(--accent); color: var(--accent); }
 .sidebar-controls { grid-row: 3; align-self: end; display: flex; gap: 8px; padding-left: 12px; }
-.language-select, .theme-toggle, .menu-toggle {
-    min-height: 44px; border: 1px solid var(--border); border-radius: 9px;
+.language-switch, .theme-toggle, .menu-toggle {
+    flex-shrink: 0; min-height: 44px; border: 1px solid var(--border); border-radius: 9px;
     background: var(--surface); font-size: 12px;
 }
-.language-select { width: 59px; padding: 0 8px; }
+.language-switch { display: flex; gap: 2px; padding: 3px; }
+.language-option { width: 28px; display: grid; place-items: center; padding: 0; border: 0; border-radius: 6px; background: transparent; }
+.language-option img { box-shadow: 0 0 0 1px var(--border-strong); opacity: .45; filter: grayscale(.6); transition: opacity .2s var(--ease), filter .2s var(--ease); }
+.language-option:hover img { opacity: .8; filter: none; }
+.language-option[aria-pressed="true"] { background: var(--accent-soft); box-shadow: inset 0 0 0 1px var(--border-strong); }
+.language-option[aria-pressed="true"] img { opacity: 1; filter: none; }
+.language-option:focus-visible { outline-offset: 1px; }
 .theme-toggle, .menu-toggle { width: 44px; display: grid; place-items: center; padding: 0; }
 .theme-icon { font-size: 21px; }
 .mobile-header { display: none; }
@@ -185,6 +191,11 @@ main, .site-footer { margin-left: var(--sidebar-width); }
 .filter-button { min-height: 44px; padding: 8px 15px; border: 1px solid transparent; border-radius: 7px; background: transparent; color: var(--text-soft); font-size: 12px; }
 .filter-button:hover { color: var(--text); background: var(--surface); }
 .filter-button.active { color: var(--accent); border-color: var(--border-strong); background: var(--accent-soft); }
+/* Phones and touch screens can't rely on hover, so every filter gets a visible border to read as a button. */
+@media (hover: none), (max-width: 760px) {
+    .filter-button { color: var(--text); background: var(--surface); border-color: var(--border-strong); }
+    .filter-button.active { color: var(--accent); background: var(--accent-soft); border-color: var(--accent); }
+}
 .filter-status { margin: 15px 0 20px; font: 10px/1.6 monospace; color: var(--text-faint); }
 .projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .project-card { min-width: 0; padding: 0; text-align: left; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 15px; overflow: hidden; transition: border-color .25s, transform .25s var(--ease); }
@@ -225,7 +236,7 @@ html.dialog-open, body.dialog-open { overflow: hidden; }
 
 /* Compact desktop and closed-fold / phone layouts */
 @media (max-width: 1100px) {
-    :root { --sidebar-width: 164px; --gutter: 36px; }
+    :root { --sidebar-width: 172px; --gutter: 36px; }
     .desktop-sidebar { padding-inline: 16px; }
     .hero h1 { font-size: 100px; }
     .projects-heading { flex-direction: column; align-items: start; gap: 22px; }

@@ -32,11 +32,14 @@
             <a href="#contact" data-section-link="contact" data-i18n="nav.contact">Contact</a>
         </nav>
         <div class="sidebar-controls">
-            <label class="visually-hidden" for="desktop-language" data-i18n="languageLabel">Choose language</label>
-            <select class="language-select" id="desktop-language" aria-label="Choose language">
-                <option value="en">EN</option>
-                <option value="frCA">FR</option>
-            </select>
+            <div class="language-switch" role="group" aria-label="Choose language" data-i18n-aria-label="languageLabel">
+                <button class="language-option" type="button" data-language="en" lang="en" aria-label="English" title="English" aria-pressed="true">
+                    <img src="assets/icons/flag-ca.svg" alt="" width="20" height="10">
+                </button>
+                <button class="language-option" type="button" data-language="frCA" lang="fr-CA" aria-label="Français" title="Français" aria-pressed="false">
+                    <img src="assets/icons/flag-qc.svg" alt="" width="18" height="12">
+                </button>
+            </div>
             <button class="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch to light mode">
                 <span class="theme-icon" aria-hidden="true">☼</span>
             </button>
@@ -46,11 +49,14 @@
     <header class="mobile-header">
         <a class="mobile-logo" href="#hero" aria-label="Harley — home" data-i18n-aria-label="accessibility.home">H</a>
         <div class="mobile-controls">
-            <label class="visually-hidden" for="mobile-language" data-i18n="languageLabel">Choose language</label>
-            <select class="language-select" id="mobile-language" aria-label="Choose language">
-                <option value="en">EN</option>
-                <option value="frCA">FR</option>
-            </select>
+            <div class="language-switch" role="group" aria-label="Choose language" data-i18n-aria-label="languageLabel">
+                <button class="language-option" type="button" data-language="en" lang="en" aria-label="English" title="English" aria-pressed="true">
+                    <img src="assets/icons/flag-ca.svg" alt="" width="20" height="10">
+                </button>
+                <button class="language-option" type="button" data-language="frCA" lang="fr-CA" aria-label="Français" title="Français" aria-pressed="false">
+                    <img src="assets/icons/flag-qc.svg" alt="" width="18" height="12">
+                </button>
+            </div>
             <button class="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch to light mode">
                 <span class="theme-icon" aria-hidden="true">☼</span>
             </button>

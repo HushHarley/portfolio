@@ -30,28 +30,28 @@ header {
 
 .newJokeBtn {
     display: block;
-    justify-self: center;
+    text-align: center;
 }
 
 .newJokeBtn button {
     background-color: rgb(255, 200, 0);
     width: 60px;
     height: 30px;
-    border: 2px, solid, white;
+    border: 2px solid white;
     border-radius: 16px;
 }
 
 .newJokeBtn button:hover {
     background-color: black;
-    border: 2px, solid, rgb(255, 200, 0);
+    border: 2px solid rgb(255, 200, 0);
     color: white;
 }
 
 .setup {
     display: flex;
     text-align: center;
-    justify-self: center;
-    margin: 16px;
+    width: fit-content;
+    margin: 16px auto;
     padding: 12px;
     background-color: rgb(255, 200, 1);
     color: black;
@@ -64,7 +64,9 @@ header {
     background-color: rgb(255, 35, 86);
     display: flex;
     justify-content: center;
-    justify-self: center;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
     padding: 10px;
     box-shadow: 6px 6px 0px 0px black;
@@ -72,6 +74,10 @@ header {
 }
 
 @media (max-width:430px) {
+
+    .carte {
+        margin: 20px;
+    }
 
     .emojis img {
         width: 30%;
@@ -83,10 +89,9 @@ header {
         background-color: rgb(255, 200, 1);
         color: black;
         display: block;
-        justify-self: center;
-        min-width: 320px;
+        width: auto;
         padding: 20px;
-        margin: 10px;
+        margin: 10px 0px;
         font-size: x-large;
         text-shadow: 2px 2px 4px rgb(255, 255, 255);
     }
