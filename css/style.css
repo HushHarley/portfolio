@@ -1,25 +1,56 @@
-/* Design tokens — the two themes share geometry, not just inverted colours. */
+/* =========================================================================
+   PORTFOLIO STYLES
+
+    1. Theme colours and sizes
+    2. Base
+    3. Desktop sidebar
+    4. Language, theme and menu buttons
+    5. Page layout
+    6. Buttons and links
+    7. Hero
+    8. About
+    9. Timeline (education, experience, volunteering)
+   10. Skills
+   11. Projects
+   12. Project details window
+   13. Contact footer
+   14. Compact desktop (1100px and narrower)
+   15. Phones (760px and narrower)
+   16. Small phones (540px and 360px)
+   17. Reduced motion
+   18. Short desktop screens
+
+   Rules that come later win when two rules target the same thing,
+   so keep the screen-size sections at the end of the file.
+   ========================================================================= */
+
+
+/* 1. Theme colours and sizes
+   Dark is the default. The light theme only changes colours. */
+
 :root {
     color-scheme: dark;
-    --bg: #0b0d10;
-    --surface: #11151a;
-    --surface-hover: #191f26;
-    --text: #eef1f5;
-    --text-soft: #a3acb9;
-    --text-faint: #8b96a5;
-    --accent: #93c9ec;
-    --accent-soft: #93c9ec12;
-    --glow: #68baf00b;
+    --bg: #0b0d10;              /* page background */
+    --surface: #11151a;         /* cards, buttons, footer, details window */
+    --surface-hover: #191f26;   /* hovered filter buttons on narrow screens */
+    --text: #eef1f5;            /* headings and main text */
+    --text-soft: #a3acb9;       /* paragraphs */
+    --text-faint: #8b96a5;      /* dates and small print */
+    --accent: #93c9ec;          /* links, active items, highlights */
+    --accent-soft: #93c9ec12;   /* tinted background behind active items */
+    --glow: #68baf00b;          /* cursor glow */
     --border: #ffffff13;
     --border-strong: #ffffff28;
     --button-bg: #eef1f5;
     --button-text: #0b0d10;
+
     --sidebar-width: 188px;
     --content-width: 1060px;
     --gutter: clamp(28px, 5vw, 80px);
     --section-space: clamp(80px, 9vw, 136px);
     --ease: cubic-bezier(.22, 1, .36, 1);
 }
+
 html[data-theme="light"] {
     color-scheme: light;
     --bg: #f7f9fc;
@@ -37,9 +68,27 @@ html[data-theme="light"] {
     --button-text: #ffffff;
 }
 
-/* Base and accessibility */
-*, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scrollbar-gutter: stable; scrollbar-color: var(--border-strong) var(--bg); }
+/* Crossfade when the theme button is clicked (started in js/script.js). */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: .4s;
+}
+
+
+/* 2. Base */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+    scrollbar-color: var(--border-strong) var(--bg);
+}
+
 body {
     margin: 0;
     background: var(--bg);
@@ -48,262 +97,1242 @@ body {
     -webkit-font-smoothing: antialiased;
     isolation: isolate;
 }
-[hidden] { display: none !important; }
-a { color: inherit; text-decoration: none; }
-button, select { font: inherit; color: inherit; }
-button { cursor: pointer; }
-button, a, select { -webkit-tap-highlight-color: transparent; }
-img { display: block; max-width: 100%; }
-p, h1, h2, h3 { margin-top: 0; }
-h1, h2, h3 { line-height: 1.15; letter-spacing: -.045em; }
-h2 { font-size: clamp(32px, 3.5vw, 49px); font-weight: 500; margin-bottom: 0; }
-h3 { font-weight: 600; }
-::selection { background: var(--accent); color: var(--bg); }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
-.visually-hidden {
-    position: absolute; width: 1px; height: 1px; overflow: hidden;
-    clip-path: inset(50%); white-space: nowrap;
+
+[hidden] {
+    display: none !important;
 }
+
+a {
+    color: inherit;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+p,
+h1,
+h2,
+h3 {
+    margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.15;
+    letter-spacing: -.045em;
+}
+
+h2 {
+    font-size: clamp(32px, 3.5vw, 49px);
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+h3 {
+    font-weight: 600;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--bg);
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 5px;
+}
+
+/* Hidden on screen but still read by screen readers. */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+/* "Skip to content" link: off screen until it gets keyboard focus. */
 .skip-link {
-    position: fixed; z-index: 300; left: 20px; top: 12px;
-    padding: 10px 16px; border-radius: 8px; background: var(--button-bg); color: var(--button-text);
+    position: fixed;
+    z-index: 300;
+    left: 20px;
+    top: 12px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: var(--button-bg);
+    color: var(--button-text);
     transform: translateY(-160%);
 }
-.skip-link:focus { transform: none; }
-.ambient-background { position: fixed; z-index: -1; inset: 0; pointer-events: none; overflow: hidden; }
+
+.skip-link:focus {
+    transform: none;
+}
+
+/* Soft glow that follows the mouse (js/script.js sets --cursor-x and --cursor-y). */
+.ambient-background {
+    position: fixed;
+    z-index: -1;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
 .ambient-background::after {
-    content: ""; position: absolute; inset: 0; opacity: 0;
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0;
     background: radial-gradient(circle 360px at var(--cursor-x, 50vw) var(--cursor-y, 50vh), var(--glow), transparent 75%);
     transition: opacity .3s;
 }
-html.cursor-glow-active .ambient-background::after { opacity: 1; }
 
-/* One centered navigation group. Controls occupy the bottom row independently. */
+html.cursor-glow-active .ambient-background::after {
+    opacity: 1;
+}
+
+
+/* 3. Desktop sidebar
+   Three rows: empty space, the nav links (centred), then the buttons at the bottom. */
+
 .desktop-sidebar {
-    position: fixed; z-index: 100; inset: 0 auto 0 0; width: var(--sidebar-width);
-    padding: 24px; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto minmax(0, 1fr);
-    border-right: 1px solid var(--border); background: var(--bg);
+    position: fixed;
+    z-index: 100;
+    inset: 0 auto 0 0;
+    width: var(--sidebar-width);
+    padding: 24px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto minmax(56px, 1fr);
+    border-right: 1px solid var(--border);
+    background: var(--bg);
+    overflow-y: auto;
+    scrollbar-width: none;
 }
-.desktop-nav { grid-row: 2; display: grid; gap: 5px; }
+
+.desktop-nav {
+    grid-row: 2;
+    display: grid;
+    gap: 5px;
+}
+
 .desktop-nav > a:not(.sidebar-logo) {
-    position: relative; min-height: 44px; display: flex; align-items: center;
-    padding: 9px 12px; border-radius: 8px; color: var(--text-soft);
-    font-size: 12px; font-weight: 500; transition: color .2s, background .2s;
+    position: relative;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 9px 12px;
+    border-radius: 8px;
+    color: var(--text-soft);
+    font-size: 12px;
+    font-weight: 500;
+    transition: color .2s, background .2s;
 }
-.desktop-nav > a:not(.sidebar-logo):hover { color: var(--text); background: var(--surface); }
-.desktop-nav > a:not(.sidebar-logo).active { color: var(--accent); background: var(--accent-soft); }
-.sidebar-logo, .mobile-logo {
-    display: grid; place-items: center; width: 44px; height: 44px;
-    border: 1px solid var(--border-strong); border-radius: 12px;
-    font-size: 19px; font-weight: 700; letter-spacing: -.06em;
-}
-.sidebar-logo { margin: 0 0 18px 12px; }
-.sidebar-logo.active { border-color: var(--accent); color: var(--accent); }
-.sidebar-controls { grid-row: 3; align-self: end; display: flex; gap: 8px; padding-left: 12px; }
-.language-switch, .theme-toggle, .menu-toggle {
-    flex-shrink: 0; min-height: 44px; border: 1px solid var(--border); border-radius: 9px;
-    background: var(--surface); font-size: 12px;
-}
-.language-switch { display: flex; gap: 2px; padding: 3px; }
-.language-option { width: 28px; display: grid; place-items: center; padding: 0; border: 0; border-radius: 6px; background: transparent; }
-.language-option img { box-shadow: 0 0 0 1px var(--border-strong); opacity: .45; filter: grayscale(.6); transition: opacity .2s var(--ease), filter .2s var(--ease); }
-.language-option:hover img { opacity: .8; filter: none; }
-.language-option[aria-pressed="true"] { background: var(--accent-soft); box-shadow: inset 0 0 0 1px var(--border-strong); }
-.language-option[aria-pressed="true"] img { opacity: 1; filter: none; }
-.language-option:focus-visible { outline-offset: 1px; }
-.theme-toggle, .menu-toggle { width: 44px; display: grid; place-items: center; padding: 0; }
-.theme-icon { font-size: 21px; }
-.mobile-header { display: none; }
-/* Native scrollbar stays on the right; this separate, noninteractive line shows reading progress. */
-.custom-scrollbar { position: fixed; z-index: 150; top: 0; left: var(--sidebar-width); right: 0; height: 2px; pointer-events: none; }
-.scrollbar-progress { width: 100%; height: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; opacity: .7; }
 
-/* Shared page rhythm */
-main, .site-footer { margin-left: var(--sidebar-width); }
-.section { width: min(calc(100% - var(--gutter) * 2), var(--content-width)); margin-inline: auto; }
-.content-section { padding-block: var(--section-space); border-top: 1px solid var(--border); scroll-margin-top: 32px; }
-.section-heading { display: flex; align-items: baseline; gap: 20px; margin-bottom: 44px; }
-.section-number { color: var(--accent); font-size: 11px; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
-.section-number { flex: 0 0 auto; margin: 0; font-family: monospace; }
-.section-intro { max-width: 330px; color: var(--text-soft); font-size: 13px; margin: 0; }
-.reveal { opacity: 1; }
-.motion-ready .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
-.motion-ready .reveal.visible { opacity: 1; transform: none; }
+.desktop-nav > a:not(.sidebar-logo):hover {
+    color: var(--text);
+    background: var(--surface);
+}
 
-/* Hero: expressive type, not a giant decorative glow. */
+.desktop-nav > a:not(.sidebar-logo).active {
+    color: var(--accent);
+    background: var(--accent-soft);
+}
+
+.sidebar-logo,
+.mobile-logo {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border-strong);
+    border-radius: 12px;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -.06em;
+}
+
+.sidebar-logo {
+    margin: 0 0 18px 12px;
+}
+
+.sidebar-logo.active {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.sidebar-controls {
+    grid-row: 3;
+    align-self: end;
+    display: flex;
+    gap: 8px;
+    padding-left: 12px;
+}
+
+/* Thin line along the top of the page that fills up as you scroll. */
+.reading-progress {
+    position: fixed;
+    z-index: 150;
+    top: 0;
+    left: var(--sidebar-width);
+    right: 0;
+    height: 2px;
+    pointer-events: none;
+}
+
+.reading-progress-bar {
+    width: 100%;
+    height: 100%;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    opacity: .7;
+}
+
+
+/* 4. Language, theme and menu buttons
+   Used in both the desktop sidebar and the mobile header. */
+
+.language-switch,
+.theme-toggle,
+.menu-toggle {
+    flex-shrink: 0;
+    min-height: 44px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: var(--surface);
+    font-size: 12px;
+}
+
+.language-switch {
+    display: flex;
+    gap: 2px;
+    padding: 3px;
+}
+
+.language-option {
+    width: 28px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+}
+
+.language-option img {
+    box-shadow: 0 0 0 1px var(--border-strong);
+    opacity: .45;
+    filter: grayscale(.6);
+    transition: opacity .2s var(--ease), filter .2s var(--ease);
+}
+
+.language-option:hover img {
+    opacity: .8;
+    filter: none;
+}
+
+.language-option[aria-pressed="true"] {
+    background: var(--accent-soft);
+    box-shadow: inset 0 0 0 1px var(--border-strong);
+}
+
+.language-option[aria-pressed="true"] img {
+    opacity: 1;
+    filter: none;
+}
+
+.language-option:focus-visible {
+    outline-offset: 1px;
+}
+
+.theme-toggle,
+.menu-toggle {
+    width: 44px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+}
+
+.theme-icon {
+    font-size: 21px;
+}
+
+/* The mobile header only appears on phones (see section 15). */
+.mobile-header {
+    display: none;
+}
+
+
+/* 5. Page layout */
+
+main {
+    margin-left: var(--sidebar-width);
+}
+
+.section {
+    width: min(calc(100% - var(--gutter) * 2), var(--content-width));
+    margin-inline: auto;
+}
+
+.content-section {
+    padding-block: var(--section-space);
+    border-top: 1px solid var(--border);
+    scroll-margin-top: 32px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 44px;
+}
+
+.section-intro {
+    max-width: 330px;
+    color: var(--text-soft);
+    font-size: 13px;
+    margin: 0;
+}
+
+/* Sections fade up as they scroll into view. js/script.js adds .motion-ready
+   to <html> when animations are allowed, then .visible to each section. */
+.motion-ready .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .6s var(--ease), transform .6s var(--ease);
+}
+
+.motion-ready .reveal.visible {
+    opacity: 1;
+    transform: none;
+}
+
+
+/* 6. Buttons and links */
+
+.hero-actions,
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+}
+
+.button-row {
+    margin-top: 30px;
+    gap: 12px;
+}
+
+.button,
+.text-link {
+    display: inline-flex;
+    min-height: 46px;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: border-color .2s, background .2s, transform .2s;
+}
+
+.button {
+    background: var(--button-bg);
+    color: var(--button-text);
+    border: 1px solid var(--button-bg);
+    border-radius: 9px;
+    padding: 12px 20px;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button-secondary {
+    background: var(--surface);
+    color: var(--text);
+    border-color: var(--border-strong);
+}
+
+.text-link {
+    color: var(--text-soft);
+}
+
+.text-link:hover {
+    color: var(--accent);
+}
+
+
+/* 7. Hero */
+
 .hero {
-    min-height: 100vh; min-height: 100svh; position: relative; display: grid;
-    grid-template-columns: minmax(0, 1fr); align-items: center; gap: 28px;
+    min-height: 100vh;
+    min-height: 100svh;
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
     padding-block: 130px 120px;
 }
+
+.hero-content {
+    min-width: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: clamp(76px, 9.5vw, 142px);
+    font-weight: 500;
+    line-height: .95;
+    margin: 0 0 28px;
+    letter-spacing: -.075em;
+}
+
+.hero-subtitle {
+    color: var(--text-soft);
+    font-size: 13px;
+    line-height: 1.9;
+    max-width: 370px;
+    margin-bottom: 34px;
+}
+
+/* "A little about me ... SCROLL TO EXPLORE" line at the bottom of the hero. */
 .hero-bottomline {
-    position: absolute; left: 0; right: 0; display: flex; justify-content: space-between;
-    gap: 20px; font: 10px/1.6 monospace; letter-spacing: .08em; color: var(--text-faint);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 35px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font: 10px/1.6 monospace;
+    letter-spacing: .08em;
+    color: var(--text-faint);
 }
-.hero-bottomline { bottom: 35px; padding-top: 20px; border-top: 1px solid var(--border); }
-.hero-bottomline span:first-child { font: 12px/1.6 "Manrope", sans-serif; letter-spacing: 0; color: var(--text-soft); }
-.hero-content { min-width: 0; position: relative; z-index: 1; }
-.hero h1 { font-size: clamp(76px, 9.5vw, 142px); font-weight: 500; line-height: .95; margin: 0 0 28px; letter-spacing: -.075em; }
-.hero-subtitle { color: var(--text-soft); font-size: 13px; line-height: 1.9; max-width: 370px; margin-bottom: 34px; }
-.hero-actions, .button-row { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; }
-.button, .text-link {
-    display: inline-flex; min-height: 46px; align-items: center; justify-content: center;
-    gap: 20px; font-size: 12px; font-weight: 600; transition: border-color .2s, background .2s, transform .2s;
+
+.hero-bottomline span:first-child {
+    font: 12px/1.6 "Manrope", sans-serif;
+    letter-spacing: 0;
+    color: var(--text-soft);
 }
-.button { background: var(--button-bg); color: var(--button-text); border: 1px solid var(--button-bg); border-radius: 9px; padding: 12px 20px; }
-.button:hover { transform: translateY(-2px); }
-.button-secondary { background: var(--surface); color: var(--text); border-color: var(--border-strong); }
-.text-link { color: var(--text-soft); }
-.text-link:hover { color: var(--accent); }
 
-/* About, education and experience share a strong left edge. */
-.about-copy { max-width: 740px; }
-.about-copy p { color: var(--text-soft); font-size: 16px; line-height: 1.9; }
-.about-copy p:first-child { font-size: clamp(22px, 2.45vw, 32px); line-height: 1.55; letter-spacing: -.025em; color: var(--text); }
-.button-row { margin-top: 30px; gap: 12px; }
-.timeline-item { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 30px; border-top: 1px solid var(--border); padding: 30px 0; }
-.timeline-item:last-child { padding-bottom: 0; }
-.timeline-date { color: var(--text-faint); font: 11px/1.8 monospace; margin-top: 4px; }
-.timeline-item h3 { font-size: 20px; margin-bottom: 9px; line-height: 1.45; letter-spacing: -.025em; }
-.timeline-place { color: var(--accent); font-size: 12px; margin-bottom: 16px; }
-.timeline-description, .responsibilities { color: var(--text-soft); font-size: 13px; }
-.timeline-description { margin-bottom: 0; }
-.responsibilities { padding-left: 18px; margin: 14px 0 0; }
-.responsibilities li { margin-top: 8px; padding-left: 4px; }
-.responsibilities li::marker { color: var(--accent); }
 
-/* Skills */
-/* Open rows that echo the timeline instead of boxed cards. */
-.skill-group { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 30px; align-items: baseline; border-top: 1px solid var(--border); padding: 28px 0; }
-.skill-group:last-child { padding-bottom: 0; }
-.skill-group h3 { font-size: 20px; line-height: 1.45; letter-spacing: -.025em; margin: 0; transition: color .2s; }
-.skill-group:hover h3 { color: var(--accent); }
-.skill-tags { display: flex; flex-wrap: wrap; row-gap: 6px; }
-.skill-tag { color: var(--text-soft); font-size: 15px; line-height: 1.7; }
-.skill-tag:not(:last-child)::after { content: "·"; margin: 0 12px; color: var(--text-faint); }
-.project-tech { display: flex; flex-wrap: wrap; gap: 7px; }
-.tech-tag { color: var(--text-soft); font-size: 11px; padding: 4px 9px; border: 1px solid var(--border); border-radius: 5px; }
+/* 8. About */
 
-/* Projects: whole cards are real buttons, expanded details live in a modal. */
-.projects-heading { justify-content: space-between; align-items: end; }
-.projects-heading > div { display: flex; align-items: baseline; gap: 20px; }
-.filter-list { display: flex; gap: 6px; flex-wrap: wrap; }
-.filter-button { min-height: 44px; padding: 8px 15px; border: 1px solid transparent; border-radius: 7px; background: transparent; color: var(--text-soft); font-size: 12px; }
-.filter-button:hover { color: var(--text); background: var(--surface); }
-.filter-button.active { color: var(--accent); border-color: var(--border-strong); background: var(--accent-soft); }
+.about-copy {
+    max-width: 740px;
+}
+
+.about-copy p {
+    color: var(--text-soft);
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+/* The first paragraph is the large intro line. */
+.about-copy p:first-child {
+    font-size: clamp(22px, 2.45vw, 32px);
+    line-height: 1.55;
+    letter-spacing: -.025em;
+    color: var(--text);
+}
+
+
+/* 9. Timeline (education, experience, volunteering) */
+
+.timeline-item {
+    display: grid;
+    grid-template-columns: 140px minmax(0, 1fr);
+    gap: 30px;
+    border-top: 1px solid var(--border);
+    padding: 30px 0;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-date {
+    color: var(--text-faint);
+    font: 11px/1.8 monospace;
+    margin-top: 4px;
+}
+
+.timeline-item h3 {
+    font-size: 20px;
+    margin-bottom: 9px;
+    line-height: 1.45;
+    letter-spacing: -.025em;
+}
+
+.timeline-place {
+    color: var(--accent);
+    font-size: 12px;
+    margin-bottom: 16px;
+}
+
+.timeline-description,
+.timeline-points {
+    color: var(--text-soft);
+    font-size: 13px;
+}
+
+.timeline-description {
+    margin-bottom: 0;
+}
+
+.timeline-points {
+    padding-left: 18px;
+    margin: 14px 0 0;
+}
+
+.timeline-points li {
+    margin-top: 8px;
+    padding-left: 4px;
+}
+
+.timeline-points li::marker {
+    color: var(--accent);
+}
+
+
+/* 10. Skills
+   Open rows that line up with the timeline instead of boxed cards. */
+
+.skill-group {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 30px;
+    align-items: baseline;
+    border-top: 1px solid var(--border);
+    padding: 28px 0;
+}
+
+.skill-group:last-child {
+    padding-bottom: 0;
+}
+
+.skill-group h3 {
+    font-size: 20px;
+    line-height: 1.45;
+    letter-spacing: -.025em;
+    margin: 0;
+    transition: color .2s;
+}
+
+.skill-group:hover h3 {
+    color: var(--accent);
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 6px;
+}
+
+.skill-tag {
+    color: var(--text-soft);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* Dot between skills. */
+.skill-tag:not(:last-child)::after {
+    content: "·";
+    margin: 0 12px;
+    color: var(--text-faint);
+}
+
+
+/* 11. Projects
+   Each card is a button that opens the details window (section 12). */
+
+.projects-heading {
+    justify-content: space-between;
+    align-items: end;
+}
+
+.filter-list {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.filter-button {
+    min-height: 44px;
+    padding: 8px 15px;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    background: transparent;
+    color: var(--text-soft);
+    font-size: 12px;
+}
+
+.filter-button:hover {
+    color: var(--text);
+    background: var(--surface);
+}
+
+.filter-button.active {
+    color: var(--accent);
+    border-color: var(--border-strong);
+    background: var(--accent-soft);
+}
+
+.filter-button:focus-visible {
+    outline-offset: 2px;
+}
+
 /* Phones and touch screens can't rely on hover, so every filter gets a visible border to read as a button. */
 @media (hover: none), (max-width: 760px) {
-    .filter-button { color: var(--text); background: var(--surface); border-color: var(--border-strong); }
-    .filter-button.active { color: var(--accent); background: var(--accent-soft); border-color: var(--accent); }
+    .filter-button {
+        color: var(--text);
+        background: var(--surface);
+        border-color: color-mix(in srgb, var(--text-faint) 75%, var(--surface));
+    }
+
+    .filter-button.active {
+        color: var(--accent);
+        background: var(--accent-soft);
+        border-color: var(--accent);
+    }
 }
-.filter-status { margin: 15px 0 20px; font: 10px/1.6 monospace; color: var(--text-faint); }
-.projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
-.project-card { min-width: 0; padding: 0; text-align: left; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 15px; overflow: hidden; transition: border-color .25s, transform .25s var(--ease); }
-.project-card:hover { border-color: var(--border-strong); transform: translateY(-4px); }
-.project-image-wrap { display: block; position: relative; aspect-ratio: 16/9; overflow: hidden; background: #101a24; }
-.project-image { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
-.project-card:hover .project-image { transform: scale(1.035); }
-.project-category { position: absolute; top: 16px; left: 16px; background: #0b0d10d9; color: #d7e5f0; border: 1px solid #ffffff25; border-radius: 5px; padding: 4px 8px; font-size: 9px; }
-.project-card-body { display: block; padding: 24px; }
-.project-title { display: block; font-size: 20px; letter-spacing: -.035em; font-weight: 600; line-height: 1.3; margin-bottom: 12px; }
-.project-summary { display: block; color: var(--text-soft); font-size: 12px; line-height: 1.8; margin-bottom: 24px; min-height: 3.6em; }
-.card-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.card-arrow { font-size: 20px; color: var(--accent); }
-.project-dialog { width: min(780px, calc(100% - 40px)); max-height: calc(100dvh - 48px); margin: auto; padding: 0; overflow: auto; border: 1px solid var(--border-strong); border-radius: 18px; background: var(--surface); color: var(--text); box-shadow: 0 30px 100px #0005; }
-.project-dialog::backdrop { background: #060a10bb; backdrop-filter: blur(6px); }
-html.dialog-open, body.dialog-open { overflow: hidden; }
-.dialog-close { position: sticky; z-index: 2; top: 12px; float: right; width: 44px; height: 44px; margin: 12px 12px -56px 0; border: 1px solid var(--border-strong); border-radius: 50%; background: var(--surface); font-size: 25px; }
-.dialog-visual { aspect-ratio: 16/7; overflow: hidden; }
-.dialog-visual img { width: 100%; height: 100%; object-fit: cover; }
-.dialog-body { padding: clamp(22px, 4vw, 44px); }
-.dialog-body h2 { margin: 12px 0 22px; }
-.dialog-description { color: var(--text-soft); font-size: 14px; }
-.dialog-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
 
-/* A generous contact ending */
-.site-footer { width: auto; margin-left: var(--sidebar-width); margin-right: 0; padding: var(--section-space) var(--gutter) 32px; border-top: 1px solid var(--border); background: var(--surface); scroll-margin-top: 24px; }
-.footer-content { max-width: var(--content-width); margin: auto; }
-.site-footer h2 { font-size: clamp(38px, 5vw, 70px); max-width: 700px; margin-bottom: 20px; letter-spacing: -.05em; }
-.site-footer p { color: var(--text-soft); font-size: 13px; }
-.contact-email { display: inline-block; font-size: clamp(19px, 2.8vw, 34px); color: var(--accent); letter-spacing: -.035em; padding-block: 10px; overflow-wrap: anywhere; }
-.contact-email:hover { text-decoration: underline; text-underline-offset: 6px; }
-.social-links { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 24px; }
-.social-link { display: inline-flex; align-items: center; min-height: 44px; color: var(--text-soft); font-size: 12px; border-bottom: 1px solid var(--border-strong); }
-.social-link:hover { color: var(--accent); }
-.footer-bottom { display: flex; justify-content: space-between; gap: 20px; margin-top: 80px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--text-faint); }
-.footer-bottom p { margin: 0; font-size: 11px !important; }
-.noscript-message { padding: 24px; text-align: center; }
+@media (hover: hover) and (max-width: 760px) {
+    .filter-button:not(.active):hover {
+        background: var(--surface-hover);
+    }
+}
 
-/* Compact desktop and closed-fold / phone layouts */
+.filter-status {
+    margin: 15px 0 20px;
+    font: 10px/1.6 monospace;
+    color: var(--text-faint);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.project-card {
+    min-width: 0;
+    padding: 0;
+    text-align: left;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: border-color .25s, transform .25s var(--ease);
+}
+
+.project-card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-4px);
+}
+
+.project-image-wrap {
+    display: block;
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: #101a24;
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s var(--ease);
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.035);
+}
+
+/* Label in the top-left corner of the screenshot. Same colours in both themes. */
+.project-category {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: #0b0d10d9;
+    color: #d7e5f0;
+    border: 1px solid #ffffff25;
+    border-radius: 5px;
+    padding: 4px 8px;
+    font-size: 9px;
+}
+
+.project-card-body {
+    display: block;
+    padding: 24px;
+}
+
+.project-title {
+    display: block;
+    font-size: 20px;
+    letter-spacing: -.035em;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+
+.project-summary {
+    display: block;
+    color: var(--text-soft);
+    font-size: 12px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+    min-height: 3.6em;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.card-arrow {
+    font-size: 20px;
+    color: var(--accent);
+}
+
+/* Technology tags, on the cards and in the details window. */
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.tech-tag {
+    color: var(--text-soft);
+    font-size: 11px;
+    padding: 4px 9px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+}
+
+
+/* 12. Project details window */
+
+.project-dialog {
+    width: min(780px, calc(100% - 40px));
+    max-height: calc(100dvh - 48px);
+    margin: auto;
+    padding: 0;
+    overflow: auto;
+    border: 1px solid var(--border-strong);
+    border-radius: 18px;
+    background: var(--surface);
+    color: var(--text);
+    box-shadow: 0 30px 100px #0005;
+}
+
+.project-dialog::backdrop {
+    background: #060a10bb;
+    backdrop-filter: blur(6px);
+}
+
+/* Stops the page behind the window from scrolling. */
+html.dialog-open {
+    overflow: hidden;
+}
+
+.dialog-close {
+    position: sticky;
+    z-index: 2;
+    top: 12px;
+    float: right;
+    width: 44px;
+    height: 44px;
+    margin: 12px 12px -56px 0;
+    border: 1px solid var(--border-strong);
+    border-radius: 50%;
+    background: var(--surface);
+    font-size: 25px;
+}
+
+.dialog-visual {
+    aspect-ratio: 16/7;
+    overflow: hidden;
+}
+
+.dialog-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dialog-body {
+    padding: clamp(22px, 4vw, 44px);
+}
+
+.dialog-category {
+    margin: 0;
+    color: var(--accent);
+    font-family: monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+}
+
+.dialog-body h2 {
+    margin: 12px 0 22px;
+}
+
+.dialog-description {
+    color: var(--text-soft);
+    font-size: 14px;
+}
+
+.dialog-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 26px;
+}
+
+
+/* 13. Contact footer */
+
+.site-footer {
+    margin-left: var(--sidebar-width);
+    padding: var(--section-space) var(--gutter) 32px;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+    scroll-margin-top: 24px;
+}
+
+.footer-content {
+    max-width: var(--content-width);
+    margin: auto;
+}
+
+.site-footer h2 {
+    font-size: clamp(38px, 5vw, 70px);
+    max-width: 700px;
+    margin-bottom: 20px;
+    letter-spacing: -.05em;
+}
+
+.site-footer p {
+    color: var(--text-soft);
+    font-size: 13px;
+}
+
+.contact-email {
+    display: inline-block;
+    font-size: clamp(19px, 2.8vw, 34px);
+    color: var(--accent);
+    letter-spacing: -.035em;
+    padding-block: 10px;
+    overflow-wrap: anywhere;
+}
+
+.contact-email:hover {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--text-soft);
+    font-size: 12px;
+    border-bottom: 1px solid var(--border-strong);
+}
+
+.social-link:hover {
+    color: var(--accent);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--text-faint);
+}
+
+/* Must stay after ".site-footer p" so its smaller size wins. */
+.footer-bottom p {
+    margin: 0;
+    font-size: 11px;
+}
+
+.noscript-message {
+    padding: 24px;
+    text-align: center;
+}
+
+
+/* 14. Compact desktop (1100px and narrower) */
+
 @media (max-width: 1100px) {
-    :root { --sidebar-width: 172px; --gutter: 36px; }
-    .desktop-sidebar { padding-inline: 16px; }
-    .hero h1 { font-size: 100px; }
-    .projects-heading { flex-direction: column; align-items: start; gap: 22px; }
-}
-@media (max-width: 760px) {
-    :root { --sidebar-width: 0px; --gutter: 24px; --section-space: 76px; }
-    html { scroll-padding-top: 84px; }
-    .desktop-sidebar, .custom-scrollbar { display: none; }
-    .mobile-header { display: flex; position: fixed; z-index: 100; inset: 0 0 auto; height: 72px; align-items: center; justify-content: space-between; padding: 12px var(--gutter); border-bottom: 1px solid var(--border); background: var(--bg); }
-    .mobile-controls { display: flex; gap: 8px; }
-    .mobile-nav { position: absolute; top: 80px; left: var(--gutter); right: var(--gutter); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 12px; border: 1px solid var(--border-strong); border-radius: 12px; background: var(--surface); box-shadow: 0 18px 50px #0003; }
-    .mobile-nav a { padding: 12px; min-height: 46px; font-size: 12px; border-radius: 6px; }
-    .mobile-nav a.active { color: var(--accent); background: var(--accent-soft); }
-    .menu-lines, .menu-lines::before, .menu-lines::after { display: block; width: 16px; height: 1px; background: currentColor; }
-    .menu-lines { position: relative; }
-    .menu-lines::before, .menu-lines::after { content: ""; position: absolute; left: 0; transition: transform .2s; }
-    .menu-lines::before { top: -5px; } .menu-lines::after { top: 5px; }
-    .menu-toggle[aria-expanded="true"] .menu-lines { background: transparent; }
-    .menu-toggle[aria-expanded="true"] .menu-lines::before { transform: translateY(5px) rotate(45deg); }
-    .menu-toggle[aria-expanded="true"] .menu-lines::after { transform: translateY(-5px) rotate(-45deg); }
-    .hero { grid-template-columns: 1fr; padding: 180px 0 125px; }
-    .hero h1 { font-size: clamp(76px, 20vw, 120px); }
-    .hero-bottomline { bottom: 30px; }
-    .hero-bottomline span:last-child { font-size: 8px; }
-    .content-section { scroll-margin-top: 0; }
-    .section-heading { gap: 14px; margin-bottom: 32px; }
-    .timeline-item { grid-template-columns: 1fr; gap: 6px; }
-    .skill-group { grid-template-columns: 1fr; gap: 12px; padding: 24px 0; }
-    .timeline-date { margin-bottom: 6px; }
-    .projects-grid { gap: 16px; }
-    .project-card-body { padding: 18px; }
-    .project-title { font-size: 18px; }
-    .project-summary { min-height: 0; }
-    .project-dialog { max-height: calc(100dvh - 24px); width: calc(100% - 24px); }
-    .dialog-visual { aspect-ratio: 16/9; }
-    .site-footer { scroll-margin-top: 0; }
+    :root {
+        --sidebar-width: 172px;
+        --gutter: 36px;
+    }
 
-    /* Phones read better centred; project cards keep their own internal alignment. */
-    .section, .site-footer { text-align: center; }
-    .hero-bottomline { flex-direction: column; align-items: center; gap: 8px; }
-    .hero-subtitle, .about-copy, .section-intro, .site-footer h2 { margin-inline: auto; }
-    .hero-actions, .button-row, .section-heading, .skill-tags, .filter-list, .social-links { justify-content: center; }
-    .projects-heading { align-items: center; }
-    .responsibilities { padding-left: 0; list-style-position: inside; }
-    .responsibilities li { padding-left: 0; }
-    .footer-bottom { flex-direction: column; align-items: center; gap: 12px; }
+    .desktop-sidebar {
+        padding-inline: 16px;
+    }
+
+    .hero h1 {
+        font-size: 100px;
+    }
+
+    .projects-heading {
+        flex-direction: column;
+        align-items: start;
+        gap: 22px;
+    }
 }
+
+
+/* 15. Phones (760px and narrower)
+   The sidebar is replaced by a header bar with a menu button.
+   js/script.js uses the same 760px breakpoint. */
+
+@media (max-width: 760px) {
+    :root {
+        --sidebar-width: 0px;
+        --gutter: 24px;
+        --section-space: 76px;
+    }
+
+    html {
+        scroll-padding-top: 84px;
+    }
+
+    .desktop-sidebar,
+    .reading-progress {
+        display: none;
+    }
+
+    .language-option {
+        width: 36px;
+    }
+
+    /* Header bar */
+    .mobile-header {
+        display: flex;
+        position: fixed;
+        z-index: 100;
+        inset: 0 0 auto;
+        height: 72px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px var(--gutter);
+        border-bottom: 1px solid var(--border);
+        background: var(--bg);
+    }
+
+    .mobile-controls {
+        display: flex;
+        gap: 8px;
+    }
+
+    /* Menu panel */
+    .mobile-nav {
+        position: absolute;
+        top: 80px;
+        left: var(--gutter);
+        right: var(--gutter);
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 12px;
+        border: 1px solid var(--border-strong);
+        border-radius: 12px;
+        background: var(--surface);
+        box-shadow: 0 18px 50px #0003;
+    }
+
+    .mobile-nav a {
+        padding: 12px;
+        min-height: 46px;
+        font-size: 12px;
+        border-radius: 6px;
+    }
+
+    .mobile-nav a.active {
+        color: var(--accent);
+        background: var(--accent-soft);
+    }
+
+    /* Menu icon: three lines that turn into an X when the menu is open. */
+    .menu-lines,
+    .menu-lines::before,
+    .menu-lines::after {
+        display: block;
+        width: 16px;
+        height: 1px;
+        background: currentColor;
+    }
+
+    .menu-lines {
+        position: relative;
+    }
+
+    .menu-lines::before,
+    .menu-lines::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        transition: transform .2s;
+    }
+
+    .menu-lines::before {
+        top: -5px;
+    }
+
+    .menu-lines::after {
+        top: 5px;
+    }
+
+    .menu-toggle[aria-expanded="true"] .menu-lines {
+        background: transparent;
+    }
+
+    .menu-toggle[aria-expanded="true"] .menu-lines::before {
+        transform: translateY(5px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] .menu-lines::after {
+        transform: translateY(-5px) rotate(-45deg);
+    }
+
+    /* Hero */
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 180px 0 125px;
+    }
+
+    .hero h1 {
+        font-size: clamp(76px, 20vw, 120px);
+    }
+
+    .hero-bottomline {
+        bottom: 30px;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .hero-bottomline span:last-child {
+        font-size: 8px;
+    }
+
+    /* Sections */
+    .content-section {
+        scroll-margin-top: 0;
+    }
+
+    .section-heading {
+        gap: 14px;
+        margin-bottom: 32px;
+    }
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .skill-group {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 24px 0;
+    }
+
+    .timeline-date {
+        margin-bottom: 6px;
+    }
+
+    .projects-grid {
+        gap: 16px;
+    }
+
+    .project-card-body {
+        padding: 18px;
+    }
+
+    .project-title {
+        font-size: 18px;
+    }
+
+    .project-summary {
+        min-height: 0;
+    }
+
+    .project-dialog {
+        max-height: calc(100dvh - 24px);
+        width: calc(100% - 24px);
+    }
+
+    .dialog-visual {
+        aspect-ratio: 16/9;
+    }
+
+    .site-footer {
+        scroll-margin-top: 0;
+    }
+
+    /* Phones read better centred; project cards keep their own left alignment. */
+    .section,
+    .site-footer {
+        text-align: center;
+    }
+
+    .hero-subtitle,
+    .about-copy,
+    .section-intro,
+    .site-footer h2 {
+        margin-inline: auto;
+    }
+
+    .hero-actions,
+    .button-row,
+    .section-heading,
+    .skill-tags,
+    .filter-list,
+    .social-links {
+        justify-content: center;
+    }
+
+    .projects-heading {
+        align-items: center;
+    }
+
+    .timeline-points {
+        padding-left: 0;
+        list-style-position: inside;
+    }
+
+    .timeline-points li {
+        padding-left: 0;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+}
+
+
+/* 16. Small phones */
+
 @media (max-width: 540px) {
-    .projects-grid { grid-template-columns: 1fr; }
-    .hero-actions { gap: 18px; }
-    .footer-bottom { margin-top: 60px; }
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-actions {
+        gap: 18px;
+    }
+
+    .footer-bottom {
+        margin-top: 60px;
+    }
 }
+
 @media (max-width: 360px) {
-    :root { --gutter: 18px; }
-    .mobile-controls { gap: 5px; }
-    .hero-actions { gap: 14px; }
-    .button { padding-inline: 15px; gap: 10px; }
-    .filter-button { padding-inline: 11px; }
+    :root {
+        --gutter: 18px;
+    }
+
+    .mobile-controls {
+        gap: 5px;
+    }
+
+    .hero-actions {
+        gap: 14px;
+    }
+
+    .button {
+        padding-inline: 15px;
+        gap: 10px;
+    }
+
+    .filter-button {
+        padding-inline: 11px;
+    }
 }
+
+
+/* 17. Reduced motion
+   Visitors who turned off animations in their system settings. */
+
 @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
-    .motion-ready .reveal { opacity: 1; transform: none; }
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .motion-ready .reveal {
+        opacity: 1;
+        transform: none;
+    }
 }
+
+
+/* 18. Short desktop screens
+   Tightens the sidebar so every link fits on short windows. */
+
 @media (min-width: 761px) and (max-height: 580px) {
-    .desktop-sidebar { padding-block: 12px; }
-    .desktop-nav { gap: 0; }
-    .desktop-nav > a:not(.sidebar-logo) { min-height: 36px; padding-block: 6px; }
-    .sidebar-logo { width: 38px; height: 38px; margin-bottom: 8px; }
+    .desktop-sidebar {
+        padding-block: 12px;
+    }
+
+    .desktop-nav {
+        gap: 0;
+    }
+
+    .desktop-nav > a:not(.sidebar-logo) {
+        min-height: 36px;
+        padding-block: 6px;
+    }
+
+    .sidebar-logo {
+        width: 38px;
+        height: 38px;
+        margin-bottom: 8px;
+    }
 }

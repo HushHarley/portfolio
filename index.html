@@ -11,15 +11,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <script>
-        // Apply a saved theme before painting, without sharing the original site's settings.
+        // Apply the saved theme before the page is drawn, so light mode doesn't flash dark first.
+        // Same key as STORAGE_KEYS.theme in js/script.js.
         try { document.documentElement.dataset.theme = localStorage.getItem('astra-theme') === 'light' ? 'light' : 'dark'; } catch {}
     </script>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body data-active-section="hero">
+<body>
+    <!--
+        Text with data-i18n="..." is replaced by the matching entry in js/translations.js.
+        The English written here is what shows before the script runs and without JavaScript,
+        so keep it the same as the English in js/translations.js.
+        The About, Education, Experience, Volunteering, Skills and Projects content
+        and the social links come from js/content.js.
+    -->
     <a class="skip-link" href="#main-content" data-i18n="skipToContent">Skip to content</a>
     <div class="ambient-background" aria-hidden="true"></div>
 
+    <!-- Desktop sidebar. The phone menu below has the same links: change both. -->
     <aside class="desktop-sidebar" aria-label="Primary navigation" data-i18n-aria-label="accessibility.primaryNavigation">
         <nav class="desktop-nav" aria-label="Portfolio sections" data-i18n-aria-label="accessibility.portfolioSections">
             <a class="sidebar-logo" href="#hero" data-section-link="hero" aria-label="Harley — home" data-i18n-aria-label="accessibility.home">H</a>
@@ -46,6 +55,7 @@
         </div>
     </aside>
 
+    <!-- Phone header: same language and theme buttons as the sidebar, plus the menu. -->
     <header class="mobile-header">
         <a class="mobile-logo" href="#hero" aria-label="Harley — home" data-i18n-aria-label="accessibility.home">H</a>
         <div class="mobile-controls">
@@ -61,7 +71,7 @@
                 <span class="theme-icon" aria-hidden="true">☼</span>
             </button>
             <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-navigation">
-                <span class="visually-hidden" data-i18n="menuLabel">Open menu</span>
+                <span class="visually-hidden">Open menu</span>
                 <span class="menu-lines" aria-hidden="true"></span>
             </button>
         </div>
@@ -76,15 +86,16 @@
         </nav>
     </header>
 
-    <div class="custom-scrollbar" aria-hidden="true">
-        <div class="scrollbar-progress"></div>
+    <div class="reading-progress" aria-hidden="true">
+        <div class="reading-progress-bar"></div>
     </div>
 
+    <!-- Each section's id, data-section and nav link (data-section-link) use the same word. -->
     <main id="main-content">
         <section class="hero section" id="hero" data-section="hero" aria-labelledby="hero-name">
             <div class="hero-content">
                 <h1 id="hero-name">Harley</h1>
-                <p class="hero-subtitle">Web Development <span>·</span> Cybersecurity <span>·</span> Programming <span>·</span> AI</p>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">Web Development · Cybersecurity · Programming · AI</p>
                 <div class="hero-actions">
                     <a class="button" href="#projects"><span data-i18n="hero.explore">Explore my work</span><span aria-hidden="true">↗</span></a>
                     <a class="text-link" href="#contact"><span data-i18n="hero.connect">Let’s connect</span><span aria-hidden="true">↗</span></a>
@@ -97,56 +108,52 @@
             <div class="section-heading">
                 <h2 id="about-title" data-i18n="sections.about">About me</h2>
             </div>
-            <div class="about-layout">
-                <div class="about-copy" id="about-content"></div>
-            </div>
+            <div class="about-copy" id="about-content"></div>
         </section>
 
         <section class="section content-section reveal" id="education" data-section="education" aria-labelledby="education-title">
             <div class="section-heading">
                 <h2 id="education-title" data-i18n="sections.education">Education</h2>
             </div>
-            <div class="timeline" id="education-list"></div>
+            <div id="education-list"></div>
         </section>
 
         <section class="section content-section reveal" id="experience" data-section="experience" aria-labelledby="experience-title">
             <div class="section-heading">
                 <h2 id="experience-title" data-i18n="sections.experience">Experience</h2>
             </div>
-            <div class="timeline" id="experience-list"></div>
+            <div id="experience-list"></div>
         </section>
 
         <section class="section content-section reveal" id="volunteering" data-section="volunteering" aria-labelledby="volunteering-title">
             <div class="section-heading">
                 <h2 id="volunteering-title" data-i18n="sections.volunteering">Volunteering</h2>
             </div>
-            <div class="timeline" id="volunteering-list"></div>
+            <div id="volunteering-list"></div>
         </section>
 
         <section class="section content-section reveal" id="skills" data-section="skills" aria-labelledby="skills-title">
             <div class="section-heading">
                 <h2 id="skills-title" data-i18n="sections.skills">Skills</h2>
             </div>
-            <div class="skills-grid" id="skills-list"></div>
+            <div id="skills-list"></div>
         </section>
 
-        <section class="section content-section projects-section reveal" id="projects" data-section="projects" aria-labelledby="projects-title">
+        <section class="section content-section reveal" id="projects" data-section="projects" aria-labelledby="projects-title">
             <div class="section-heading projects-heading">
-                <div>
-                    <h2 id="projects-title" data-i18n="sections.projects">Selected projects</h2>
-                </div>
-                <p class="section-intro" data-i18n="projects.intro">Things I’ve built, from hand-coded websites to AI-assisted games. Open a project to read about it or try the live demo.</p>
+                <h2 id="projects-title" data-i18n="sections.projects">Selected projects</h2>
+                <p class="section-intro" data-i18n="projects.intro">Things I’ve built, from hand-coded websites to AI-assisted games. Click the project and its demo button to have a go.</p>
             </div>
-            <div class="filter-list" id="project-filters" aria-label="Filter projects"></div>
+            <div class="filter-list" id="project-filters" role="group" aria-label="Filter projects" data-i18n-aria-label="projects.filterLabel"></div>
             <p class="filter-status" id="filter-status" role="status"></p>
             <div class="projects-grid" id="projects-grid"></div>
         </section>
     </main>
 
-    <footer class="section site-footer reveal" id="contact" data-section="contact" aria-labelledby="contact-title">
+    <footer class="site-footer reveal" id="contact" data-section="contact" aria-labelledby="contact-title">
         <div class="footer-content">
-            <h2 id="contact-title" data-i18n="contact.title">Have a project in mind?</h2>
-            <p data-i18n="contact.body">Need a website or want to work together? Get in touch.</p>
+            <h2 id="contact-title" data-i18n="contact.title">Let’s build something awesome!</h2>
+            <p data-i18n="contact.body">Do you need a website or want to work together? Get in touch.</p>
             <a class="contact-email" id="contact-email" href="mailto:hrank63@gmail.com">hrank63@gmail.com</a>
             <div class="social-links" id="social-links"></div>
             <div class="footer-bottom">
@@ -156,14 +163,17 @@
         </div>
     </footer>
 
+    <!-- Project details window, filled in by js/script.js when a project card is clicked. -->
     <dialog class="project-dialog" id="project-dialog" aria-labelledby="dialog-title">
         <button class="dialog-close" type="button" aria-label="Close project details" data-i18n-aria-label="projects.close">×</button>
-        <div class="dialog-content" id="dialog-content"></div>
+        <div id="dialog-content"></div>
     </dialog>
 
     <noscript>
         <div class="noscript-message"><span lang="en">This portfolio uses JavaScript to display its editable content. Please enable JavaScript to view the full site.</span><br><span lang="fr-CA">Ce portfolio utilise JavaScript pour afficher son contenu modifiable. Veuillez activer JavaScript pour consulter le site complet.</span></div>
     </noscript>
+    <script src="js/content.js"></script>
+    <script src="js/translations.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
