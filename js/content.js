@@ -157,8 +157,8 @@ const portfolioContent = {
                 frCA: "Une arcade de style casino avec le blackjack, le poker à trois cartes et un jeu de fusée, le tout avec des crédits fictifs."
             },
             description: {
-                en: "A casino-style arcade I vibe-coded with AI tools in my AI course. It has three games that share one play balance: Blackjack, which pays 3 to 2; Three Card Poker, where the dealer needs a queen-high hand to qualify; and Rocket Run, a crash game where you cash out before the rocket flies away. Each table includes its own rules panel, and the balance can be reset at any time. It is a play-money simulation: the credits have no real-world value.",
-                frCA: "Une arcade de style casino que j’ai créée par « vibe coding » avec des outils d’IA dans mon cours d’IA. Elle propose trois jeux qui partagent un même solde : le blackjack, qui paie 3 pour 2; le poker à trois cartes, où le croupier doit avoir au moins une dame haute pour se qualifier; et Rocket Run, un jeu où il faut encaisser ses gains avant que la fusée s’envole. Chaque table a son propre panneau de règles, et le solde peut être réinitialisé en tout temps. Il s’agit d’une simulation avec de l’argent fictif : les crédits n’ont aucune valeur réelle."
+                en: "A casino-style arcade I vibe-coded with AI tools in my AI course. Blackjack, Three Card Poker and Rocket Run, a crash game, share one play balance that can be reset at any time. Each table has its own rules panel. The credits are fictional and have no real value.",
+                frCA: "Une arcade de style casino que j’ai créée par « vibe coding » avec des outils d’IA dans mon cours d’IA. Le blackjack, le poker à trois cartes et Rocket Run, un jeu de fusée, partagent un même solde qu’on peut réinitialiser en tout temps. Chaque table a son panneau de règles. Les crédits sont fictifs et n’ont aucune valeur réelle."
             },
             tech: ["JavaScript", "HTML", "CSS"],
             filters: ["javascript", "ai"],
@@ -178,8 +178,8 @@ const portfolioContent = {
                 frCA: "Une aventure en vue de dessus dans une caverne de cristal : récoltez des éclats, évitez les ennemis et activez la sortie avant de vous faire attraper."
             },
             description: {
-                en: "A browser game built with vanilla JavaScript and HTML5 Canvas, with no libraries. Every run generates a new cave network with loops, shortcuts and hidden Focus Chambers. Enemies use line-of-sight AI to wander, chase and search for you, and they coordinate flanking attacks in packs. Shards are your objective, your laser ammunition and your light. Collect 10, then return to the exit to escape. Includes four difficulty levels, three unlockable levels, synthesized sound effects and a reduced-motion option. Built in my AI course as an experiment in AI-assisted development. Best played on a computer: move with WASD or the arrow keys, fire or interact with Space, and pause with Esc.",
-                frCA: "Un jeu Web conçu en JavaScript pur et en HTML5 Canvas, sans aucune bibliothèque. Chaque partie génère un nouveau réseau de cavernes avec des boucles, des raccourcis et des chambres secrètes. Les ennemis utilisent une IA basée sur la ligne de vue pour errer, poursuivre et chercher le joueur, et ils se coordonnent en meute pour le prendre à revers. Les éclats servent à la fois d’objectif, de munitions pour le laser et de source de lumière. Récoltez-en 10, puis retournez à la sortie pour vous échapper. Le jeu comprend quatre niveaux de difficulté, trois niveaux à débloquer, des effets sonores synthétisés et une option pour réduire les animations. Réalisé dans mon cours d’IA comme expérience de développement assisté par IA. Idéal sur ordinateur : déplacez-vous avec WASD ou les flèches, tirez ou interagissez avec Espace et mettez le jeu en pause avec Échap."
+                en: "A browser game in vanilla JavaScript and HTML5 Canvas, built in my AI course as an experiment in AI-assisted development. Every run generates a new cave network, and enemies hunt you in packs using line-of-sight AI. Collect 10 shards, which are also your ammo and your light, then reach the exit. Best played on a computer.",
+                frCA: "Un jeu Web en JavaScript pur et en HTML5 Canvas, réalisé dans mon cours d’IA comme expérience de développement assisté par IA. Chaque partie génère un nouveau réseau de cavernes, et les ennemis chassent en meute grâce à une IA basée sur la ligne de vue. Récoltez 10 éclats, qui servent aussi de munitions et de lumière, puis rejoignez la sortie. Idéal sur ordinateur."
             },
             tech: ["JavaScript", "HTML5 Canvas", "Web Audio API", "CSS"],
             filters: ["javascript", "ai"],
@@ -199,8 +199,8 @@ const portfolioContent = {
                 frCA: "Appuyez sur HAHA pour une blague : une petite page qui récupère des blagues au hasard à partir d’une API publique."
             },
             description: {
-                en: "A small project for practising asynchronous JavaScript. Each press of the HAHA button sends a request to JokeAPI with fetch and async/await, with filters that exclude offensive content. The page handles both one-line and two-part jokes, showing the setup and the punchline on separate cards. An independent project from my DEVWEB01 web development course.",
-                frCA: "Un petit projet pour pratiquer le JavaScript asynchrone. Chaque clic sur le bouton HAHA envoie une requête à JokeAPI avec fetch et async/await, avec des filtres qui excluent le contenu offensant. La page prend en charge les blagues sur une ligne et les blagues en deux parties, en affichant la question et la chute sur des cartes distinctes. Projet autonome réalisé dans mon cours de développement Web DEVWEB01."
+                en: "A small project for practising asynchronous JavaScript, from my DEVWEB01 web development course. The HAHA button fetches a joke from JokeAPI with async/await, filtering out offensive content. Two-part jokes show the setup and the punchline on separate cards.",
+                frCA: "Un petit projet pour pratiquer le JavaScript asynchrone, réalisé dans mon cours de développement Web DEVWEB01. Le bouton HAHA récupère une blague de JokeAPI avec async/await en filtrant le contenu offensant. Les blagues en deux parties affichent la question et la chute sur des cartes distinctes."
             },
             tech: ["JavaScript", "Fetch API", "JokeAPI", "HTML", "CSS"],
             filters: ["javascript", "api"],
@@ -220,8 +220,8 @@ const portfolioContent = {
                 frCA: "Un site de fans de Harry Potter en français, avec des personnages et des livres chargés à partir d’une API publique."
             },
             description: {
-                en: "A multi-page fan site about the world of Harry Potter, written in French. The Characters and Books pages fetch their data from a public Harry Potter API and build each card with JavaScript. The site also has a collapsible menu, a Hogwarts Legacy soundtrack playing in the background with a mute button, and a newsletter form with client-side validation. An independent project from my DEVWEB01 web development course.",
-                frCA: "Un site de fans de plusieurs pages sur l’univers de Harry Potter. Les pages Personnages et Livres récupèrent leurs données à partir d’une API publique sur Harry Potter et génèrent chaque carte en JavaScript. Le site comprend aussi un menu repliable, la trame sonore de Hogwarts Legacy en arrière-plan avec un bouton pour couper le son, ainsi qu’un formulaire d’abonnement validé côté client. Projet autonome réalisé dans mon cours de développement Web DEVWEB01."
+                en: "A multi-page Harry Potter fan site in French, from my DEVWEB01 web development course. The Characters and Books pages build their cards with JavaScript from a public API. It also has a collapsible menu, background music with a mute button and a newsletter form with client-side validation.",
+                frCA: "Un site de fans de Harry Potter de plusieurs pages, réalisé dans mon cours de développement Web DEVWEB01. Les pages Personnages et Livres génèrent leurs cartes en JavaScript à partir d’une API publique. Le site a aussi un menu repliable, une musique de fond qu’on peut couper et un formulaire d’abonnement validé côté client."
             },
             tech: ["JavaScript", { en: "REST API", frCA: "API REST" }, "HTML", "CSS"],
             filters: ["html-css", "javascript", "api"],
@@ -241,8 +241,8 @@ const portfolioContent = {
                 frCA: "Un site vitrine pour un studio numérique montréalais fictif, réalisé à partir d’une maquette et d’un contenu fournis."
             },
             description: {
-                en: "My final project for the DEVWEB01 course at CyberCap. Starting from a supplied wireframe and content brief, I built a French-language showcase site for a fictional digital studio. It includes a hero banner, three service cards laid out with CSS Grid, an About section built with Flexbox, a two-by-two team grid and a separate contact page with a form.",
-                frCA: "Mon projet synthèse du cours DEVWEB01 à CyberCap. À partir d’une maquette et d’un contenu fournis, j’ai réalisé le site vitrine d’un studio numérique fictif. Il comprend une bannière d’accueil, trois cartes de services disposées avec CSS Grid, une section À propos en Flexbox, une grille d’équipe de deux par deux et une page de contact distincte avec un formulaire."
+                en: "My final project for the DEVWEB01 course at CyberCap: a French-language showcase site for a fictional digital studio, built from a supplied wireframe and content brief. The layouts use CSS Grid and Flexbox, and there's a separate contact page with a form.",
+                frCA: "Mon projet synthèse du cours DEVWEB01 à CyberCap : le site vitrine d’un studio numérique fictif, réalisé à partir d’une maquette et d’un contenu fournis. Les mises en page utilisent CSS Grid et Flexbox, avec une page de contact distincte et son formulaire."
             },
             tech: ["HTML", "CSS Grid", "Flexbox"],
             filters: ["html-css"],
