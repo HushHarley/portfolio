@@ -10,6 +10,8 @@
 // and language. The script in the <head> of index.html reads the theme key too.
 const STORAGE_KEYS = { language: "astra-language", theme: "astra-theme" };
 const LANGUAGES = ["en", "frCA"];
+// Shown to first-time visitors. After that, the flag they last picked is remembered.
+const DEFAULT_LANGUAGE = "frCA";
 
 const root = document.documentElement;
 const menuButton = document.querySelector(".menu-toggle");
@@ -25,7 +27,7 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const phoneLayout = window.matchMedia("(max-width: 760px)");
 
 const savedLanguage = readSetting(STORAGE_KEYS.language);
-let language = LANGUAGES.includes(savedLanguage) ? savedLanguage : "en";
+let language = LANGUAGES.includes(savedLanguage) ? savedLanguage : DEFAULT_LANGUAGE;
 // Desktop and phones keep separate filter choices. Phones start with none
 // selected, which hides the cards until a filter is tapped.
 let desktopFilter = "all";
@@ -366,11 +368,11 @@ function updateThemeButtons() {
     });
 }
 
-// The English labels in index.html show before this script runs. Warn when one
+// The French labels in index.html show before this script runs. Warn when one
 // no longer matches js/translations.js, so the two copies don't drift apart.
 function checkHtmlLabels() {
     const check = (key, htmlText) => {
-        const expected = translate(key, "en");
+        const expected = translate(key, DEFAULT_LANGUAGE);
         if (htmlText !== expected) {
             console.warn(`index.html has "${htmlText}" for ${key}, but js/translations.js has "${expected}".`);
         }

@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="fr-CA" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Harley's personal portfolio — web development, cybersecurity, programming, and AI.">
+    <meta name="description" content="Le portfolio personnel de Harley — développement Web, cybersécurité, programmation et IA.">
     <meta name="color-scheme" content="dark light">
     <title>Harley | Portfolio</title>
     <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
@@ -20,36 +20,36 @@
 <body>
     <!--
         Text with data-i18n="..." is replaced by the matching entry in js/translations.js.
-        The English written here is what shows before the script runs and without JavaScript,
-        so keep it the same as the English in js/translations.js.
+        The French written here is what shows before the script runs and without JavaScript,
+        so keep it the same as the French in js/translations.js.
         The About, Education, Experience, Volunteering, Skills and Projects content
         and the social links come from js/content.js.
     -->
-    <a class="skip-link" href="#main-content" data-i18n="skipToContent">Skip to content</a>
+    <a class="skip-link" href="#main-content" data-i18n="skipToContent">Aller au contenu</a>
     <div class="ambient-background" aria-hidden="true"></div>
 
     <!-- Desktop sidebar. The phone menu below has the same links: change both. -->
-    <aside class="desktop-sidebar" aria-label="Primary navigation" data-i18n-aria-label="accessibility.primaryNavigation">
-        <nav class="desktop-nav" aria-label="Portfolio sections" data-i18n-aria-label="accessibility.portfolioSections">
-            <a class="sidebar-logo" href="#hero" data-section-link="hero" aria-label="Harley — home" data-i18n-aria-label="accessibility.home">H</a>
-            <a href="#about" data-section-link="about" data-i18n="nav.about">About</a>
-            <a href="#education" data-section-link="education" data-i18n="nav.education">Education</a>
-            <a href="#experience" data-section-link="experience" data-i18n="nav.experience">Experience</a>
-            <a href="#volunteering" data-section-link="volunteering" data-i18n="nav.volunteering">Volunteering</a>
-            <a href="#skills" data-section-link="skills" data-i18n="nav.skills">Skills</a>
-            <a href="#projects" data-section-link="projects" data-i18n="nav.projects">Projects</a>
+    <aside class="desktop-sidebar" aria-label="Navigation principale" data-i18n-aria-label="accessibility.primaryNavigation">
+        <nav class="desktop-nav" aria-label="Sections du portfolio" data-i18n-aria-label="accessibility.portfolioSections">
+            <a class="sidebar-logo" href="#hero" data-section-link="hero" aria-label="Harley — accueil" data-i18n-aria-label="accessibility.home">H</a>
+            <a href="#about" data-section-link="about" data-i18n="nav.about">À propos</a>
+            <a href="#education" data-section-link="education" data-i18n="nav.education">Formation</a>
+            <a href="#experience" data-section-link="experience" data-i18n="nav.experience">Expérience</a>
+            <a href="#volunteering" data-section-link="volunteering" data-i18n="nav.volunteering">Bénévolat</a>
+            <a href="#skills" data-section-link="skills" data-i18n="nav.skills">Compétences</a>
+            <a href="#projects" data-section-link="projects" data-i18n="nav.projects">Projets</a>
             <a href="#contact" data-section-link="contact" data-i18n="nav.contact">Contact</a>
         </nav>
         <div class="sidebar-controls">
-            <div class="language-switch" role="group" aria-label="Choose language" data-i18n-aria-label="languageLabel">
-                <button class="language-option" type="button" data-language="en" lang="en" aria-label="English" title="English" aria-pressed="true">
+            <div class="language-switch" role="group" aria-label="Choisir la langue" data-i18n-aria-label="languageLabel">
+                <button class="language-option" type="button" data-language="en" lang="en" aria-label="English" title="English" aria-pressed="false">
                     <img src="assets/icons/flag-ca.svg" alt="" width="20" height="10">
                 </button>
-                <button class="language-option" type="button" data-language="frCA" lang="fr-CA" aria-label="Français" title="Français" aria-pressed="false">
+                <button class="language-option" type="button" data-language="frCA" lang="fr-CA" aria-label="Français" title="Français" aria-pressed="true">
                     <img src="assets/icons/flag-qc.svg" alt="" width="18" height="12">
                 </button>
             </div>
-            <button class="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch to light mode">
+            <button class="theme-toggle" type="button" aria-label="Passer au thème clair" title="Passer au thème clair">
                 <span class="theme-icon" aria-hidden="true">☼</span>
             </button>
         </div>
@@ -57,31 +57,31 @@
 
     <!-- Phone header: same language and theme buttons as the sidebar, plus the menu. -->
     <header class="mobile-header">
-        <a class="mobile-logo" href="#hero" aria-label="Harley — home" data-i18n-aria-label="accessibility.home">H</a>
+        <a class="mobile-logo" href="#hero" aria-label="Harley — accueil" data-i18n-aria-label="accessibility.home">H</a>
         <div class="mobile-controls">
-            <div class="language-switch" role="group" aria-label="Choose language" data-i18n-aria-label="languageLabel">
-                <button class="language-option" type="button" data-language="en" lang="en" aria-label="English" title="English" aria-pressed="true">
+            <div class="language-switch" role="group" aria-label="Choisir la langue" data-i18n-aria-label="languageLabel">
+                <button class="language-option" type="button" data-language="en" lang="en" aria-label="English" title="English" aria-pressed="false">
                     <img src="assets/icons/flag-ca.svg" alt="" width="20" height="10">
                 </button>
-                <button class="language-option" type="button" data-language="frCA" lang="fr-CA" aria-label="Français" title="Français" aria-pressed="false">
+                <button class="language-option" type="button" data-language="frCA" lang="fr-CA" aria-label="Français" title="Français" aria-pressed="true">
                     <img src="assets/icons/flag-qc.svg" alt="" width="18" height="12">
                 </button>
             </div>
-            <button class="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch to light mode">
+            <button class="theme-toggle" type="button" aria-label="Passer au thème clair" title="Passer au thème clair">
                 <span class="theme-icon" aria-hidden="true">☼</span>
             </button>
             <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-navigation">
-                <span class="visually-hidden">Open menu</span>
+                <span class="visually-hidden">Ouvrir le menu</span>
                 <span class="menu-lines" aria-hidden="true"></span>
             </button>
         </div>
-        <nav class="mobile-nav" id="mobile-navigation" aria-label="Mobile navigation" data-i18n-aria-label="accessibility.mobileNavigation" hidden>
-            <a href="#about" data-section-link="about" data-i18n="nav.about">About</a>
-            <a href="#education" data-section-link="education" data-i18n="nav.education">Education</a>
-            <a href="#experience" data-section-link="experience" data-i18n="nav.experience">Experience</a>
-            <a href="#volunteering" data-section-link="volunteering" data-i18n="nav.volunteering">Volunteering</a>
-            <a href="#skills" data-section-link="skills" data-i18n="nav.skills">Skills</a>
-            <a href="#projects" data-section-link="projects" data-i18n="nav.projects">Projects</a>
+        <nav class="mobile-nav" id="mobile-navigation" aria-label="Navigation mobile" data-i18n-aria-label="accessibility.mobileNavigation" hidden>
+            <a href="#about" data-section-link="about" data-i18n="nav.about">À propos</a>
+            <a href="#education" data-section-link="education" data-i18n="nav.education">Formation</a>
+            <a href="#experience" data-section-link="experience" data-i18n="nav.experience">Expérience</a>
+            <a href="#volunteering" data-section-link="volunteering" data-i18n="nav.volunteering">Bénévolat</a>
+            <a href="#skills" data-section-link="skills" data-i18n="nav.skills">Compétences</a>
+            <a href="#projects" data-section-link="projects" data-i18n="nav.projects">Projets</a>
             <a href="#contact" data-section-link="contact" data-i18n="nav.contact">Contact</a>
         </nav>
     </header>
@@ -95,56 +95,56 @@
         <section class="hero section" id="hero" data-section="hero" aria-labelledby="hero-name">
             <div class="hero-content">
                 <h1 id="hero-name">Harley</h1>
-                <p class="hero-subtitle" data-i18n="hero.subtitle">Web Development · Cybersecurity · Programming · AI</p>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">Développement Web · Cybersécurité · Programmation · IA</p>
                 <div class="hero-actions">
-                    <a class="button" href="#projects"><span data-i18n="hero.explore">Explore my work</span><span aria-hidden="true">↗</span></a>
-                    <a class="text-link" href="#contact"><span data-i18n="hero.connect">Let’s connect</span><span aria-hidden="true">↗</span></a>
+                    <a class="button" href="#projects"><span data-i18n="hero.explore">Découvrir mes projets</span><span aria-hidden="true">↗</span></a>
+                    <a class="text-link" href="#contact"><span data-i18n="hero.connect">Échangeons</span><span aria-hidden="true">↗</span></a>
                 </div>
             </div>
-            <a class="hero-bottomline" href="#about"><span data-i18n="hero.scroll">A little about me</span><span data-i18n="hero.scrollHint">SCROLL TO EXPLORE ↓</span></a>
+            <a class="hero-bottomline" href="#about"><span data-i18n="hero.scroll">Un peu plus sur moi</span><span data-i18n="hero.scrollHint">FAITES DÉFILER POUR DÉCOUVRIR ↓</span></a>
         </section>
 
         <section class="section content-section reveal" id="about" data-section="about" aria-labelledby="about-title">
             <div class="section-heading">
-                <h2 id="about-title" data-i18n="sections.about">About me</h2>
+                <h2 id="about-title" data-i18n="sections.about">À propos de moi</h2>
             </div>
             <div class="about-copy" id="about-content"></div>
         </section>
 
         <section class="section content-section reveal" id="education" data-section="education" aria-labelledby="education-title">
             <div class="section-heading">
-                <h2 id="education-title" data-i18n="sections.education">Education</h2>
+                <h2 id="education-title" data-i18n="sections.education">Formation</h2>
             </div>
             <div id="education-list"></div>
         </section>
 
         <section class="section content-section reveal" id="experience" data-section="experience" aria-labelledby="experience-title">
             <div class="section-heading">
-                <h2 id="experience-title" data-i18n="sections.experience">Experience</h2>
+                <h2 id="experience-title" data-i18n="sections.experience">Expérience</h2>
             </div>
             <div id="experience-list"></div>
         </section>
 
         <section class="section content-section reveal" id="volunteering" data-section="volunteering" aria-labelledby="volunteering-title">
             <div class="section-heading">
-                <h2 id="volunteering-title" data-i18n="sections.volunteering">Volunteering</h2>
+                <h2 id="volunteering-title" data-i18n="sections.volunteering">Bénévolat</h2>
             </div>
             <div id="volunteering-list"></div>
         </section>
 
         <section class="section content-section reveal" id="skills" data-section="skills" aria-labelledby="skills-title">
             <div class="section-heading">
-                <h2 id="skills-title" data-i18n="sections.skills">Skills</h2>
+                <h2 id="skills-title" data-i18n="sections.skills">Compétences</h2>
             </div>
             <div id="skills-list"></div>
         </section>
 
         <section class="section content-section reveal" id="projects" data-section="projects" aria-labelledby="projects-title">
             <div class="section-heading projects-heading">
-                <h2 id="projects-title" data-i18n="sections.projects">Selected projects</h2>
-                <p class="section-intro" data-i18n="projects.intro">Things I’ve built, from hand-coded websites to AI-assisted games. Click the project and its demo button to have a go.</p>
+                <h2 id="projects-title" data-i18n="sections.projects">Projets sélectionnés</h2>
+                <p class="section-intro" data-i18n="projects.intro">Des projets que j’ai réalisés, des sites codés à la main aux jeux créés avec l’aide de l’IA. Cliquez sur un projet, puis sur son bouton de démo pour l’essayer.</p>
             </div>
-            <div class="filter-list" id="project-filters" role="group" aria-label="Filter projects" data-i18n-aria-label="projects.filterLabel"></div>
+            <div class="filter-list" id="project-filters" role="group" aria-label="Filtrer les projets" data-i18n-aria-label="projects.filterLabel"></div>
             <p class="filter-status" id="filter-status" role="status"></p>
             <div class="projects-grid" id="projects-grid"></div>
         </section>
@@ -152,20 +152,20 @@
 
     <footer class="site-footer reveal" id="contact" data-section="contact" aria-labelledby="contact-title">
         <div class="footer-content">
-            <h2 id="contact-title" data-i18n="contact.title">Let’s build something awesome!</h2>
-            <p data-i18n="contact.body">Do you need a website or want to work together? Get in touch.</p>
+            <h2 id="contact-title" data-i18n="contact.title">Créons quelque chose de génial!</h2>
+            <p data-i18n="contact.body">Besoin d’un site Web ou envie de collaborer? Écrivez-moi.</p>
             <a class="contact-email" id="contact-email" href="mailto:hrank63@gmail.com">hrank63@gmail.com</a>
             <div class="social-links" id="social-links"></div>
             <div class="footer-bottom">
                 <p>© <span id="current-year"></span> <span id="footer-name">Harley</span></p>
-                <a href="#hero" data-i18n="contact.backToTop">Back to top ↑</a>
+                <a href="#hero" data-i18n="contact.backToTop">Retour en haut ↑</a>
             </div>
         </div>
     </footer>
 
     <!-- Project details window, filled in by js/script.js when a project card is clicked. -->
     <dialog class="project-dialog" id="project-dialog" aria-labelledby="dialog-title">
-        <button class="dialog-close" type="button" aria-label="Close project details" data-i18n-aria-label="projects.close">×</button>
+        <button class="dialog-close" type="button" aria-label="Fermer les détails du projet" data-i18n-aria-label="projects.close">×</button>
         <div id="dialog-content"></div>
     </dialog>
 

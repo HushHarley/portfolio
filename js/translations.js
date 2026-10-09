@@ -5,8 +5,8 @@
 //
 // In index.html, data-i18n="nav.about" fills that element with nav.about below,
 // and data-i18n-aria-label does the same for its aria-label.
-// Those elements also have the English text written in index.html, which shows
-// before the script runs and when JavaScript is off. When you change an English
+// Those elements also have the French text written in index.html, which shows
+// before the script runs and when JavaScript is off. When you change a French
 // label here, change it there too (the browser console warns if they differ).
 // =====================================================
 
